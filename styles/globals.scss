@@ -1,15 +1,4 @@
-@import "./theme.scss";
-
 * {
   margin: 0;
   padding: 0;
-}
-
-body {
-  color: var(--text-color);
-  background-color: var(--background-color);
-  button {
-    color: var(--text-color);
-    background-color: var(--background-color);
-  }
 }
