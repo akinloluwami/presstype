@@ -1,6 +1,6 @@
 @import "../../styles/variables.scss";
 
-@mixin some($bg-light, $bg-dark, $text-light, $text_dark) {
+@mixin toggle($bg-light, $bg-dark, $text-light, $text_dark) {
   &[data-theme="light"] {
     background-color: $bg-light;
     color: $text-light;
@@ -14,10 +14,10 @@
 .dashboard_layout_container {
   height: 100vh;
   display: flex;
-  @include some($white-base, $dark-base, $dark-base, $white-base);
+  @include toggle($white-base, $dark-base, $dark-base, $white-base);
   .sidebar {
     width: 20%;
-    @include some(
+    @include toggle(
       $white-secondary,
       $dark-secondary,
       $dark-secondary,
