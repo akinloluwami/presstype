@@ -45,12 +45,20 @@ const Sidebar = () => {
   ];
   return (
     <div className={styles.sidebar_container}>
+      <h1>PressType</h1>
       <Link href={"/"}>
         <button>
           <RiPencilFill />
           New Post
         </button>
       </Link>
+      <div className="">
+        {routes.map((route, i) => (
+          <Link href={route.path}>
+            {route.icon} <h3>{route.title}</h3>
+          </Link>
+        ))}
+      </div>
       <button onClick={toggleTheme}>
         Toggle to {theme === "light" ? "dark" : "light"} mode
       </button>
