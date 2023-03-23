@@ -6,7 +6,8 @@ import { IoIosPaper } from "react-icons/io";
 import { SiGoogleanalytics } from "react-icons/si";
 import { IoSparkles } from "react-icons/io5";
 import { FaGlobe } from "react-icons/fa";
-import { RiSettingsFill } from "react-icons/ri";
+import { RiSettingsFill, RiPencilFill } from "react-icons/ri";
+import Link from "next/link";
 
 const Sidebar = () => {
   const { theme, toggleTheme } = useTheme();
@@ -44,6 +45,12 @@ const Sidebar = () => {
   ];
   return (
     <div className={styles.sidebar_container}>
+      <Link href={"/"}>
+        <button>
+          <RiPencilFill />
+          New Post
+        </button>
+      </Link>
       <button onClick={toggleTheme}>
         Toggle to {theme === "light" ? "dark" : "light"} mode
       </button>
