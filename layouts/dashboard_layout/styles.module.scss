@@ -1,0 +1,9 @@
+.dashboard_layout_container {
+  display: flex;
+  .sidebar {
+    width: 15%;
+  }
+  .main {
+    width: 75%;
+  }
+}
