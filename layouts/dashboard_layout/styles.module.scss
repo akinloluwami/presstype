@@ -1,9 +1,30 @@
+@import "../../styles/variables.scss";
+
+@mixin some($bg-light, $bg-dark, $text-light, $text_dark) {
+  &[data-theme="light"] {
+    background-color: $bg-light;
+    color: $text-light;
+  }
+  &[data-theme="dark"] {
+    background-color: $bg-dark;
+    color: $text-dark;
+  }
+}
+
 .dashboard_layout_container {
+  height: 100vh;
   display: flex;
+  @include some($white-base, $dark-base, $dark-base, $white-base);
   .sidebar {
-    width: 15%;
+    width: 20%;
+    @include some(
+      $white-secondary,
+      $dark-secondary,
+      $dark-secondary,
+      $white-secondary
+    );
   }
   .main {
-    width: 75%;
+    width: 80%;
   }
 }
