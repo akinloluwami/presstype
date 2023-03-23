@@ -1,6 +1,12 @@
 import { useTheme } from "@/contexts/ThemeContext";
 import React from "react";
 import styles from "./styles.module.scss";
+import { TiThLarge } from "react-icons/ti";
+import { IoIosPaper } from "react-icons/io";
+import { SiGoogleanalytics } from "react-icons/si";
+import { IoSparkles } from "react-icons/io5";
+import { FaGlobe } from "react-icons/fa";
+import { RiSettingsFill } from "react-icons/ri";
 
 const Sidebar = () => {
   const { theme, toggleTheme } = useTheme();
@@ -8,32 +14,32 @@ const Sidebar = () => {
     {
       title: "Dahboard",
       path: "/",
-      icon: "",
+      icon: <TiThLarge className={styles.link_icon} />,
     },
     {
       title: "Posts",
       path: "/posts",
-      icon: "",
+      icon: <IoIosPaper className={styles.link_icon} />,
     },
     {
       title: "Analytics",
       path: "/analytics",
-      icon: "",
+      icon: <SiGoogleanalytics className={styles.link_icon} />,
     },
     {
       title: "Appearance",
       path: "/appearance",
-      icon: "",
+      icon: <IoSparkles className={styles.link_icon} />,
     },
     {
       title: "Domain",
       path: "/domain",
-      icon: "",
+      icon: <FaGlobe className={styles.link_icon} />,
     },
     {
       title: "Settings",
       path: "/settingss",
-      icon: "",
+      icon: <RiSettingsFill className={styles.link_icon} />,
     },
   ];
   return (
