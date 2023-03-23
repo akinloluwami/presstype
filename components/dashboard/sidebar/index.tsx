@@ -43,7 +43,7 @@ const Sidebar = () => {
     },
   ];
   return (
-    <div>
+    <div className={styles.sidebar_container}>
       <button onClick={toggleTheme}>
         Toggle to {theme === "light" ? "dark" : "light"} mode
       </button>
