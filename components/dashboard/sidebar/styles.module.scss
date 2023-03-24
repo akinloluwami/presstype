@@ -13,6 +13,7 @@
 
   .links_container {
     width: 100%;
+    margin-top: 1.5rem;
     .route_btn {
       display: flex;
       align-items: center;
@@ -38,5 +39,10 @@
         font-size: 15px;
       }
     }
+  }
+  .toggle_btn {
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 1.5rem;
   }
 }

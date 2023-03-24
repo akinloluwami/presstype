@@ -61,7 +61,7 @@ const Sidebar = () => {
           </Link>
         ))}
       </div>
-      <button onClick={toggleTheme}>
+      <button onClick={toggleTheme} className={styles.toggle_btn}>
         Toggle to {theme === "light" ? "dark" : "light"} mode
       </button>
     </div>
