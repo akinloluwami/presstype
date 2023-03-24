@@ -8,9 +8,11 @@ import { IoSparkles } from "react-icons/io5";
 import { FaGlobe } from "react-icons/fa";
 import { RiSettingsFill, RiPencilFill } from "react-icons/ri";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 const Sidebar = () => {
   const { theme, toggleTheme } = useTheme();
+  const router = useRouter();
   const routes = [
     {
       title: "Dahboard",
