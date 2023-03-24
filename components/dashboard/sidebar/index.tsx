@@ -59,8 +59,9 @@ const Sidebar = () => {
             className={` ${styles.route_btn} ${
               router.asPath === route.path && styles.active
             }`}
+            data-theme={theme}
           >
-            {route.icon} <h3>{route.title}</h3>
+            {route.icon} {route.title}
           </Link>
         ))}
       </div>
