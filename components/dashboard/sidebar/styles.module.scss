@@ -5,7 +5,33 @@
     color: $dark-base;
   }
   color: $white-base;
+  padding: 1rem 2rem;
   h1 {
     text-align: center;
+    font-size: larger;
+  }
+
+  .links_container {
+    width: 100%;
+    .route_btn {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      padding: 0.7rem 0.3rem;
+      border-radius: 0.4rem;
+      margin: 1.3rem 0;
+      &.active {
+        background-color: $accent-base;
+      }
+      h3 {
+        color: $white-base;
+        font-size: small;
+        font-weight: 400;
+      }
+      .link_icon {
+        color: $white-base;
+        margin: 0 1rem 0 0.5rem;
+      }
+    }
   }
 }
