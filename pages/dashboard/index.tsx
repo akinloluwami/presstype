@@ -8,10 +8,10 @@ import styles from "./styles.module.scss";
 
 const DashboardHome = () => {
   return (
-    <DashboardLayout>
+    <DashboardLayout page_name={"Dashboard"}>
       <div className={styles.dashboard_top}>
-        <Searchbar />
-        <ProfileHeader />
+        {/* <Searchbar />
+        <ProfileHeader /> */}
       </div>
       <Stats />
       <BarChart />
