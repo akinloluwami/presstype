@@ -54,7 +54,9 @@ const BarChart = () => {
   return (
     <div className={styles.barchart_container}>
       <h3>Page views this week</h3>
-      <Bar options={options} data={data} />
+      <div className={styles.chart}>
+        <Bar options={options} data={data} />
+      </div>
     </div>
   );
 };
