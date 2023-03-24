@@ -46,15 +46,16 @@ const Sidebar = () => {
   return (
     <div className={styles.sidebar_container} data-theme={theme}>
       <h1>PressType</h1>
-      <Link href={"/"}>
-        <button>
-          <RiPencilFill />
-          New Post
-        </button>
+      <Link href={"/"} className={styles.new_post_btn}>
+        <RiPencilFill className={styles.new_post_icon} />
+        <h3>New Post</h3>
       </Link>
-      <div className="">
+      <div className={styles.links_container}>
         {routes.map((route, i) => (
-          <Link href={route.path}>
+          <Link
+            href={route.path}
+            className={` ${styles.route_btn} ${styles.active}`}
+          >
             {route.icon} <h3>{route.title}</h3>
           </Link>
         ))}
