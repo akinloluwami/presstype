@@ -12,13 +12,12 @@
 }
 
 .dashboard_layout_container {
-  height: 100vh;
   display: flex;
   @include toggle($white-base, $dark-base, $dark-base, $white-base);
   .sidebar {
     width: 20%;
     position: fixed;
-    height: 100%;
+    height: 100vh;
     @include toggle(
       $white-secondary,
       $dark-secondary,
