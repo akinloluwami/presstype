@@ -1,5 +1,6 @@
 import ProfileHeader from "@/components/dashboard/profile_header/ProfileHeader";
 import Searchbar from "@/components/dashboard/searchbar";
+import Stats from "@/components/dashboard/stats";
 import DashboardLayout from "@/layouts/dashboard_layout";
 import React from "react";
 import styles from "./styles.module.scss";
@@ -11,6 +12,7 @@ const DashboardHome = () => {
         <Searchbar />
         <ProfileHeader />
       </div>
+      <Stats />
     </DashboardLayout>
   );
 };
