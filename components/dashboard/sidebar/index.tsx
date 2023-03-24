@@ -44,7 +44,7 @@ const Sidebar = () => {
     },
   ];
   return (
-    <div className={styles.sidebar_container}>
+    <div className={styles.sidebar_container} data-theme={theme}>
       <h1>PressType</h1>
       <Link href={"/"}>
         <button>
