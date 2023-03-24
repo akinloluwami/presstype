@@ -17,6 +17,8 @@
   @include toggle($white-base, $dark-base, $dark-base, $white-base);
   .sidebar {
     width: 20%;
+    position: fixed;
+    height: 100%;
     @include toggle(
       $white-secondary,
       $dark-secondary,
@@ -27,5 +29,6 @@
   .main {
     width: 80%;
     padding: 1rem 3rem;
+    margin-left: 20%;
   }
 }
