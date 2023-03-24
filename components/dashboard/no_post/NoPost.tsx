@@ -2,6 +2,8 @@ import Link from "next/link";
 import React from "react";
 import { ImFileEmpty } from "react-icons/im";
 import { RxRocket } from "react-icons/rx";
+import styles from "./styles.module.scss";
+
 const NoPost = () => {
   return (
     <div>
