@@ -8,7 +8,7 @@ interface Props {
 }
 
 const StatCard = ({ number, text, icon }: Props) => {
-  return <div>StatCard</div>;
+  return <div className={styles.stat_card}>StatCard</div>;
 };
 
 export default StatCard;
