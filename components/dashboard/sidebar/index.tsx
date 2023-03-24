@@ -41,7 +41,7 @@ const Sidebar = () => {
     },
     {
       title: "Settings",
-      path: "/settingss",
+      path: "/settings",
       icon: <RiSettingsFill className={styles.link_icon} />,
     },
   ];
