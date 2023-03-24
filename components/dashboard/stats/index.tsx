@@ -1,27 +1,31 @@
 import React from "react";
 import StatCard from "./StatCard";
 import styles from "./styles.module.scss";
+import { BsFillPeopleFill } from "react-icons/bs";
+import { FaBullseye, FaBook } from "react-icons/fa";
+import { MdAutoGraph } from "react-icons/md";
+
 const Stats = () => {
   const statsData = [
     {
       number: 1320000,
       text: "Page views",
-      icon: "",
+      icon: <FaBullseye />,
     },
     {
       number: 72492,
       text: "Subcribers",
-      icon: "",
+      icon: <BsFillPeopleFill />,
     },
     {
       number: 969,
       text: "Posts",
-      icon: "",
+      icon: <FaBook />,
     },
     {
       number: 972345,
-      text: "Visitors",
-      icon: "",
+      text: "Viewers",
+      icon: <MdAutoGraph />,
     },
   ];
   return (
