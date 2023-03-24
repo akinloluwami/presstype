@@ -10,22 +10,22 @@ const Stats = () => {
     {
       number: 1320000,
       text: "Page views",
-      icon: <FaBullseye />,
+      icon: <FaBullseye className={styles.ico} />,
     },
     {
       number: 72492,
       text: "Subcribers",
-      icon: <BsFillPeopleFill />,
+      icon: <BsFillPeopleFill className={styles.ico} />,
     },
     {
       number: 969,
       text: "Posts",
-      icon: <FaBook />,
+      icon: <FaBook className={styles.ico} />,
     },
     {
       number: 972345,
       text: "Viewers",
-      icon: <MdAutoGraph />,
+      icon: <MdAutoGraph className={styles.ico} />,
     },
   ];
   return (
