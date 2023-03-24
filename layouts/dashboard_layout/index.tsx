@@ -12,7 +12,7 @@ const DashboardLayout = ({ children, page_name }: any) => {
       </div>
       <div className={styles.main}>
         <h1>{page_name}</h1>
-        {children}
+        <div className={styles.body}>{children}</div>
       </div>
     </div>
   );
