@@ -13,6 +13,7 @@
 
   .links_container {
     width: 100%;
+
     .route_btn {
       display: flex;
       align-items: center;
@@ -22,15 +23,20 @@
       margin: 1.3rem 0;
       &.active {
         background-color: $accent-base;
+        color: $white-base !important;
       }
-      h3 {
+      color: $white-base;
+      font-size: small;
+      font-weight: 400;
+      &[data-theme="light"] {
+        color: $base-gray;
+      }
+      &[data-theme="dark"] {
         color: $white-base;
-        font-size: small;
-        font-weight: 400;
       }
       .link_icon {
-        color: $white-base;
         margin: 0 1rem 0 0.5rem;
+        font-size: 15px;
       }
     }
   }
