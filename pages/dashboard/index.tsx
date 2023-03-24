@@ -1,3 +1,4 @@
+import BarChart from "@/components/dashboard/barchart/BarChart";
 import ProfileHeader from "@/components/dashboard/profile_header/ProfileHeader";
 import Searchbar from "@/components/dashboard/searchbar";
 import Stats from "@/components/dashboard/stats";
@@ -13,6 +14,7 @@ const DashboardHome = () => {
         <ProfileHeader />
       </div>
       <Stats />
+      <BarChart />
     </DashboardLayout>
   );
 };
