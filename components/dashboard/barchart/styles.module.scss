@@ -1,5 +1,8 @@
 .barchart_container {
   width: 80%;
   height: 30rem;
-  margin-top: 1rem;
+  margin: 2rem 0;
+  .chart {
+    margin: 1.5rem 0;
+  }
 }
