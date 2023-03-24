@@ -16,7 +16,7 @@ const Sidebar = () => {
   const routes = [
     {
       title: "Dahboard",
-      path: "/",
+      path: "/dashboard",
       icon: <TiThLarge className={styles.link_icon} />,
     },
     {
@@ -56,7 +56,9 @@ const Sidebar = () => {
         {routes.map((route, i) => (
           <Link
             href={route.path}
-            className={` ${styles.route_btn} ${styles.active}`}
+            className={` ${styles.route_btn} ${
+              router.asPath === route.path && styles.active
+            }`}
           >
             {route.icon} <h3>{route.title}</h3>
           </Link>
