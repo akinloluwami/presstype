@@ -13,7 +13,9 @@ const StatCard = ({ number, text, icon }: Props) => {
   const { theme } = useTheme();
   return (
     <div className={styles.stat_card} data-theme={theme}>
-      <div className={styles.stat_card_icon}>{icon}</div>
+      <div className={styles.stat_card_icon} data-theme={theme}>
+        {icon}
+      </div>
       <div className={styles.data}>
         <h3>{formatNumber(number)}</h3>
         <p>{text}</p>
