@@ -1,4 +1,19 @@
+@import "../../../styles/variables.scss";
+
+.stats_container {
+  display: flex;
+  align-items: center;
+  margin-top: 1.5rem;
+}
+
 .stat_card {
   display: flex;
   align-items: center;
+  margin-right: 5rem;
+  background-color: $dark-secondary;
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  &[data-theme="light"] {
+    background-color: $white-secondary;
+  }
 }
