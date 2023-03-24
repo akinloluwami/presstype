@@ -9,7 +9,7 @@
 .stat_card {
   display: flex;
   align-items: center;
-  margin-right: 3rem;
+  margin-right: 2rem;
   background-color: $dark-secondary;
   padding: 1rem 2rem;
   border-radius: 10px;
@@ -17,7 +17,25 @@
     background-color: $white-secondary;
   }
   .stat_card_icon {
-    margin-right: 0.5rem;
+    margin-right: 0.7rem;
+    background-color: $white-secondary;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    border-radius: 0.3rem;
+    &:nth-child(1) {
+      color: crimson;
+    }
+    &:nth-child(2) {
+      color: greenyellow;
+    }
+    &:nth-child(3) {
+      color: purple;
+    }
+    &:nth-child(4) {
+      color: hotpink;
+    }
     svg {
       font-size: 1.5rem;
     }
