@@ -16,6 +16,38 @@
   &[data-theme="light"] {
     background-color: $white-secondary;
   }
+  &:nth-child(1) .stat_card_icon {
+    &[data-theme="light"] {
+      background-color: rgba($color-1, 0.2);
+    }
+  }
+  &:nth-child(2) .stat_card_icon {
+    &[data-theme="light"] {
+      background-color: rgba($color-2, 0.2);
+    }
+  }
+  &:nth-child(3) .stat_card_icon {
+    &[data-theme="light"] {
+      background-color: rgba($color-3, 0.2);
+    }
+  }
+  &:nth-child(4) .stat_card_icon {
+    &[data-theme="light"] {
+      background-color: rgba($color-4, 0.2);
+    }
+  }
+  &:nth-child(1) .stat_card_icon svg {
+    color: $color-1;
+  }
+  &:nth-child(2) .stat_card_icon svg {
+    color: $color-2;
+  }
+  &:nth-child(3) .stat_card_icon svg {
+    color: $color-3;
+  }
+  &:nth-child(4) .stat_card_icon svg {
+    color: $color-4;
+  }
   .stat_card_icon {
     margin-right: 0.7rem;
     background-color: $white-secondary;
@@ -24,18 +56,6 @@
     justify-content: center;
     padding: 0.5rem;
     border-radius: 0.3rem;
-    &:nth-child(1) {
-      color: crimson;
-    }
-    &:nth-child(2) {
-      color: greenyellow;
-    }
-    &:nth-child(3) {
-      color: purple;
-    }
-    &:nth-child(4) {
-      color: hotpink;
-    }
     svg {
       font-size: 1.5rem;
     }
