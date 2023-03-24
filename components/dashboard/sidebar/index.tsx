@@ -48,10 +48,6 @@ const Sidebar = () => {
   return (
     <div className={styles.sidebar_container} data-theme={theme}>
       <h1>PressType</h1>
-      <Link href={"/"} className={styles.new_post_btn}>
-        <RiPencilFill className={styles.new_post_icon} />
-        <h3>New Post</h3>
-      </Link>
       <div className={styles.links_container}>
         {routes.map((route, i) => (
           <Link
