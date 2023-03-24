@@ -13,7 +13,6 @@
 
   .links_container {
     width: 100%;
-
     .route_btn {
       display: flex;
       align-items: center;
@@ -26,7 +25,7 @@
         color: $white-base !important;
       }
       color: $white-base;
-      font-size: small;
+      font-size: medium;
       font-weight: 400;
       &[data-theme="light"] {
         color: $base-gray;
