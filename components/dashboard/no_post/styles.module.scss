@@ -1,0 +1,27 @@
+@import "../../../styles/variables.scss";
+
+.no_post_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 4rem;
+  p {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  a {
+    background-color: $accent-base;
+    color: $white-base;
+    text-decoration: none;
+    padding: 1rem;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    border-radius: 0.3rem;
+    font-weight: 500;
+    svg {
+      margin-right: 5px;
+    }
+  }
+}
