@@ -1,3 +1,4 @@
+import formatNumber from "@/utils/format_number";
 import React from "react";
 import styles from "./styles.module.scss";
 
@@ -8,7 +9,15 @@ interface Props {
 }
 
 const StatCard = ({ number, text, icon }: Props) => {
-  return <div className={styles.stat_card}>StatCard</div>;
+  return (
+    <div className={styles.stat_card}>
+      <div className=""></div>
+      <div className="">
+        <h3>{formatNumber(number)}</h3>
+        <p>{text}</p>
+      </div>
+    </div>
+  );
 };
 
 export default StatCard;
