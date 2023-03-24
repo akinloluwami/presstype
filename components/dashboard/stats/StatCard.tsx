@@ -1,3 +1,4 @@
+import { useTheme } from "@/contexts/ThemeContext";
 import formatNumber from "@/utils/format_number";
 import React from "react";
 import styles from "./styles.module.scss";
@@ -9,8 +10,9 @@ interface Props {
 }
 
 const StatCard = ({ number, text, icon }: Props) => {
+  const { theme } = useTheme();
   return (
-    <div className={styles.stat_card}>
+    <div className={styles.stat_card} data-theme={theme}>
       <div className=""></div>
       <div className="">
         <h3>{formatNumber(number)}</h3>
