@@ -1,4 +1,5 @@
 import React from "react";
+import StatCard from "./StatCard";
 import styles from "./styles.module.scss";
 const Stats = () => {
   const statsData = [
@@ -23,7 +24,18 @@ const Stats = () => {
       icon: "",
     },
   ];
-  return <div className={styles.stats_container}>Index</div>;
+  return (
+    <div className={styles.stats_container}>
+      {statsData.map((stat, i) => (
+        <StatCard
+          text={stat.text}
+          number={stat.number}
+          icon={stat.icon}
+          key={i}
+        />
+      ))}
+    </div>
+  );
 };
 
 export default Stats;
