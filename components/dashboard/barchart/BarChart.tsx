@@ -28,6 +28,13 @@ export const options = {
       display: false,
     },
   },
+  scales: {
+    x: {
+      grid: {
+        display: false,
+      },
+    },
+  },
 };
 
 const labels = [
