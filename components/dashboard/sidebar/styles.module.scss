@@ -1,0 +1,11 @@
+@import "../../../styles//variables.scss";
+
+.sidebar_container {
+  &[data-theme="light"] {
+    color: $dark-base;
+  }
+  color: $white-base;
+  h1 {
+    text-align: center;
+  }
+}
