@@ -10,7 +10,7 @@ const DashboardLayout = ({ children }: any) => {
       <div className={styles.sidebar} data-theme={theme}>
         <Sidebar />
       </div>
-      <>{children}</>
+      <div className={styles.main}>{children}</div>
     </div>
   );
 };
