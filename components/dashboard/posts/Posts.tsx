@@ -1,4 +1,5 @@
 import React from "react";
+import PostCard from "./PostCard";
 import styles from "./styles.module.scss";
 
 const Posts = () => {
@@ -8,6 +9,18 @@ const Posts = () => {
       {/* <div className={styles.posts_types}>
         <button className={styles.post_type}></button>
       </div> */}
+      <div className="">
+        <PostCard />
+        <PostCard />
+        <PostCard />
+        <PostCard />
+        <PostCard />
+        <PostCard />
+        <PostCard />
+        <PostCard />
+        <PostCard />
+        <PostCard />
+      </div>
     </div>
   );
 };
