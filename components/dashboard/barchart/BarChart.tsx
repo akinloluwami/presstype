@@ -36,27 +36,7 @@ export const options = {
   },
 };
 
-const labels = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Sarturday",
-];
-export const data = {
-  labels,
-  datasets: [
-    {
-      label: "Page views",
-      data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
-      backgroundColor: "rgba(87, 58, 216, 0.8)",
-    },
-  ],
-};
-
-const BarChart = () => {
+const BarChart = ({ data }: any) => {
   return <Bar options={options} data={data} />;
 };
 

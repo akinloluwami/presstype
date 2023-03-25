@@ -40,22 +40,7 @@ export const options = {
   },
 };
 
-const labels = ["January", "February", "March", "April", "May", "June", "July"];
-
-export const data = {
-  labels,
-  datasets: [
-    {
-      label: "Page views",
-      data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
-      fill: true,
-      borderColor: "rgb(87, 58, 216)",
-      backgroundColor: "rgba(87, 58, 216, 0.3)",
-    },
-  ],
-};
-
-const LineChart = () => {
+const LineChart = ({ data }: any) => {
   return (
     <div>
       <Line options={options} data={data} />
