@@ -11,7 +11,7 @@ const DashboardLayout = ({ children, page_name, showButton, button }: any) => {
         <Sidebar />
       </div>
       <div className={styles.main}>
-        <div className="">
+        <div className={styles.top}>
           <h1>{page_name}</h1>
           {showButton && button}
         </div>
