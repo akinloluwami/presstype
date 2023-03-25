@@ -8,6 +8,7 @@ import {
   Title,
   Tooltip,
   Legend,
+  Filler,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
 import { faker } from "@faker-js/faker";
@@ -19,18 +20,23 @@ ChartJS.register(
   LineElement,
   Title,
   Tooltip,
-  Legend
+  Legend,
+  Filler
 );
 
 export const options = {
   responsive: true,
   plugins: {
     legend: {
-      position: "top" as const,
+      display: false,
     },
-    title: {
-      display: true,
-      text: "Chart.js Line Chart",
+    fill: true,
+  },
+  scales: {
+    x: {
+      grid: {
+        display: false,
+      },
     },
   },
 };
@@ -41,10 +47,10 @@ export const data = {
   labels,
   datasets: [
     {
-      label: "Dataset 1",
-      data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
-      borderColor: "rgb(255, 99, 132)",
-      backgroundColor: "rgba(255, 99, 132, 0.5)",
+      label: "Page views",
+      data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
+      borderColor: "rgb(87, 58, 216)",
+      backgroundColor: "rgba(87, 58, 216, 0.3)",
     },
   ],
 };
