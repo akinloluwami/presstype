@@ -3,7 +3,7 @@ import { useTheme } from "@/contexts/ThemeContext";
 import React from "react";
 import styles from "./styles.module.scss";
 
-const DashboardLayout = ({ children, page_name }: any) => {
+const DashboardLayout = ({ children, page_name, showButton, button }: any) => {
   const { theme } = useTheme();
   return (
     <div className={styles.dashboard_layout_container} data-theme={theme}>
@@ -11,7 +11,10 @@ const DashboardLayout = ({ children, page_name }: any) => {
         <Sidebar />
       </div>
       <div className={styles.main}>
-        <h1>{page_name}</h1>
+        <div className="">
+          <h1>{page_name}</h1>
+          {showButton && button}
+        </div>
         <div className={styles.body}>{children}</div>
       </div>
     </div>
