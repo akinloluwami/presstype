@@ -1,1 +1,37 @@
 @import "../../../styles/variables.scss";
+
+.post_card_container {
+  display: flex;
+  margin: 2rem 0;
+  padding: 1rem 0;
+  border-bottom: 1px solid $base-gray;
+  justify-content: space-between;
+  h1 {
+    font-size: 1.4rem;
+    max-width: 80%;
+  }
+  .side {
+    display: flex;
+    align-items: center;
+    margin-left: 3rem;
+    p {
+      background-color: $accent-base;
+      padding: 3px;
+      color: $white-base !important;
+      border-radius: 4px;
+      margin-right: 0.4rem;
+    }
+    button {
+      background-color: transparent;
+      border: none;
+      font-size: 1.5rem;
+      color: $white-base;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      &[data-theme="light"] {
+        color: $dark-base;
+      }
+    }
+  }
+}
