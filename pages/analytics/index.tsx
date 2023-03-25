@@ -22,8 +22,10 @@ const Index = () => {
           Cummulative
         </button>
       </div>
-      {graphType === "Discrete" && <BarChart />}
-      {graphType === "Cummulative" && <LineChart />}
+      <div className={styles.graph_container}>
+        {graphType === "Discrete" && <BarChart />}
+        {graphType === "Cummulative" && <LineChart />}
+      </div>
     </DashboardLayout>
   );
 };
