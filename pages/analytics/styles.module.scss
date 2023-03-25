@@ -1,0 +1,22 @@
+@import "../../styles/variables.scss";
+
+.buttons {
+  button {
+    background-color: $accent-base;
+    border: none;
+    color: $white-base;
+    padding: 5px 10px;
+    font-size: 1rem;
+    opacity: 0.7;
+    cursor: pointer;
+    &:first-child {
+      border-radius: 4px 0 0 4px;
+    }
+    &:last-child {
+      border-radius: 0 4px 4px 0;
+    }
+    &.active {
+      opacity: 1;
+    }
+  }
+}
