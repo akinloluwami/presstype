@@ -11,7 +11,9 @@ const Index = () => {
     <DashboardLayout
       page_name="Posts"
       showButton={true}
-      button={<button>Add new</button>}
+      button={
+        <button onClick={() => router.push("/posts/new")}>Add new</button>
+      }
     >
       {/* <NoPost /> */}
       <Posts />
