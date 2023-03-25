@@ -9,7 +9,7 @@ const Index = () => {
     <DashboardLayout
       page_name="Posts"
       showButton={true}
-      button={<Link href={"/posts/new"}>Add new</Link>}
+      button={<button>Add new</button>}
     >
       {/* <NoPost /> */}
       <Posts />
