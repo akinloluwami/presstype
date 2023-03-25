@@ -58,13 +58,7 @@ export const data = {
 };
 
 const BarChart = () => {
-  return (
-    <div className={styles.barchart_container}>
-      <div className={styles.chart}>
-        <Bar options={options} data={data} />
-      </div>
-    </div>
-  );
+  return <Bar options={options} data={data} />;
 };
 
 export default BarChart;
