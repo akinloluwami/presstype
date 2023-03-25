@@ -1,13 +1,14 @@
 @import "../../styles/variables.scss";
 
 .buttons {
+  margin: 30px 0;
   button {
     background-color: $accent-base;
     border: none;
     color: $white-base;
     padding: 5px 10px;
     font-size: 1rem;
-    opacity: 0.7;
+    opacity: 0.5;
     cursor: pointer;
     &:first-child {
       border-radius: 4px 0 0 4px;
@@ -19,4 +20,9 @@
       opacity: 1;
     }
   }
+}
+
+.graph_container {
+  width: 80%;
+  //   margin: auto;
 }
