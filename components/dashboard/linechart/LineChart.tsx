@@ -30,7 +30,6 @@ export const options = {
     legend: {
       display: false,
     },
-    fill: true,
   },
   scales: {
     x: {
@@ -49,6 +48,7 @@ export const data = {
     {
       label: "Page views",
       data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
+      fill: true,
       borderColor: "rgb(87, 58, 216)",
       backgroundColor: "rgba(87, 58, 216, 0.3)",
     },
