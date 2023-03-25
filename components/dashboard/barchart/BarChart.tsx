@@ -60,7 +60,6 @@ export const data = {
 const BarChart = () => {
   return (
     <div className={styles.barchart_container}>
-      <h3>Page views this week</h3>
       <div className={styles.chart}>
         <Bar options={options} data={data} />
       </div>
