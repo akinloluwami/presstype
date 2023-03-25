@@ -53,7 +53,7 @@ const Sidebar = () => {
           <Link
             href={route.path}
             className={` ${styles.route_btn} ${
-              router.asPath === route.path && styles.active
+              router.asPath.includes(route.path) && styles.active
             }`}
             data-theme={theme}
           >
