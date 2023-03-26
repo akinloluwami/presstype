@@ -5,10 +5,12 @@ const AnalyticsCard = ({
   title,
   data,
   data_context,
+  onClick,
 }: {
   title: string;
   data: { text: string; number: number }[];
   data_context: string;
+  onClick?: () => void;
 }) => {
   return (
     <div className={styles.card_container}>
