@@ -1,3 +1,4 @@
+@import "./variables.scss";
 @import url(https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
 
 * {
@@ -5,4 +6,42 @@
   padding: 0;
   font-family: Poppins;
   transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 0.3s;
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 15px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+  }
+}
+
+body {
+  ::-webkit-scrollbar {
+    width: 5px;
+    // height: 15px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+  }
 }
