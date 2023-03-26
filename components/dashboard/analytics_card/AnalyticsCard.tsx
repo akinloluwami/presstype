@@ -20,7 +20,7 @@ const AnalyticsCard = ({
       </div>
       <div className={styles.card_container_data}>
         {data.map((d, i) => (
-          <div className={styles.text_data} key={i}>
+          <div className={styles.text_data} key={i} onClick={onClick}>
             <p>{d.text}</p>
             <p>{d.number}</p>
           </div>
