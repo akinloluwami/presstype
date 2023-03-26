@@ -54,13 +54,23 @@ const Index = () => {
       </div>
       <div className={styles.graph_container}>
         <div className={styles.data_option}>
-          <button className={styles.data_select}>
+          <button
+            className={`${styles.data_select} ${
+              dataType === "Visitors" && styles.active
+            }`}
+            onClick={() => setDataType("Visitors")}
+          >
             <p>Visitors</p>
             <b className={styles.button_inner}>
               <h1>229</h1> <small>+69%</small>
             </b>
           </button>
-          <button className={styles.data_select}>
+          <button
+            className={`${styles.data_select} ${
+              dataType === "Page views" && styles.active
+            }`}
+            onClick={() => setDataType("Page views")}
+          >
             <p>Page views</p>
             <div className={styles.button_inner}>
               <h1>367</h1> <small>+73%</small>
