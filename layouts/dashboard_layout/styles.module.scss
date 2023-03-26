@@ -28,8 +28,9 @@
   }
   .main {
     width: 80%;
-    padding: 1rem 3rem;
+    padding: 1rem 5rem;
     margin-left: 20%;
+    overflow-x: hidden;
     .top {
       display: flex;
       align-items: center;
