@@ -2,9 +2,13 @@
 
 .upload_btn {
   background-color: transparent;
-  border: 2px dashed $accent-base;
+  border: 1px dashed $accent-base;
   width: 100px;
   height: 100px;
   font-size: 1rem;
   border-radius: 10px;
+  color: $white-base;
+  &[data-theme="light"] {
+    color: $dark-base;
+  }
 }
