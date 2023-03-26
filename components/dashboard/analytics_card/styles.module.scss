@@ -3,6 +3,7 @@
 .card_container {
   width: 49%;
   margin: 1rem 0;
+  margin-top: 20px;
   .card_header {
     display: flex;
     align-items: center;
@@ -13,13 +14,15 @@
     border: 1px solid gray;
     padding: 1rem;
     border-radius: 10px;
+    height: 25rem;
+    overflow-y: scroll;
     .text_data {
       display: flex;
       margin: 15px 0;
       justify-content: space-between;
       cursor: pointer;
       border-radius: 5px;
-      padding: 0 10px;
+      //   padding: 0 5px;
       &:hover {
         background-color: rgba($accent-base, 0.5);
       }
