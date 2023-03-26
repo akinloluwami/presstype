@@ -13,6 +13,7 @@ const Themes = () => {
             className={`${styles.theme_card} ${
               selected === theme && styles.active
             }`}
+            key={i}
             onClick={() => setSelected(theme)}
           ></div>
         ))}
