@@ -113,7 +113,11 @@ const Index = () => {
         {graphType === "Cummulative" && <LineChart data={data} />}
       </div>
       <div className="">
-        <AnalyticsCard title="Top articles" data={topArticles} />
+        <AnalyticsCard
+          title="Top articles"
+          data={topArticles}
+          data_context={dataType}
+        />
       </div>
     </DashboardLayout>
   );
