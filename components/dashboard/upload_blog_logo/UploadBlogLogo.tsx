@@ -12,6 +12,7 @@ const UploadBlogLogo: React.FC = () => {
 
   return (
     <>
+      <h3>Blog logo</h3>
       <input type={"file"} className={styles.hidden} ref={fileInputRef} />
       <button
         className={styles.upload_btn}
