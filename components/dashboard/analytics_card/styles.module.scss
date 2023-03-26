@@ -1,5 +1,12 @@
 .card_container {
   width: 50%;
+  margin: 1rem 0;
+  .card_header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 5px;
+  }
   .card_container_data {
     border: 1px solid gray;
     padding: 1rem;
