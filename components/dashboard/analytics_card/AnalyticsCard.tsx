@@ -1,3 +1,4 @@
+import formatNumber from "@/utils/format_number";
 import React from "react";
 import styles from "./styles.module.scss";
 
@@ -22,7 +23,7 @@ const AnalyticsCard = ({
         {data.map((d, i) => (
           <div className={styles.text_data} key={i} onClick={onClick}>
             <p>{d.text}</p>
-            <p>{d.number}</p>
+            <p>{formatNumber(d.number)}</p>
           </div>
         ))}
       </div>
