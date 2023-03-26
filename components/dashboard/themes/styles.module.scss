@@ -1,4 +1,18 @@
 @import "../../../styles/variables.scss";
 
 .themes_container {
+  margin-top: 2rem;
+  .theme_cards {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+    .theme_card {
+      width: 20rem;
+      height: 20rem;
+      margin-right: 0.7rem;
+      background-color: rgba($accent-base, 0.2);
+      border-radius: 10px;
+    }
+  }
 }
