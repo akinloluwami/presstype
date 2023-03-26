@@ -1,4 +1,5 @@
 import formatNumber from "@/utils/format_number";
+import truncate_string from "@/utils/truncate_string";
 import React from "react";
 import styles from "./styles.module.scss";
 
@@ -22,7 +23,7 @@ const AnalyticsCard = ({
       <div className={styles.card_container_data}>
         {data.map((d, i) => (
           <div className={styles.text_data} key={i} onClick={onClick}>
-            <p>{d.text}</p>
+            <p>{truncate_string(d.text, 37)}</p>
             <p>{formatNumber(d.number)}</p>
           </div>
         ))}
