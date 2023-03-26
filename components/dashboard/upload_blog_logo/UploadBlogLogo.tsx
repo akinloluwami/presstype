@@ -6,7 +6,7 @@ import styles from "./styles.module.scss";
 const UploadBlogLogo = () => {
   return (
     <>
-      <input type={"file"} />
+      <input type={"file"} className={styles.hidden} />
       <button className={styles.upload_btn} data-theme={useTheme().theme}>
         <h2>
           <BiCloudUpload />
