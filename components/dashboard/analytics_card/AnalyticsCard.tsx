@@ -21,12 +21,13 @@ const AnalyticsCard = ({
         <p>{data_context}</p>
       </div>
       <div className={styles.card_container_data}>
-        {data.map((d, i) => (
+        {data.slice(0, 9).map((d, i) => (
           <div className={styles.text_data} key={i} onClick={onClick}>
             <p title={d.text}>{truncate_string(d.text, 37)}</p>
             <p>{formatNumber(d.number)}</p>
           </div>
         ))}
+        {data.length > 9 && <button>Explore</button>}
       </div>
     </div>
   );
