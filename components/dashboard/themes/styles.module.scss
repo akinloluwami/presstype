@@ -13,6 +13,14 @@
       margin-right: 0.7rem;
       background-color: rgba($accent-base, 0.2);
       border-radius: 10px;
+      border: 2px solid transparent;
+      &.active {
+        border: 2px solid rgba($accent-base, 0.2);
+      }
+      &:hover {
+        border: 2px solid rgba($accent-base, 0.3);
+        cursor: pointer;
+      }
     }
   }
 }
