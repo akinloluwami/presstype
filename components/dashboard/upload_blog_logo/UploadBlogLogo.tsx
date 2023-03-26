@@ -1,3 +1,4 @@
+import { useTheme } from "@/contexts/ThemeContext";
 import React from "react";
 import { BiCloudUpload } from "react-icons/bi";
 import styles from "./styles.module.scss";
@@ -5,7 +6,7 @@ import styles from "./styles.module.scss";
 const UploadBlogLogo = () => {
   return (
     <>
-      <button className={styles.upload_btn}>
+      <button className={styles.upload_btn} data-theme={useTheme().theme}>
         <h2>
           <BiCloudUpload />
         </h2>
