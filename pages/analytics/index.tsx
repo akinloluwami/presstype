@@ -52,6 +52,20 @@ const Index = () => {
         </select>
       </div>
       <div className={styles.graph_container}>
+        <div className={styles.data_option}>
+          <button className={styles.data_select}>
+            <p>Visitors</p>
+            <b className={styles.button_inner}>
+              <h1>229</h1> <small>+69%</small>
+            </b>
+          </button>
+          <button className={styles.data_select}>
+            <p>Page views</p>
+            <div className={styles.button_inner}>
+              <h1>367</h1> <small>+73%</small>
+            </div>
+          </button>
+        </div>
         {graphType === "Discrete" && <BarChart data={data} />}
         {graphType === "Cummulative" && <LineChart data={data} />}
       </div>
