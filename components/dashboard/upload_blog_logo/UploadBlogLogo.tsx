@@ -1,13 +1,23 @@
 import { useTheme } from "@/contexts/ThemeContext";
-import React from "react";
+import React, { useRef } from "react";
 import { BiCloudUpload } from "react-icons/bi";
 import styles from "./styles.module.scss";
 
-const UploadBlogLogo = () => {
+const UploadBlogLogo: React.FC = () => {
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const handleButtonClick = () => {
+    fileInputRef.current?.click();
+  };
+
   return (
     <>
-      <input type={"file"} className={styles.hidden} />
-      <button className={styles.upload_btn} data-theme={useTheme().theme}>
+      <input type={"file"} className={styles.hidden} ref={fileInputRef} />
+      <button
+        className={styles.upload_btn}
+        data-theme={useTheme().theme}
+        onClick={handleButtonClick}
+      >
         <h2>
           <BiCloudUpload />
         </h2>
