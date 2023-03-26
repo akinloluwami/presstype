@@ -1,28 +1,45 @@
 @import "../../styles/variables.scss";
 
-.buttons {
-  margin: 30px 0;
-  button {
+.analytics_options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  select {
+    padding: 5px 15px;
     background-color: $accent-base;
     border: none;
-    color: $white-base;
-    padding: 5px 10px;
+    color: $white-secondary;
+    border-radius: 4px;
     font-size: 1rem;
-    opacity: 0.5;
-    cursor: pointer;
-    &:first-child {
-      border-radius: 4px 0 0 4px;
+
+    option {
+      font-size: 1rem;
     }
-    &:last-child {
-      border-radius: 0 4px 4px 0;
-    }
-    &.active {
-      opacity: 1;
+  }
+  .buttons {
+    margin: 30px 0;
+    button {
+      background-color: $accent-base;
+      border: none;
+      color: $white-base;
+      padding: 5px 10px;
+      font-size: 1rem;
+      opacity: 0.5;
+      cursor: pointer;
+      &:first-child {
+        border-radius: 4px 0 0 4px;
+      }
+      &:last-child {
+        border-radius: 0 4px 4px 0;
+      }
+      &.active {
+        opacity: 1;
+      }
     }
   }
 }
 
 .graph_container {
-  width: 80%;
+  width: 90%;
   //   margin: auto;
 }

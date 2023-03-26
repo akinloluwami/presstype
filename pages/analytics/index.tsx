@@ -22,25 +22,34 @@ const Index = () => {
       {
         label: "Page views",
         data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
-        backgroundColor: "rgba(87, 58, 216, 0.8)",
+        fill: true,
+        backgroundColor: "rgba(87, 58, 216, 0.5)",
       },
     ],
   };
   return (
     <DashboardLayout page_name={"Analytics"}>
-      <div className={styles.buttons}>
-        <button
-          className={`${graphType === "Discrete" && styles.active}`}
-          onClick={() => setGraphType("Discrete")}
-        >
-          Discrete
-        </button>
-        <button
-          className={`${graphType === "Cummulative" && styles.active}`}
-          onClick={() => setGraphType("Cummulative")}
-        >
-          Cummulative
-        </button>
+      <div className={styles.analytics_options}>
+        <div className={styles.buttons}>
+          <button
+            className={`${graphType === "Discrete" && styles.active}`}
+            onClick={() => setGraphType("Discrete")}
+          >
+            Discrete
+          </button>
+          <button
+            className={`${graphType === "Cummulative" && styles.active}`}
+            onClick={() => setGraphType("Cummulative")}
+          >
+            Cummulative
+          </button>
+        </div>
+        <select>
+          <option value="Last 24 hours">Last 24 hours</option>
+          <option value="Last 7 days">Last 7 days</option>
+          <option value="Last 30 days">Last 30 days</option>
+          <option value="Last 3 months">Last 3 months</option>
+        </select>
       </div>
       <div className={styles.graph_container}>
         {graphType === "Discrete" && <BarChart data={data} />}
