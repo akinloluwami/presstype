@@ -8,6 +8,9 @@
   font-size: 1rem;
   border-radius: 10px;
   color: $white-base;
+  &:hover {
+    background-color: rgba($accent-base, 0.1);
+  }
   &[data-theme="light"] {
     color: $dark-base;
   }
