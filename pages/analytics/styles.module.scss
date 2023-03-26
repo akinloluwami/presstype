@@ -40,6 +40,27 @@
 }
 
 .graph_container {
-  width: 90%;
-  //   margin: auto;
+  // width: 90%;
+  border: 2px solid $base-gray;
+  border-radius: 10px;
+  margin: auto;
+  .data_option {
+    display: flex;
+    .data_select {
+      background-color: $accent-base;
+      border: none;
+      width: 10rem;
+      color: $white-secondary;
+      padding: 10px 20px;
+      &:first-child {
+        border-top-left-radius: 10px;
+      }
+      p {
+        font-weight: 500;
+      }
+      .button_inner {
+        display: flex;
+      }
+    }
+  }
 }
