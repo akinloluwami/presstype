@@ -4,7 +4,7 @@ import styles from "./styles.module.scss";
 const Themes = () => {
   return (
     <div className={styles.themes_container}>
-      <h3>Themes</h3>
+      <h3>Theme</h3>
       <div className={styles.theme_cards}>
         <div className={styles.theme_card}></div>
         <div className={styles.theme_card}></div>
