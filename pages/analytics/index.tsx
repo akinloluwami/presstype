@@ -30,36 +30,19 @@ const Index = () => {
       },
     ],
   };
-  const topArticles = [
-    {
+  const count = [1, 2, 3, 4, 5, 6, 7];
+  const topArticles = count.map(() => {
+    return {
       text: faker.lorem.sentence(),
       number: faker.datatype.number({ min: 6, max: 2000 }),
-    },
-    {
-      text: faker.lorem.sentence(),
+    };
+  });
+  const countries = count.map(() => {
+    return {
+      text: faker.address.country(),
       number: faker.datatype.number({ min: 6, max: 2000 }),
-    },
-    {
-      text: faker.lorem.sentence(),
-      number: faker.datatype.number({ min: 6, max: 2000 }),
-    },
-    {
-      text: faker.lorem.sentence(),
-      number: faker.datatype.number({ min: 6, max: 2000 }),
-    },
-    {
-      text: faker.lorem.sentence(),
-      number: faker.datatype.number({ min: 6, max: 2000 }),
-    },
-    {
-      text: faker.lorem.sentence(),
-      number: faker.datatype.number({ min: 6, max: 2000 }),
-    },
-    {
-      text: faker.lorem.sentence(),
-      number: faker.datatype.number({ min: 6, max: 2000 }),
-    },
-  ];
+    };
+  });
   return (
     <DashboardLayout page_name={"Analytics"}>
       <div className={styles.analytics_options}>
@@ -120,7 +103,7 @@ const Index = () => {
         />
         <AnalyticsCard
           title="Countries"
-          data={topArticles}
+          data={countries}
           data_context={dataType}
         />
       </div>
