@@ -27,7 +27,11 @@ const AnalyticsCard = ({
             <p>{formatNumber(d.number)}</p>
           </div>
         ))}
-        {data.length > 9 && <button>Explore</button>}
+        {data.length > 9 && (
+          <center>
+            <button className={styles.explore_btn}>Explore</button>
+          </center>
+        )}
       </div>
     </div>
   );
