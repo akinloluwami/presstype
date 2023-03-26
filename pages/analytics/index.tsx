@@ -21,10 +21,11 @@ const Index = () => {
     labels,
     datasets: [
       {
-        label: "Page views",
+        label: dataType,
         data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
         fill: true,
         backgroundColor: "rgba(87, 58, 216, 0.5)",
+        tension: 0.3,
       },
     ],
   };
