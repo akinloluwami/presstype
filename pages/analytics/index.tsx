@@ -30,7 +30,7 @@ const Index = () => {
       },
     ],
   };
-  const count = [1, 2, 3, 4, 5, 6, 7];
+  const count = [1, 2, 3, 4, 5, 6, 7, 8, 9, 9, 0, 5, 4, 5, 5, 6, 5, 7];
   const topArticles = count.map(() => {
     return {
       text: faker.lorem.sentence(),
