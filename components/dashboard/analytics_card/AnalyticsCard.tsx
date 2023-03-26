@@ -23,7 +23,7 @@ const AnalyticsCard = ({
       <div className={styles.card_container_data}>
         {data.map((d, i) => (
           <div className={styles.text_data} key={i} onClick={onClick}>
-            <p>{truncate_string(d.text, 37)}</p>
+            <p title={d.text}>{truncate_string(d.text, 37)}</p>
             <p>{formatNumber(d.number)}</p>
           </div>
         ))}
