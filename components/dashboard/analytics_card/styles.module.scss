@@ -27,4 +27,13 @@
       }
     }
   }
+  .explore_btn {
+    background-color: $accent-base;
+    border: none;
+    padding: 0.4rem 2rem;
+    font-size: 1rem;
+    border-radius: 0.4rem;
+    color: $white-base;
+    cursor: pointer;
+  }
 }
