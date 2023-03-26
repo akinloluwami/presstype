@@ -112,9 +112,14 @@ const Index = () => {
         {graphType === "Discrete" && <BarChart data={data} />}
         {graphType === "Cummulative" && <LineChart data={data} />}
       </div>
-      <div className="">
+      <div className={styles.card_data}>
         <AnalyticsCard
           title="Top articles"
+          data={topArticles}
+          data_context={dataType}
+        />
+        <AnalyticsCard
+          title="Countries"
           data={topArticles}
           data_context={dataType}
         />
