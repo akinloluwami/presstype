@@ -40,7 +40,6 @@
 }
 
 .graph_container {
-  // width: 90%;
   border: 2px solid $base-gray;
   border-radius: 10px;
   margin: auto;
@@ -52,6 +51,8 @@
       width: 10rem;
       color: $white-secondary;
       padding: 10px 20px;
+      display: flex;
+      flex-direction: column;
       &:first-child {
         border-top-left-radius: 10px;
       }
