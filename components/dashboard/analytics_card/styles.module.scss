@@ -1,3 +1,5 @@
+@import "../../../styles/variables.scss";
+
 .card_container {
   width: 50%;
   margin: 1rem 0;
@@ -15,6 +17,12 @@
       display: flex;
       margin: 15px 0;
       justify-content: space-between;
+      cursor: pointer;
+      border-radius: 5px;
+      padding: 0 10px;
+      &:hover {
+        background-color: rgba($accent-base, 0.5);
+      }
     }
   }
 }
