@@ -1,3 +1,4 @@
+import AnalyticsCard from "@/components/dashboard/analytics_card/AnalyticsCard";
 import BarChart from "@/components/dashboard/barchart/BarChart";
 import LineChart from "@/components/dashboard/linechart/LineChart";
 import DashboardLayout from "@/layouts/dashboard_layout";
@@ -22,13 +23,43 @@ const Index = () => {
     datasets: [
       {
         label: dataType,
-        data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
+        data: labels.map(() => faker.datatype.number({ min: 500, max: 1000 })),
         fill: true,
         backgroundColor: "rgba(87, 58, 216, 0.5)",
         tension: 0.3,
       },
     ],
   };
+  const topArticles = [
+    {
+      text: faker.lorem.sentence(),
+      number: faker.datatype.number({ min: 6, max: 2000 }),
+    },
+    {
+      text: faker.lorem.sentence(),
+      number: faker.datatype.number({ min: 6, max: 2000 }),
+    },
+    {
+      text: faker.lorem.sentence(),
+      number: faker.datatype.number({ min: 6, max: 2000 }),
+    },
+    {
+      text: faker.lorem.sentence(),
+      number: faker.datatype.number({ min: 6, max: 2000 }),
+    },
+    {
+      text: faker.lorem.sentence(),
+      number: faker.datatype.number({ min: 6, max: 2000 }),
+    },
+    {
+      text: faker.lorem.sentence(),
+      number: faker.datatype.number({ min: 6, max: 2000 }),
+    },
+    {
+      text: faker.lorem.sentence(),
+      number: faker.datatype.number({ min: 6, max: 2000 }),
+    },
+  ];
   return (
     <DashboardLayout page_name={"Analytics"}>
       <div className={styles.analytics_options}>
@@ -80,6 +111,9 @@ const Index = () => {
         </div>
         {graphType === "Discrete" && <BarChart data={data} />}
         {graphType === "Cummulative" && <LineChart data={data} />}
+      </div>
+      <div className="">
+        <AnalyticsCard title="Top articles" data={topArticles} />
       </div>
     </DashboardLayout>
   );
