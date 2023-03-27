@@ -14,6 +14,7 @@
     text-align: right;
     font-size: 1rem;
     color: $white-base;
+    outline: none;
     &[data-theme="light"] {
       color: $dark-base;
     }
