@@ -3,11 +3,7 @@ import DomainsLayout from "@/layouts/domains_layout/DomainsLayout";
 import React from "react";
 
 const Index = () => {
-  return (
-    <DashboardLayout page_name="Domain">
-      <DomainsLayout>Subdomain</DomainsLayout>
-    </DashboardLayout>
-  );
+  return <DomainsLayout>Subdomain</DomainsLayout>;
 };
 
 export default Index;
