@@ -5,9 +5,17 @@
   width: fit-content;
   padding: 12px 6px;
   border-radius: 5px;
+  font-size: 1rem;
+  align-items: center;
+  display: flex;
   input {
     background-color: transparent;
     border: none;
     text-align: right;
+    font-size: 1rem;
+    color: $white-base;
+    &[data-theme="light"] {
+      color: $dark-base;
+    }
   }
 }
