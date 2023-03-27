@@ -2,6 +2,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
 import DashboardLayout from "../dashboard_layout";
+import styles from "./styles.module.scss";
 
 const DomainsLayout = ({ children }: any) => {
   const links = [
