@@ -20,7 +20,11 @@ const DomainsLayout = ({ children }: any) => {
     <DashboardLayout page_name="Domains">
       <div className={styles.links}>
         {links.map((link, i) => (
-          <Link href={link.route} key={i}>
+          <Link
+            href={link.route}
+            key={i}
+            className={`${router.asPath === link.route && styles.active}`}
+          >
             {link.title}
           </Link>
         ))}
