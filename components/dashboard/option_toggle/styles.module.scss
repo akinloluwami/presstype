@@ -1,0 +1,15 @@
+@import "../../../styles/variables.scss";
+
+.container {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+  // border: 1px solid $accent-base;
+  width: fit-content;
+  // padding: 5px 15px;
+  border-radius: 0.7rem;
+  justify-content: space-between;
+  h3 {
+    margin-right: 15px;
+  }
+}
