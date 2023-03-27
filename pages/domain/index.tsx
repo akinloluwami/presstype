@@ -6,7 +6,7 @@ import React from "react";
 const Index = () => {
   return (
     <DomainsLayout>
-      <InputGroup text="presstype.co" />
+      <InputGroup text=".presstype.co" />
     </DomainsLayout>
   );
 };
