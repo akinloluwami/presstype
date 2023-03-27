@@ -1,0 +1,13 @@
+@import "../../../styles/variables.scss";
+
+.input_group_container {
+  border: 1px solid $base-gray;
+  width: fit-content;
+  padding: 12px 6px;
+  border-radius: 5px;
+  input {
+    background-color: transparent;
+    border: none;
+    text-align: right;
+  }
+}
