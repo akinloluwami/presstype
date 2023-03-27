@@ -5,7 +5,7 @@ const BlogAccentColorInput = () => {
   return (
     <div className={styles.container}>
       <h3>Blog Accent Color</h3>
-      <input placeholder="#573AD8" type={"text"} />
+      <input placeholder="#573AD8" type={"text"} maxLength={7} />
     </div>
   );
 };
