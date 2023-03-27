@@ -3,11 +3,7 @@ import DomainsLayout from "@/layouts/domains_layout/DomainsLayout";
 import React from "react";
 
 const CustomDomain = () => {
-  return (
-    <DashboardLayout page_name={"Domains"}>
-      <DomainsLayout>Custom domain</DomainsLayout>
-    </DashboardLayout>
-  );
+  return <DomainsLayout>Custom domain</DomainsLayout>;
 };
 
 export default CustomDomain;
