@@ -2,10 +2,18 @@
 
 .links {
   display: flex;
-  border: 1px solid $accent-base;
-  padding: 5px 0 5px 5px;
+  border: 1px solid $base-gray;
+  padding: 10px 0 10px 10px;
   border-radius: 10px;
   a {
     margin-right: 15px;
+    color: $white-base;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 2px 5px;
+    border-radius: 4px;
+    &.active {
+      background-color: $accent-base;
+    }
   }
 }
