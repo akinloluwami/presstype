@@ -1,4 +1,4 @@
-import DefaultBlogTheme from "@/components/dashboard/default_blog_theme/DefaultBlogTheme";
+import OptionToggle from "@/components/dashboard/option_toggle/OptionToggle";
 import Themes from "@/components/dashboard/themes/Themes";
 import UploadBlogLogo from "@/components/dashboard/upload_blog_logo/UploadBlogLogo";
 import DashboardLayout from "@/layouts/dashboard_layout";
@@ -9,7 +9,8 @@ const Index = () => {
     <DashboardLayout page_name="Appearance">
       <Themes />
       <UploadBlogLogo />
-      <DefaultBlogTheme />
+      <OptionToggle text="Default Dark Theme" />
+      <OptionToggle text="Display article views" />
     </DashboardLayout>
   );
 };
