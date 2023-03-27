@@ -18,7 +18,7 @@ const DomainsLayout = ({ children }: any) => {
   const router = useRouter();
   return (
     <DashboardLayout page_name="Domains">
-      <div className="">
+      <div className={styles.links}>
         {links.map((link, i) => (
           <Link href={link.route}>{link.title}</Link>
         ))}
