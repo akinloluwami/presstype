@@ -11,13 +11,13 @@
     color: $white-secondary;
     border-radius: 4px;
     font-size: 1rem;
-
     option {
       font-size: 1rem;
     }
   }
   .buttons {
     margin: 30px 0;
+
     button {
       background-color: $accent-base;
       border: none;
@@ -45,6 +45,7 @@
   margin: auto;
   .data_option {
     display: flex;
+    margin-bottom: 15px;
     .data_select {
       background-color: $accent-base;
       border: none;
