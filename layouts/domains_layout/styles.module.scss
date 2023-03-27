@@ -1,1 +1,11 @@
 @import "../../styles/variables.scss";
+
+.links {
+  display: flex;
+  border: 1px solid $accent-base;
+  padding: 5px 0 5px 5px;
+  border-radius: 10px;
+  a {
+    margin-right: 15px;
+  }
+}
