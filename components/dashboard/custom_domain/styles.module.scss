@@ -12,6 +12,9 @@
         background-color: $dark-secondary;
         padding: 1.5rem 1rem;
         border-radius: 10px;
+        &[data-theme="light"] {
+          background-color: $white-secondary;
+        }
         input {
           width: 20rem;
           padding: 0.8rem;
@@ -21,6 +24,10 @@
           outline: none;
           background-color: $dark-base;
           color: $white-base;
+          &[data-theme="light"] {
+            background-color: $white-base;
+            color: $dark-base;
+          }
         }
 
         a {
