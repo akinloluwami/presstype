@@ -16,7 +16,7 @@ const CustomDomainComp = () => {
             <h4>Domain</h4>
             <input
               type="text"
-              placeholder="www.reallyawesomewebsite.com"
+              placeholder="reallyawesomewebsite.com"
               data-theme={theme}
             />
 
