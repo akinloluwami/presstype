@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./styles.module.scss";
 
-const CustomDomain = () => {
+const CustomDomainComp = () => {
   return (
     <div className={styles.custom_domain_container}>
       <h1>Set up a custom domain</h1>
@@ -9,4 +9,4 @@ const CustomDomain = () => {
   );
 };
 
-export default CustomDomain;
+export default CustomDomainComp;
