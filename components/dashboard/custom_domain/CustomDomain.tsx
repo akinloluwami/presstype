@@ -1,3 +1,4 @@
+import { useTheme } from "@/contexts/ThemeContext";
 import Link from "next/link";
 import React from "react";
 import styles from "./styles.module.scss";
@@ -10,7 +11,7 @@ const CustomDomainComp = () => {
       <div className={styles.steps_cards}>
         <div className={styles.steps_card_container}>
           <h4>1. Enter the domain you want to use</h4>
-          <div className={styles.step_card}>
+          <div className={styles.step_card} data-theme={useTheme().theme}>
             <h4>Domain</h4>
             <input type="text" placeholder="www.reallyawesomewebsite.com" />
 
