@@ -1,0 +1,38 @@
+@import "../../../styles/variables.scss";
+
+.custom_domain_container {
+  .steps_cards {
+    .steps_card_container {
+      margin: 3rem 0;
+      h4 {
+        font-weight: 500;
+        margin-bottom: 5px;
+      }
+      .step_card {
+        background-color: $dark-secondary;
+        padding: 1.5rem 1rem;
+        border-radius: 10px;
+        input {
+          width: 20rem;
+          padding: 0.8rem;
+          font-size: 1rem;
+          border-radius: 5px;
+          border: none;
+          outline: none;
+        }
+
+        a {
+          width: fit-content;
+          display: block;
+          margin-top: 20px;
+          text-decoration: none;
+          color: $accent-base;
+          font-weight: 600;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+}
