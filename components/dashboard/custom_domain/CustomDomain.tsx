@@ -8,7 +8,6 @@ const CustomDomainComp = () => {
   return (
     <div className={styles.custom_domain_container}>
       <h1>Set up a custom domain</h1>
-
       <div className={styles.steps_cards}>
         <div className={styles.steps_card_container}>
           <h4>1. Enter the domain you want to use</h4>
