@@ -19,7 +19,9 @@ const Index = () => {
             </div>
             <button>Expand</button>
           </div>
-          <input type="text" />
+          <div className={styles.settings_card_content}>
+            <input type="text" />
+          </div>
         </div>
       </div>
     </DashboardLayout>
