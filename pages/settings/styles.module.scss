@@ -5,14 +5,26 @@
 
   .settings_card_container {
     background-color: $dark-secondary;
-    padding: 1.5rem 1rem;
+    padding: 0.8rem 1rem;
     border-radius: 10px;
+    height: fit-content;
     &[data-theme="light"] {
       background-color: $white-secondary;
     }
     h4 {
       font-weight: 500;
       margin-bottom: 5px;
+    }
+    .settings_card_container_header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .settings_card_content {
+      margin: 0.75rem 0;
+      input {
+        width: 100%;
+      }
     }
   }
 }
