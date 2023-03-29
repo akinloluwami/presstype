@@ -18,7 +18,7 @@ const Index = () => {
                 The details used to identify your publication around the web
               </small>
             </div>
-            <button>Expand</button>
+            <button onClick={() => setExpanded(!expanded)}>Expand</button>
           </div>
           <div
             className={`${styles.settings_card_content} ${
