@@ -1,10 +1,11 @@
 import { useTheme } from "@/contexts/ThemeContext";
 import DashboardLayout from "@/layouts/dashboard_layout";
-import React from "react";
+import React, { useState } from "react";
 import styles from "./styles.module.scss";
 
 const Index = () => {
   const { theme } = useTheme();
+  const [expanded, setExpanded] = useState<boolean>(false);
   return (
     <DashboardLayout page_name="Settings">
       <div className={styles.settings_card}>
