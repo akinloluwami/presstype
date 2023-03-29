@@ -22,6 +22,10 @@
     }
     .settings_card_content {
       margin: 0.75rem 0;
+      display: none;
+      &.active {
+        display: block;
+      }
       input {
         width: 100%;
       }
