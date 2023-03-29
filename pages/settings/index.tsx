@@ -20,7 +20,11 @@ const Index = () => {
             </div>
             <button>Expand</button>
           </div>
-          <div className={styles.settings_card_content}>
+          <div
+            className={`${styles.settings_card_content} ${
+              expanded && styles.active
+            } `}
+          >
             <input type="text" />
           </div>
         </div>
