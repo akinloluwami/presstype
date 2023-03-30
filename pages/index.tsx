@@ -8,7 +8,7 @@ const Home = () => {
     console.log("Hii");
   }
   return (
-    <AuthLayout>
+    <AuthLayout auth_type={"Sign in"}>
       <AuthButton action={log} bg_color="#D1D5DA">
         <SiGoogle /> Google
       </AuthButton>
