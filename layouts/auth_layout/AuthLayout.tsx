@@ -12,7 +12,7 @@ const AuthLayout = ({ children, auth_type }: AuthLayoutProps) => {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <div className={styles.auth_layout_container}>
+    <div className={styles.auth_layout_container} data-theme={theme}>
       <button onClick={toggleTheme}>
         {theme === "dark" ? <RiSunFill /> : <RiMoonFill />}
       </button>
