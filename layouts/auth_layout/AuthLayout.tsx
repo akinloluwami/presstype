@@ -1,10 +1,10 @@
 import { useTheme } from "@/contexts/ThemeContext";
-import React from "react";
+import { ReactNode } from "react";
 import { RiMoonFill, RiSunFill } from "react-icons/ri";
 import styles from "./styles.module.scss";
 
 interface AuthLayoutProps {
-  children: React.ReactNode;
+  children: ReactNode;
   auth_type: "Sign in" | "Sign up";
 }
 
