@@ -7,7 +7,16 @@ interface AuthButtonProps {
 }
 
 const AuthButton = ({ action, bg_color, children }: AuthButtonProps) => {
-  return <button>{children}</button>;
+  return (
+    <button
+      onClick={action}
+      style={{
+        backgroundColor: bg_color,
+      }}
+    >
+      {children}
+    </button>
+  );
 };
 
 export default AuthButton;
