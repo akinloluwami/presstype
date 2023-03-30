@@ -4,7 +4,7 @@ import { RiMoonFill, RiSunFill } from "react-icons/ri";
 import styles from "./styles.module.scss";
 
 interface AuthLayoutProps {
-  children: any;
+  children: React.ReactNode;
   auth_type: "Sign in" | "Sign up";
 }
 
