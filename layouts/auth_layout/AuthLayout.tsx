@@ -12,8 +12,10 @@ const AuthLayout = ({ children, auth_type }: AuthLayoutProps) => {
       <h1>P</h1>
       <h2>Welcome to PressType</h2>
 
-      <div className="">
-        <p>{auth_type} with one of the following:</p>
+      <div className={styles.auth_content}>
+        <center>
+          <p>{auth_type} with one of the following:</p>
+        </center>
         {children}
       </div>
     </div>
