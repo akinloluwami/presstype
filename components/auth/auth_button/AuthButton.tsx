@@ -1,10 +1,10 @@
-import React from "react";
+import { ReactNode } from "react";
 import styles from "./styles.module.scss";
 
 interface AuthButtonProps {
   action: () => void;
   bg_color: string;
-  children: any;
+  children: ReactNode;
 }
 
 const AuthButton = ({ action, bg_color, children }: AuthButtonProps) => {
