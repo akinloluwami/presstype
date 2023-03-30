@@ -34,6 +34,7 @@
     justify-content: center;
     border-radius: 25px;
     margin: 3rem 0 2rem 0;
+    color: $white-secondary;
   }
   h2 {
     font-weight: 500;
@@ -43,7 +44,6 @@
   .auth_content {
     margin-top: 50px;
     p {
-      color: $white-secondary;
       margin-bottom: 10px;
       font-weight: 600;
     }
