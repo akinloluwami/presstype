@@ -5,8 +5,6 @@
   min-height: 100vh;
   display: flex;
   align-items: center;
-  //   justify-content: center;
-  // padding: 3rem 0;
   flex-direction: column;
   color: $white-base;
   &[data-theme="light"] {
@@ -39,14 +37,13 @@
   }
   h2 {
     font-weight: 500;
-    // color: $white-base;
     font-size: 2rem;
   }
 
   .auth_content {
     margin-top: 50px;
     p {
-      //   color: $white-secondary;
+      color: $white-secondary;
       margin-bottom: 10px;
       font-weight: 600;
     }
