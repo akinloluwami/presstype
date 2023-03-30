@@ -1,5 +1,6 @@
 @import "../../styles/variables.scss";
 
 .auth_layout_container {
-  background-color: $accent-base;
+  background-color: $dark-base;
+  min-height: 100vh;
 }
