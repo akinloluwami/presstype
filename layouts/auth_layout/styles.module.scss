@@ -1,7 +1,7 @@
 @import "../../styles/variables.scss";
 
 .auth_layout_container {
-  background-color: $dark-base;
+  background-color: $dark-secondary;
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -18,7 +18,7 @@
     position: absolute;
     right: 25px;
     top: 15px;
-    font-size: 2rem;
+    font-size: 1rem;
     background-color: transparent;
     outline: none;
     border: none;
