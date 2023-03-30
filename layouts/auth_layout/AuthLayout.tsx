@@ -1,4 +1,6 @@
+import { useTheme } from "@/contexts/ThemeContext";
 import React from "react";
+import { RiMoonFill, RiSunFill } from "react-icons/ri";
 import styles from "./styles.module.scss";
 
 interface AuthLayoutProps {
@@ -7,8 +9,13 @@ interface AuthLayoutProps {
 }
 
 const AuthLayout = ({ children, auth_type }: AuthLayoutProps) => {
+  const { theme, toggleTheme } = useTheme();
+
   return (
     <div className={styles.auth_layout_container}>
+      <button onClick={toggleTheme}>
+        {theme === "dark" ? <RiSunFill /> : <RiMoonFill />}
+      </button>
       <h1>P</h1>
       <h2>Welcome to PressType</h2>
 
