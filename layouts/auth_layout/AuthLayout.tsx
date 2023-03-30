@@ -1,4 +1,5 @@
 import { useTheme } from "@/contexts/ThemeContext";
+import Link from "next/link";
 import { ReactNode } from "react";
 import { RiMoonFill, RiSunFill } from "react-icons/ri";
 import styles from "./styles.module.scss";
@@ -29,6 +30,15 @@ const AuthLayout = ({ children, auth_type }: AuthLayoutProps) => {
         </center>
         {children}
       </div>
+      <p>
+        {" "}
+        {auth_type === "Sign in"
+          ? "New to PressType?"
+          : "Already have an account?"}{" "}
+        <Link href={auth_type === "Sign in" ? "/signup" : "/"}>
+          {auth_type === "Sign in" ? "Sign up" : "Sign in"}
+        </Link>
+      </p>
     </div>
   );
 };
