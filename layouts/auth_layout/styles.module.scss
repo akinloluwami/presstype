@@ -13,6 +13,20 @@
     background-color: $white-secondary;
     color: $dark-secondary;
   }
+  position: relative;
+  .theme_toggle_btn {
+    position: absolute;
+    right: 25px;
+    top: 15px;
+    font-size: 2rem;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    color: $white-base;
+    &[data-theme="light"] {
+      color: $dark-secondary;
+    }
+  }
   h1 {
     background-color: $accent-base;
     width: 50px;
