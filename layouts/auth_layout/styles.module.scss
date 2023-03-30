@@ -23,4 +23,13 @@
     color: $white-base;
     font-size: 2rem;
   }
+
+  .auth_content {
+    margin-top: 50px;
+    p {
+      color: $white-secondary;
+      margin-bottom: 5px;
+      font-weight: 600;
+    }
+  }
 }
