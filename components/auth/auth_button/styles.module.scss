@@ -1,0 +1,15 @@
+.auth_button {
+  width: 360px;
+  border: none;
+  outline: none;
+  padding: 10px 5px;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  svg {
+    margin-right: 6px;
+  }
+}
