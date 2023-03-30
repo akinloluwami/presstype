@@ -7,7 +7,7 @@ interface AuthButtonProps {
 }
 
 const AuthButton = ({ action, bg_color, children }: AuthButtonProps) => {
-  return <div>GitHubButton</div>;
+  return <button>GitHubButton</button>;
 };
 
 export default AuthButton;
