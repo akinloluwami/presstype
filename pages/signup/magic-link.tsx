@@ -1,7 +1,7 @@
 import React from "react";
 
 const MagicLinkSignup = () => {
-  return <div>MagicLinkSignup</div>;
+  return <div></div>;
 };
 
 export default MagicLinkSignup;
