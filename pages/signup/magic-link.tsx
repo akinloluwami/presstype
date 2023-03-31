@@ -4,7 +4,7 @@ import React from "react";
 const MagicLinkSignup = () => {
   return (
     <>
-      <MagicLink />
+      <MagicLink type="Sign up" />
     </>
   );
 };
