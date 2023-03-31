@@ -9,10 +9,9 @@ const MagicLink = ({ type }: MagicLinkProps) => {
   return (
     <div className={styles.magic_link_container}>
       <h1>P</h1>
-      <div className="">
-        <input placeholder="Email address" />
-        <button></button>
-      </div>
+
+      <input placeholder="Email address" />
+      <button>Send magic link</button>
     </div>
   );
 };
