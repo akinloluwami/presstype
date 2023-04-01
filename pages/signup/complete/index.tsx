@@ -1,8 +1,9 @@
 import DoYouWantToImport from "@/components/auth/signup_steps/DoYouWantToImport";
 import PubNameAndDesc from "@/components/auth/signup_steps/PubNameAndDesc";
-import React from "react";
+import { useState } from "react";
 
 const Complete = () => {
+  const [step, setStep] = useState<number>(0);
   return (
     <div>
       Complete
