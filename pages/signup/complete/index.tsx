@@ -19,8 +19,8 @@ const Complete = () => {
         {step === 1 && <DoYouWantToImport />}
       </div>
       <div className="">
-        <button>Back</button>
-        <button>Continue</button>
+        <button onClick={prevHandler}>Back</button>
+        <button onClick={nextHandler}>Continue</button>
       </div>
     </div>
   );
