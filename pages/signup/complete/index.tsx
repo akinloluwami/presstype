@@ -13,8 +13,9 @@ const Complete = () => {
     setStep(step - 1);
   };
   return (
-    <div>
-      Complete
+    <div className={styles.complete_container}>
+      <h1>P</h1>
+
       <div className="">
         {step === 0 && <PubNameAndDesc />}
         {step === 1 && <DoYouWantToImport />}
