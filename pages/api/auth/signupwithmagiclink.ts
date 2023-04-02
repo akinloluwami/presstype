@@ -23,6 +23,9 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     res.status(409).send("Email already exists");
     return;
   }
+
+  try {
+  } catch (error) {}
 };
 
 export default allowMethods(["POST"])(handler);
