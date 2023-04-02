@@ -25,6 +25,10 @@ const blogSchema = new Schema({
     type: Boolean,
     default: false,
   },
+  isOnboardingComplete: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 export default model("Blog", blogSchema);
