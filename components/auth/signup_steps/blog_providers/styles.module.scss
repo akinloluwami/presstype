@@ -1,0 +1,23 @@
+@import "../../../../styles/variables.scss";
+
+.blog_providers {
+  h2 {
+    text-align: center;
+  }
+  .providers {
+    display: flex;
+    align-items: center;
+    .provider {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+      margin: 0 10px;
+      width: 100px;
+      height: 100px;
+      svg {
+        font-size: 3rem;
+      }
+    }
+  }
+}
