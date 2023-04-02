@@ -11,8 +11,8 @@ const DoYouWantToImport = () => {
     <div>
       <div className={styles.questions}>
         {!chosen && (
-          <div className="">
-            <p>Do you have an existing blog?</p>
+          <>
+            <h2>Do you have an existing blog?</h2>
             <button
               onClick={() => {
                 setYes(true);
@@ -24,11 +24,11 @@ const DoYouWantToImport = () => {
             <Link href={"/dashboard"}>
               <button>No, continue to dashboard</button>
             </Link>
-          </div>
+          </>
         )}
         {yes && !chosen2 && (
-          <div className="">
-            <p>Do you wanna import your posts?</p>
+          <>
+            <h2>Do you wanna import your posts?</h2>
             <button
               onClick={() => {
                 setWannaImport(true);
@@ -40,7 +40,7 @@ const DoYouWantToImport = () => {
             <Link href={"/dashboard"}>
               <button>No, continue to dashboard</button>
             </Link>
-          </div>
+          </>
         )}
       </div>
 
