@@ -17,8 +17,9 @@ const Complete = () => {
       <h1>P</h1>
 
       <div className={styles.texts}>
-        <h2>Setup your PressType</h2>
-        <p>You can change this later</p>
+        {step === 0 && <h2>Setup your PressType</h2>}
+        {step === 1 && <h2>Do you have an existing blog?</h2>}
+        {step === 0 && <p>You can change this later</p>}
       </div>
       <div className="">
         {step === 0 && <PubNameAndDesc />}
