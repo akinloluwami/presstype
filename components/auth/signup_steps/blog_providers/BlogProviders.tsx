@@ -39,6 +39,12 @@ const BlogProviders = () => {
           </button>
         ))}
       </div>
+      {chosenProvider && (
+        <input
+          type="url"
+          placeholder={`Your ${chosenProvider} website address`}
+        />
+      )}
     </div>
   );
 };
