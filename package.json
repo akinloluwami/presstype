@@ -18,6 +18,7 @@
     "eslint-config-next": "13.2.4",
     "faker": "^6.6.6",
     "jsonwebtoken": "^9.0.0",
+    "mongoose": "^7.0.3",
     "next": "13.2.4",
     "nodemailer": "^6.9.1",
     "react": "18.2.0",
