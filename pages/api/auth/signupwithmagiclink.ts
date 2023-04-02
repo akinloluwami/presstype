@@ -25,6 +25,9 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   }
 
   try {
+    await Blog.create({
+      email,
+    });
   } catch (error) {
     res.status(500).send("Something went wrong");
   }
