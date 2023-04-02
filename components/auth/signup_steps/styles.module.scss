@@ -1,1 +1,42 @@
 @import "../../../styles/variables.scss";
+
+.pub_name_n_desc {
+  .pub_name_n_bc {
+    display: flex;
+    margin-bottom: 15px;
+    input {
+      &[type="text"] {
+        width: 450px;
+        padding: 10px 8px;
+        border-radius: 5px;
+        font-size: 1.1rem;
+        outline: none;
+        border: none;
+        color: $white-base;
+        background-color: $dark-base;
+      }
+      &[type="color"] {
+        margin-left: 10px;
+        border: none;
+        outline: none;
+        border-radius: 5px;
+        padding: 1px;
+        height: 40px;
+      }
+    }
+  }
+  .pub_about {
+    textarea {
+      width: 450px;
+      height: 100px;
+      padding: 10px 8px;
+      border-radius: 5px;
+      font-size: 1.1rem;
+      outline: none;
+      border: none;
+      background-color: $dark-base;
+      color: $white-base;
+      resize: none;
+    }
+  }
+}
