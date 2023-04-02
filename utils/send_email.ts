@@ -9,7 +9,7 @@ const sendMail = (to: string, subject: string, text: string, html: string) => {
     html,
   };
 
-  transporter.sendMail(mailOptions, (error, info) => {
+  transporter.sendMail(mailOptions, (error, info: any) => {
     if (error) {
       console.log(error);
     } else {
