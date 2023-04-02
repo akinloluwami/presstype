@@ -7,6 +7,7 @@
   .providers {
     display: flex;
     align-items: center;
+    margin-top: 20px;
     .provider {
       display: flex;
       align-items: center;
@@ -15,8 +16,19 @@
       margin: 0 10px;
       width: 100px;
       height: 100px;
+      color: $white-base;
       svg {
         font-size: 3rem;
+      }
+      background-color: rgba($accent-base, 0.2);
+      border-radius: 10px;
+      border: 2px solid transparent;
+      &.active {
+        border: 2px solid rgba($accent-base, 0.4);
+      }
+      &:hover {
+        border: 2px solid rgba($accent-base, 0.4);
+        cursor: pointer;
       }
     }
   }
