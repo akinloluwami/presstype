@@ -18,4 +18,45 @@
     margin: 3rem 0 2rem 0;
     color: $white-secondary;
   }
+  .texts {
+    margin-bottom: 2rem;
+    h2 {
+      font-size: 2.5rem;
+      margin-bottom: 5px;
+    }
+    p {
+      font-size: 1rem;
+    }
+  }
+  .steps_btn {
+    width: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+    button {
+      padding: 8px;
+      border-radius: 5px;
+      border: none;
+      outline: none;
+      background-color: $accent-base;
+      color: $white-secondary;
+      font-size: 1.1rem;
+      &:nth-child(1) {
+        display: flex;
+        flex: 1;
+        // display: none;
+        align-items: center;
+        justify-content: center;
+        margin-right: 15px;
+      }
+      &:nth-child(2) {
+        display: flex;
+        flex: 5;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
 }

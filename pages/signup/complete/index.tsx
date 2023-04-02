@@ -16,11 +16,15 @@ const Complete = () => {
     <div className={styles.complete_container}>
       <h1>P</h1>
 
+      <div className={styles.texts}>
+        <h2>Setup your PressType</h2>
+        <p>You can change this later</p>
+      </div>
       <div className="">
         {step === 0 && <PubNameAndDesc />}
         {step === 1 && <DoYouWantToImport />}
       </div>
-      <div className="">
+      <div className={styles.steps_btn}>
         <button onClick={prevHandler}>Back</button>
         <button onClick={nextHandler}>Continue</button>
       </div>
