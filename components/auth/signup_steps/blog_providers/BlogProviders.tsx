@@ -32,6 +32,7 @@ const BlogProviders = () => {
             className={`${styles.provider} ${
               chosenProvider === provider.name && styles.active
             } `}
+            onClick={() => setChosenProvider(provider.name)}
           >
             {provider.logo}
             {provider.name}
