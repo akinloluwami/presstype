@@ -34,7 +34,7 @@
     align-items: center;
     justify-content: space-between;
     margin-top: 10px;
-    button {
+    .btn {
       padding: 8px;
       border-radius: 5px;
       border: none;
@@ -42,20 +42,19 @@
       background-color: $accent-base;
       color: $white-secondary;
       font-size: 1.1rem;
+      align-items: center;
+      justify-content: center;
+      display: flex;
       &:nth-child(1) {
-        display: flex;
         flex: 1;
-        // display: none;
-        align-items: center;
-        justify-content: center;
         margin-right: 15px;
       }
       &:nth-child(2) {
-        display: flex;
         flex: 5;
         width: 100%;
-        align-items: center;
-        justify-content: center;
+      }
+      &.hidden {
+        display: none;
       }
     }
   }

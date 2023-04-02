@@ -1,6 +1,6 @@
 import DoYouWantToImport from "@/components/auth/signup_steps/DoYouWantToImport";
 import PubNameAndDesc from "@/components/auth/signup_steps/PubNameAndDesc";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "./styles.module.scss";
 
 const Complete = () => {
@@ -25,8 +25,16 @@ const Complete = () => {
         {step === 1 && <DoYouWantToImport />}
       </div>
       <div className={styles.steps_btn}>
-        <button onClick={prevHandler}>Back</button>
-        <button onClick={nextHandler}>Continue</button>
+        <button
+          onClick={prevHandler}
+          className={`${styles.btn} ${step === 0 && styles.hidden}`}
+        >
+          Back
+        </button>
+
+        <button onClick={nextHandler} className={styles.btn}>
+          Continue
+        </button>
       </div>
     </div>
   );
