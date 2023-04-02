@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React, { useState } from "react";
 import styles from "./styles.module.scss";
+import BlogProviders from "../blog_providers/BlogProviders";
 
 const DoYouWantToImport = () => {
   const [yes, setYes] = useState(false);
@@ -44,11 +45,7 @@ const DoYouWantToImport = () => {
         )}
       </div>
 
-      {wannaImport && (
-        <div className="">
-          <h4>Choose your provider</h4>
-        </div>
-      )}
+      {wannaImport && <BlogProviders />}
     </div>
   );
 };
