@@ -1,4 +1,4 @@
-import DoYouWantToImport from "@/components/auth/signup_steps/DoYouWantToImport";
+import DoYouWantToImport from "@/components/auth/signup_steps/DoYouWantToImport/DoYouWantToImport";
 import PubNameAndDesc from "@/components/auth/signup_steps/PubNameAndDesc";
 import { useState, useEffect } from "react";
 import styles from "./styles.module.scss";
