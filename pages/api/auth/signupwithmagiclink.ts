@@ -28,7 +28,13 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     await Blog.create({
       email,
     });
+    res
+      .status(201)
+      .send("Sign up successful, check your email to complete your signup.");
+    return;
   } catch (error) {
+    console.log(error);
+
     res.status(500).send("Something went wrong");
   }
 };
