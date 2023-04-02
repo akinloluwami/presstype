@@ -2,7 +2,7 @@ import transporter from "@/config/transporter";
 
 const sendMail = (to: string, subject: string, text: string, html: string) => {
   const mailOptions = {
-    from: "your-email@gmail.com",
+    from: process.env.SMTP_USER,
     to,
     subject,
     text,
