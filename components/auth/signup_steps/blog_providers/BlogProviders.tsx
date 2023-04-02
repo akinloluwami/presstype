@@ -1,5 +1,6 @@
 import React from "react";
 import { SiBlogger, SiHashnode, SiMedium, SiWordpress } from "react-icons/si";
+import styles from "./styles.module.scss";
 
 const BlogProviders = () => {
   const providers = [
