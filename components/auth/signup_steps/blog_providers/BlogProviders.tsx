@@ -27,7 +27,12 @@ const BlogProviders = () => {
       <h2>Choose your provider</h2>
       <div className={styles.providers}>
         {providers.map((provider, i) => (
-          <button key={i} className={`${styles.provider}  `}>
+          <button
+            key={i}
+            className={`${styles.provider} ${
+              chosenProvider === provider.name && styles.active
+            } `}
+          >
             {provider.logo}
             {provider.name}
           </button>
