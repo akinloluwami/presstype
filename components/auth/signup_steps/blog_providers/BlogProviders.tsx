@@ -24,7 +24,14 @@ const BlogProviders = () => {
   return (
     <div>
       <h2>Choose your provider</h2>
-      <div className={styles.providers}></div>
+      <div className={styles.providers}>
+        {providers.map((provider, i) => (
+          <button key={i}>
+            {provider.logo}
+            {provider.name}
+          </button>
+        ))}
+      </div>
     </div>
   );
 };
