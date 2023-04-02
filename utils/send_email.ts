@@ -2,7 +2,7 @@ import transporter from "@/config/transporter";
 
 const sendMail = (to: string, subject: string, text: string, html: string) => {
   const mailOptions = {
-    from: process.env.SMTP_USER,
+    from: `"Akinkunmi from PressType" <${process.env.SMTP_USER}>`,
     to,
     subject,
     text,
