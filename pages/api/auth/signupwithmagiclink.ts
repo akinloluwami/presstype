@@ -25,7 +25,9 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   }
 
   try {
-  } catch (error) {}
+  } catch (error) {
+    res.status(500).send("Something went wrong");
+  }
 };
 
 export default allowMethods(["POST"])(handler);
