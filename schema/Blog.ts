@@ -21,7 +21,7 @@ const blogSchema = new Schema({
     type: Date,
     default: Date.now,
   },
-  hasExitingBlog: {
+  hasExistingBlog: {
     type: Boolean,
     default: false,
   },
