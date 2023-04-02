@@ -45,17 +45,17 @@
       align-items: center;
       justify-content: center;
       display: flex;
-      &:nth-child(1) {
-        flex: 1;
-        margin-right: 15px;
-      }
-      &:nth-child(2) {
-        flex: 5;
-        width: 100%;
-      }
-      &.hidden {
-        display: none;
-      }
+      //   &:nth-child(1) {
+      //     flex: 1;
+      //     margin-right: 15px;
+      //   }
+      //   &:nth-child(2) {
+      //     flex: 5;
+      //     width: 100%;
+      //   }
+      //   &.hidden {
+      //     display: none;
+      //   }
     }
   }
 }

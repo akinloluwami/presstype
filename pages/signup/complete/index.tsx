@@ -17,8 +17,9 @@ const Complete = () => {
       <h1>P</h1>
 
       <div className={styles.texts}>
-        {step === 0 && <h2>Setup your PressType</h2>}
-        {step === 1 && <h2>Do you have an existing blog?</h2>}
+        <h2>Setup your PressType</h2>
+        {/* {step === 0 && <h2>Setup your PressType</h2>} */}
+        {/* {step === 1 && <h2>Do you have an existing blog?</h2>} */}
         {step === 0 && <p>You can change this later</p>}
       </div>
       <div className="">
@@ -26,16 +27,11 @@ const Complete = () => {
         {step === 1 && <DoYouWantToImport />}
       </div>
       <div className={styles.steps_btn}>
-        <button
-          onClick={prevHandler}
-          className={`${styles.btn} ${step === 0 && styles.hidden}`}
-        >
-          Back
-        </button>
-
-        <button onClick={nextHandler} className={styles.btn}>
-          Continue
-        </button>
+        {step === 0 && (
+          <button onClick={nextHandler} className={styles.btn}>
+            Continue
+          </button>
+        )}
       </div>
     </div>
   );
