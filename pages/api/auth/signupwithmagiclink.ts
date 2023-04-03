@@ -35,7 +35,6 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     await AuthToken.create({
       token,
       email,
-      expiry: dayjs().add(1, "hour"),
     });
 
     const magicLinkUrl = `${process.env.BASE_URL}/api/callback/signup?token=${token}&email=${email}`;
