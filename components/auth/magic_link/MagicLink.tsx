@@ -14,10 +14,10 @@ const MagicLink = ({ type }: MagicLinkProps) => {
 
   const { theme } = useTheme();
 
-  const clickHandler = () => {
+  const clickHandler = async () => {
     setLoading(true);
     if (type === "Sign in") {
-      console.log(blogExists(email));
+      console.log(await blogExists(email));
       setLoading(false);
       return;
     }
