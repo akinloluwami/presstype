@@ -2,6 +2,13 @@ import { NextApiRequest, NextApiResponse } from "next";
 import { connectToDatabase } from "@/utils/db";
 import AuthToken from "@/schema/AuthToken";
 import dayjs from "dayjs";
+import jwt from "jsonwebtoken";
+
+interface DecodedToken {
+  email: string;
+  iat: number;
+  exp: number;
+}
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const { token, email } = req.query;
@@ -15,7 +22,9 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     return;
   }
 
-  const expiry = "";
+  const decoded = jwt.verify(token, process.env.JWT_SECRET);
+  t;
+
   const now = dayjs();
 
   if (now.isAfter(dayjs(expiry))) {
