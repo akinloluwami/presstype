@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./styles.module.scss";
 import { useTheme } from "@/contexts/ThemeContext";
 import Link from "next/link";
@@ -8,6 +8,8 @@ interface MagicLinkProps {
 }
 
 const MagicLink = ({ type }: MagicLinkProps) => {
+  const [email, setEmail] = useState<string>("");
+
   const { theme } = useTheme();
 
   return (
