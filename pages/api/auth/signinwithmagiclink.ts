@@ -36,7 +36,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       email,
     });
 
-    const magicLinkUrl = `${process.env.BASE_URL}/api/auth/callback/login?token=${token}`;
+    const magicLinkUrl = `${process.env.BASE_URL}/api/auth/callback/login?token=${token}&email=${email}`;
 
     const to = email;
     const subject = "Login to Your Account";
