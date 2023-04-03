@@ -1,4 +1,4 @@
-import { Schema, model } from "mongoose";
+import { Schema, model, models } from "mongoose";
 
 const blogSchema = new Schema({
   title: {
@@ -34,4 +34,6 @@ const blogSchema = new Schema({
   },
 });
 
-export default model("Blog", blogSchema);
+const Blog = models.Blog || model("Blog", blogSchema);
+
+export default Blog;
