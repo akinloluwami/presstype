@@ -13,6 +13,11 @@ const MagicLink = ({ type }: MagicLinkProps) => {
 
   const { theme } = useTheme();
 
+  const clickHandler = () => {
+    if (type === "Sign in") {
+    }
+  };
+
   return (
     <div className={styles.magic_link_container} data-theme={theme}>
       <h1>P</h1>
