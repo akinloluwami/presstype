@@ -5,6 +5,7 @@ import sendMail from "@/utils/send_email";
 import { NextApiRequest, NextApiResponse } from "next";
 import validator from "validator";
 import jwt, { Secret } from "jsonwebtoken";
+import AuthToken from "@/schema/AuthToken";
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const { email } = req.body;
