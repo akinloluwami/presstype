@@ -33,7 +33,7 @@ const MagicLink = ({ type }: MagicLinkProps) => {
         data-theme={theme}
         onChange={(e) => setEmail(e.target.value)}
       />
-      <button onClick={clickHandler}>
+      <button onClick={clickHandler} disabled={!email || loading}>
         {loading ? "..." : "Send magic link"}
       </button>
       <p>
