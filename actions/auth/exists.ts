@@ -1,11 +1,10 @@
 import axios from "axios";
 
-const blogExists = async (email: string): Promise<boolean> => {
+const blogExists = async (email: string) => {
   try {
-    const response = await axios.get(`/api/auth/exists?email=${email}`);
-    return response.data.exists;
+    await axios.get(`/api/blogs/exists?email=${email}`);
+    return true;
   } catch (error) {
-    console.error(error);
     return false;
   }
 };
