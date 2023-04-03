@@ -30,7 +30,7 @@ const MagicLink = ({ type }: MagicLinkProps) => {
         data-theme={theme}
         onChange={(e) => setEmail(e.target.value)}
       />
-      <button>Send magic link</button>
+      <button onClick={clickHandler}>Send magic link</button>
       <p>
         {" "}
         {type === "Sign in"
