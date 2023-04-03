@@ -12,6 +12,10 @@ const blogSchema = new Schema({
     required: true,
     unique: true,
   },
+  isEmailVerified: {
+    type: Boolean,
+    default: false,
+  },
   createdAt: {
     type: Date,
     default: Date.now,
