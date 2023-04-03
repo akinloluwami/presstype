@@ -38,7 +38,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     });
     // await Blog.create({ email });
 
-    const magicLinkUrl = `${process.env.BASE_URL}/api/callback/signup?token=${token}&email=${email}`;
+    const magicLinkUrl = `${process.env.BASE_URL}/api/auth/callback/signup?token=${token}&email=${email}`;
     const to = email;
     const subject = "Welcome to PressType";
     const html = `
