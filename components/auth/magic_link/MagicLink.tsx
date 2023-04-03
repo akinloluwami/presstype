@@ -17,9 +17,12 @@ const MagicLink = ({ type }: MagicLinkProps) => {
   const clickHandler = async () => {
     setLoading(true);
     if (type === "Sign in") {
-      console.log(await blogExists(email));
-      setLoading(false);
-      return;
+      if (!(await blogExists(email))) {
+        setMessage("Blog not found");
+        setLoading(false);
+        return;
+      }
+      console.log("Login");
     }
   };
 
@@ -28,6 +31,7 @@ const MagicLink = ({ type }: MagicLinkProps) => {
       <h1>P</h1>
 
       <small>Use your email address to {type.toLowerCase()}</small>
+
       <input
         placeholder="Email address"
         data-theme={theme}
@@ -36,6 +40,7 @@ const MagicLink = ({ type }: MagicLinkProps) => {
       <button onClick={clickHandler} disabled={!email || loading}>
         {loading ? "..." : "Send magic link"}
       </button>
+      {!loading && <small>{message}</small>}
       <p>
         {" "}
         {type === "Sign in"
