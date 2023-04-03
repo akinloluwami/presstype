@@ -14,10 +14,6 @@ const authTokenSchema = new Schema({
     type: String,
     default: Date.now(),
   },
-  expiry: {
-    type: Date,
-    required: true,
-  },
 });
 
 export default model("AuthToken", authTokenSchema);
