@@ -6,7 +6,6 @@ import { NextApiRequest, NextApiResponse } from "next";
 import validator from "validator";
 import jwt, { Secret } from "jsonwebtoken";
 import AuthToken from "@/schema/AuthToken";
-import generateToken from "@/utils/generate_token";
 import dayjs from "dayjs";
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
@@ -30,10 +29,9 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   }
 
   try {
-    await Blog.create({
-      email,
+    const token = jwt.sign({ email }, process.env.JWT_SECRET!, {
+      expiresIn: "1h",
     });
-    const token = generateToken();
     await AuthToken.create({
       token,
       email,
