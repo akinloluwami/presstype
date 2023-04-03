@@ -15,8 +15,11 @@ const MagicLink = ({ type }: MagicLinkProps) => {
   const { theme } = useTheme();
 
   const clickHandler = () => {
+    setLoading(true);
     if (type === "Sign in") {
-      blogExists(email);
+      console.log(blogExists(email));
+      setLoading(false);
+      return;
     }
   };
 
