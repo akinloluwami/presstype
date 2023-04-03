@@ -44,7 +44,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     const html = `
     <h1>Welcome to PressType</h1>
     <p>Click the link below to verify your email and complete your signup</p>
-    <a href="${magicLinkUrl}" target="_blank" style="background-color: #007bff; color: #fff; padding: 12px 24px; border-radius: 4px; text-decoration: none;">Verify email</a>
+    <a href="http://${magicLinkUrl}" target="_blank" style="background-color: #007bff; color: #fff; padding: 12px 24px; border-radius: 4px; text-decoration: none;">Verify email</a>
     `;
     sendMail(to, subject, html);
     res
