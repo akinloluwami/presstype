@@ -15,7 +15,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     return;
   }
 
-  const { expiry } = authToken;
+  const expiry = "";
   const now = dayjs();
 
   if (now.isAfter(dayjs(expiry))) {

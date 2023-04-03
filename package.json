@@ -21,6 +21,7 @@
     "eslint": "8.36.0",
     "eslint-config-next": "13.2.4",
     "faker": "^6.6.6",
+    "ip": "^2.0.0",
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^7.0.3",
     "next": "13.2.4",
