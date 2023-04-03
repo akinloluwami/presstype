@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styles from "./styles.module.scss";
 import { useTheme } from "@/contexts/ThemeContext";
 import Link from "next/link";
+import blogExists from "@/actions/auth/exists";
 
 interface MagicLinkProps {
   type: "Sign in" | "Sign up";
@@ -15,6 +16,7 @@ const MagicLink = ({ type }: MagicLinkProps) => {
 
   const clickHandler = () => {
     if (type === "Sign in") {
+      blogExists(email);
     }
   };
 
