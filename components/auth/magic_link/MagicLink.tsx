@@ -9,6 +9,7 @@ interface MagicLinkProps {
 
 const MagicLink = ({ type }: MagicLinkProps) => {
   const [email, setEmail] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(false);
 
   const { theme } = useTheme();
 
