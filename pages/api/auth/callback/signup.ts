@@ -34,12 +34,9 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     res.status(400).send("Token expired");
     return;
   }
-
-  res.redirect(
-    `/signup/complete?email=${encodeURIComponent(
-      email
-    )}&token=${encodeURIComponent(token as string)}`
-  );
+  const emailParam = email ? encodeURIComponent(email as string) : "";
+  const tokenParam = token ? encodeURIComponent(token as string) : "";
+  res.redirect(`/signup/complete?email=${emailParam}&token=${tokenParam}`);
 };
 
 export default handler;
