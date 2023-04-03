@@ -3,6 +3,7 @@ import { connectToDatabase } from "@/utils/db";
 import AuthToken from "@/schema/AuthToken";
 import dayjs from "dayjs";
 import jwt from "jsonwebtoken";
+import Blog from "@/schema/Blog";
 
 interface DecodedToken {
   email: string;
@@ -34,6 +35,14 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     res.status(400).send("Token expired");
     return;
   }
+
+  const blog = await Blog.findOne({ email });
+
+  if (blog) {
+    blog.isEmailVerified = true;
+    await blog.save();
+  }
+
   const emailParam = email ? encodeURIComponent(email as string) : "";
   const tokenParam = token ? encodeURIComponent(token as string) : "";
   res.redirect(`/signup/complete?email=${emailParam}&token=${tokenParam}`);
