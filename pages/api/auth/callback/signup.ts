@@ -12,7 +12,6 @@ interface DecodedToken {
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const { token, email } = req.query;
-
   await connectToDatabase();
 
   const authToken = await AuthToken.findOne({ token });
@@ -22,21 +21,24 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     return;
   }
 
-  const decoded = jwt.verify(token, process.env.JWT_SECRET);
-  t;
+  const secret: string = process.env.JWT_SECRET ?? "";
+  const decoded: DecodedToken = jwt.verify(
+    token as string,
+    secret
+  ) as unknown as DecodedToken;
 
   const now = dayjs();
+  const expirationTime = dayjs.unix(decoded.exp);
 
-  if (now.isAfter(dayjs(expiry))) {
+  if (now.isAfter(expirationTime)) {
     res.status(400).send("Token expired");
     return;
   }
 
   res.redirect(
-    "/signup/complete?email=" +
-      encodeURIComponent(email) +
-      "&token=" +
-      encodeURIComponent(token as string)
+    `/signup/complete?email=${encodeURIComponent(
+      email
+    )}&token=${encodeURIComponent(token as string)}`
   );
 };
 
