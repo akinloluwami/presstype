@@ -25,7 +25,11 @@ const MagicLink = ({ type }: MagicLinkProps) => {
       <h1>P</h1>
 
       <small>Use your email address to {type.toLowerCase()}</small>
-      <input placeholder="Email address" data-theme={theme} />
+      <input
+        placeholder="Email address"
+        data-theme={theme}
+        onChange={(e) => setEmail(e.target.value)}
+      />
       <button>Send magic link</button>
       <p>
         {" "}
