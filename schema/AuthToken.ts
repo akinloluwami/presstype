@@ -1,4 +1,4 @@
-import { Schema, model } from "mongoose";
+import mongoose, { Schema, model } from "mongoose";
 
 const authTokenSchema = new Schema({
   token: {
@@ -16,4 +16,7 @@ const authTokenSchema = new Schema({
   },
 });
 
-export default model("AuthToken", authTokenSchema);
+const AuthToken =
+  mongoose.models.AuthToken || model("AuthToken", authTokenSchema);
+
+export default AuthToken;
