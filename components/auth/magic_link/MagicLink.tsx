@@ -23,6 +23,8 @@ const MagicLink = ({ type }: MagicLinkProps) => {
         return;
       }
       console.log("Login");
+      setLoading(false);
+      return;
     }
   };
 
