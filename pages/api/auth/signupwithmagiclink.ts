@@ -36,6 +36,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       token,
       email,
     });
+    await Blog.create({ email });
 
     const magicLinkUrl = `${process.env.BASE_URL}/api/callback/signup?token=${token}&email=${email}`;
     const to = email;
