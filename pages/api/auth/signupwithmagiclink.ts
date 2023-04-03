@@ -6,7 +6,6 @@ import { NextApiRequest, NextApiResponse } from "next";
 import validator from "validator";
 import jwt, { Secret } from "jsonwebtoken";
 import AuthToken from "@/schema/AuthToken";
-import dayjs from "dayjs";
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const { email } = req.body;
