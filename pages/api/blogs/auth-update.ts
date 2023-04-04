@@ -3,6 +3,8 @@ import jwt from "jsonwebtoken";
 import Blog from "@/schema/Blog";
 import { connectToDatabase } from "@/utils/db";
 import { NextApiRequest, NextApiResponse } from "next";
+import DecodedToken from "@/interfaces/decodedToken";
+import decodeToken from "@/utils/decode_token";
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const { email } = req.query;
@@ -18,7 +20,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   }
   const token = req.headers.authorization.split(" ")[1];
 
-  const decoded: any = jwt.verify(token, process.env.JWT_SECRET!);
+  const decoded: DecodedToken = decodeToken(token as string);
 
   const blog = await Blog.findOne({ email: decoded.email });
 

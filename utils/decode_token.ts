@@ -1,3 +1,4 @@
+import DecodedToken from "@/interfaces/decodedToken";
 import jwt from "jsonwebtoken";
 
 const decodeToken = (token: string): DecodedToken => {
