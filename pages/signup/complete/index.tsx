@@ -10,6 +10,7 @@ import { useTokenStore } from "@/stores/tokenStore";
 const Complete = () => {
   const { step, setStep, title, subdomain, about } = useCompleteSignupStore();
   const { token, setToken } = useTokenStore();
+  const [loading, setLoading] = useState<boolean>(false);
 
   const router = useRouter();
   useEffect(() => {
