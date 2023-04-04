@@ -4,8 +4,12 @@ const blogSchema = new Schema({
   title: {
     type: String,
   },
-  description: {
+  about: {
     type: String,
+  },
+  subdomain: {
+    type: String,
+    unique: true,
   },
   email: {
     type: String,
