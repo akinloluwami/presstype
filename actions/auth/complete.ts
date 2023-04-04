@@ -15,7 +15,7 @@ const completeSignUp = async (
   const data = { title, about, subdomain };
 
   try {
-    const response = axios.put("/api/blogs/complete", data, {
+    const response = await axios.put("/api/blogs/complete", data, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
