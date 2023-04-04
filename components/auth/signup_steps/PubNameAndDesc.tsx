@@ -31,7 +31,7 @@ const PubNameAndDesc = () => {
           <input
             type="text"
             value={title}
-            onChange={(e) => setTitle(e.target.value.trim().toLowerCase())}
+            onChange={(e) => setTitle(e.target.value)}
           />
         </div>
         {/* <div className="">
