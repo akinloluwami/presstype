@@ -5,13 +5,15 @@ import styles from "./styles.module.scss";
 import { useCompleteSignupStore } from "@/stores/completeSignUpStore";
 import completeSignUp from "@/actions/auth/complete";
 import { useRouter } from "next/router";
+import { useTokenStore } from "@/stores/tokenStore";
 
 const Complete = () => {
   const { step, setStep, title, subdomain, about } = useCompleteSignupStore();
+  const { token, setToken } = useTokenStore();
 
   const router = useRouter();
   useEffect(() => {
-    console.log(router.query.token);
+    setToken(router.query.token as string);
   }, [router]);
 
   const nextHandler = async () => {
