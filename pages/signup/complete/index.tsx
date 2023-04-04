@@ -19,6 +19,10 @@ const Complete = () => {
   const nextHandler = async () => {
     const data = { title, subdomain, about };
     const next = await completeSignUp(data, token);
+    if (next.status === 200) {
+      //do something
+      return;
+    }
     console.log(next);
   };
 
