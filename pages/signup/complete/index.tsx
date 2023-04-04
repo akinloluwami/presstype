@@ -11,7 +11,7 @@ const Complete = () => {
   const { step, setStep, title, subdomain, about } = useCompleteSignupStore();
   const { token, setToken } = useTokenStore();
   const [loading, setLoading] = useState<boolean>(false);
-
+  const [message, setMessage] = useState<string>("");
   const router = useRouter();
   useEffect(() => {
     setToken(router.query.token as string);
