@@ -29,6 +29,7 @@ const MagicLink = ({ type }: MagicLinkProps) => {
       }
       setMessage(blog.data.message);
       setLoading(false);
+      return;
     }
   };
 
