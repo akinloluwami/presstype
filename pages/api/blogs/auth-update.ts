@@ -38,7 +38,14 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   }
 
   try {
-  } catch (error) {}
+    const { subdomain, title, about } = req.body;
+    const blogUpdate = { subdomain, title, about };
+    await Blog.updateOne({ email }, blogUpdate);
+    res.status(200).json({ message: "Blog updated" });
+    return;
+  } catch (error) {
+    res.status(500).json({ message: "Internal server error" });
+  }
 };
 
 export default allowMethods(["POST"])(handler);
