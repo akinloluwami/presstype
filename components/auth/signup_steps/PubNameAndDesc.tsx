@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./styles.module.scss";
 
 const PubNameAndDesc = () => {
+  const [title, setTitle] = useState("");
+  const [subdomain, setSubdomain] = useState("");
+  const [about, setAbout] = useState("");
+
   return (
     <div className={styles.pub_name_n_desc}>
       <div className={styles.pub_name_n_bc}>
