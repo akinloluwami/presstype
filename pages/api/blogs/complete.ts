@@ -31,16 +31,14 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   }
 
   try {
-    blog.subdomain = req.body.subdomain;
-    blog.title = req.body.title;
-    blog.about = req.body.about;
-    blog.isOnboardingComplete = true;
-    await blog.save();
-    res.status(200).json({ message: "Blog updated" });
+    const { subdomain, title, about } = req.body;
+    const blogUpdate = { subdomain, title, about, isOnboardingComplete: true };
+    await Blog.findOneAndUpdate({ email: decoded.email }, blogUpdate);
+    res.status(200).json({ message: "Blog updated", blogUpdate });
     return;
   } catch (error) {
     res.status(500).json({ message: "Internal server error" });
   }
 };
 
-export default allowMethods(["POST"])(handler);
+export default allowMethods(["PUT"])(handler);
