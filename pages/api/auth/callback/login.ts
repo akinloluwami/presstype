@@ -31,7 +31,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const blog = await Blog.findOne({ email });
 
   if (!blog) {
-    res.status(400).send("Blog not found");
+    res.status(404).send("Blog not found");
     return;
   }
 
