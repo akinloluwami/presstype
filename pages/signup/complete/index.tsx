@@ -7,12 +7,8 @@ import { useCompleteSignupStore } from "@/stores/completeSignUpStore";
 const Complete = () => {
   const { step, setStep, title, subdomain, about } = useCompleteSignupStore();
 
-  const nextHandler = () => {
-    setStep(step + 1);
-  };
-  const prevHandler = () => {
-    setStep(step - 1);
-  };
+  const nextHandler = () => {};
+
   return (
     <div className={styles.complete_container}>
       <h1>P</h1>
