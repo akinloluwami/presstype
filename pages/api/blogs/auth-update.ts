@@ -36,6 +36,9 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     res.status(404).json({ message: "Blog not found" });
     return;
   }
+
+  try {
+  } catch (error) {}
 };
 
 export default allowMethods(["POST"])(handler);
