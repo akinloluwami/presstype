@@ -2,9 +2,10 @@ import DoYouWantToImport from "@/components/auth/signup_steps/do_you_want_to_imp
 import PubNameAndDesc from "@/components/auth/signup_steps/PubNameAndDesc";
 import { useState, useEffect } from "react";
 import styles from "./styles.module.scss";
+import { useCompleteSignupStore } from "@/stores/completeSignUpStore";
 
 const Complete = () => {
-  const [step, setStep] = useState<number>(0);
+  const { step, setStep, title, subdomain, about } = useCompleteSignupStore();
 
   const nextHandler = () => {
     setStep(step + 1);
