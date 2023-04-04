@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import styles from "./styles.module.scss";
+import { useCompleteSignupStore } from "@/stores/completeSignUpStore";
 
 const PubNameAndDesc = () => {
-  const [title, setTitle] = useState("");
-  const [subdomain, setSubdomain] = useState("");
-  const [about, setAbout] = useState("");
+  const { title, setTitle, subdomain, setSubdomain, about, setAbout } =
+    useCompleteSignupStore();
 
   return (
     <div className={styles.pub_name_n_desc}>
