@@ -15,6 +15,7 @@ const PubNameAndDesc = () => {
             type="text"
             placeholder="something"
             onChange={(e) => setSubdomain(e.target.value.trim().toLowerCase())}
+            value={title}
           />
           .presstype.co
         </div>
