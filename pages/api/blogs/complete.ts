@@ -3,7 +3,7 @@ import jwt from "jsonwebtoken";
 import Blog from "@/schema/Blog";
 import { connectToDatabase } from "@/utils/db";
 import { NextApiRequest, NextApiResponse } from "next";
-import DecodedToken from "@/interfaces/decodedToken";
+import DecodedToken from "@/interfaces/DecodedToken";
 import decodeToken from "@/utils/decode_token";
 import dayjs from "dayjs";
 

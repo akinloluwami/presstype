@@ -5,7 +5,7 @@ import dayjs from "dayjs";
 import jwt from "jsonwebtoken";
 import Blog from "@/schema/Blog";
 import decodeToken from "@/utils/decode_token";
-import DecodedToken from "@/interfaces/decodedToken";
+import DecodedToken from "@/interfaces/DecodedToken";
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const { token, email } = req.query;
