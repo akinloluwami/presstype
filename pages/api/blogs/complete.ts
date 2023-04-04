@@ -27,8 +27,35 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     return;
   }
 
+  const { subdomain, title, about } = req.body;
+
+  if (!subdomain || !title) {
+    res.status(400).json({ message: "Subdomain and title are required" });
+    return;
+  }
+
+  const subdomainExists = await Blog.findOne({ subdomain });
+
+  if (subdomainExists) {
+    res.status(409).json({ message: "Subdomain is not available" });
+    return;
+  }
+
+  if (subdomain.length < 5) {
+    res.status(400).json({
+      message: "Subdomain cannot be less 5 characters",
+    });
+  }
+
+  const subdomainRegex = /^[a-zA-Z0-9\-]+$/;
+  if (!subdomainRegex.test(subdomain)) {
+    res.status(400).json({
+      message: "Subdomain can only contain alphanumeric characters and dashes",
+    });
+    return;
+  }
+
   try {
-    const { subdomain, title, about } = req.body;
     const blogUpdate = { subdomain, title, about, isOnboardingComplete: true };
     await Blog.findOneAndUpdate({ email: decoded.email }, blogUpdate);
     res.status(200).json({ message: "Blog updated" });
