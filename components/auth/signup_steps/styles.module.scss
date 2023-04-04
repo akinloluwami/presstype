@@ -4,6 +4,12 @@
   .pub_name_n_bc {
     display: flex;
     margin-bottom: 15px;
+    .subdomain {
+      input {
+        width: 300px !important;
+        text-align: right;
+      }
+    }
     input {
       &[type="text"] {
         width: 450px;

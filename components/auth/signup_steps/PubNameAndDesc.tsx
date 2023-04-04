@@ -5,8 +5,19 @@ const PubNameAndDesc = () => {
   return (
     <div className={styles.pub_name_n_desc}>
       <div className={styles.pub_name_n_bc}>
+        <div className={styles.subdomain}>
+          <p>Choose a subdomain</p>
+          <input type="text" />
+          .presstype.co
+        </div>
+        {/* <div className="">
+          <p>Brand color</p>
+          <input type="color" />
+        </div> */}
+      </div>
+      <div className={styles.pub_name_n_bc}>
         <div className="">
-          <p>Publication name</p>
+          <p>Blog title</p>
           <input type="text" />
         </div>
         {/* <div className="">
