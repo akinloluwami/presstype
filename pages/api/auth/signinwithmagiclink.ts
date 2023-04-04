@@ -10,11 +10,11 @@ import AuthToken from "@/schema/AuthToken";
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const { email } = req.body;
   if (!email) {
-    res.status(400).send("Invalid email");
+    res.status(400).json({ message: "Invalid email" });
     return;
   }
   if (!validator.isEmail(email)) {
-    res.status(400).send("Invalid email");
+    res.status(400).json({ message: "Invalid email" });
     return;
   }
 
@@ -23,7 +23,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const user = await Blog.findOne({ email });
 
   if (!user) {
-    res.status(401).send("User not found");
+    res.status(401).json({ message: "User not found" });
     return;
   }
 
@@ -46,12 +46,12 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     `;
     sendMail(to, subject, html);
 
-    res
-      .status(200)
-      .send("Check your email for a link to login to your account");
+    res.status(200).json({
+      message: "Check your email for a link to login to your account",
+    });
   } catch (error) {
     console.log(error);
-    res.status(500).send("Something went wrong");
+    res.status(500).json({ message: "Something went wrong" });
   }
 };
 
