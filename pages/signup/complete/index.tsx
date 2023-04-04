@@ -4,9 +4,15 @@ import { useState, useEffect } from "react";
 import styles from "./styles.module.scss";
 import { useCompleteSignupStore } from "@/stores/completeSignUpStore";
 import completeSignUp from "@/actions/auth/complete";
+import { useRouter } from "next/router";
 
 const Complete = () => {
   const { step, setStep, title, subdomain, about } = useCompleteSignupStore();
+
+  const router = useRouter();
+  useEffect(() => {
+    console.log(router.query.token);
+  }, [router]);
 
   const nextHandler = async () => {
     const data = { title, subdomain, about };
