@@ -7,6 +7,7 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+  padding: 40px 0;
   h1 {
     background-color: $accent-base;
     width: 50px;
@@ -15,7 +16,7 @@
     align-items: center;
     justify-content: center;
     border-radius: 25px;
-    margin: 3rem 0 2rem 0;
+
     color: $white-secondary;
   }
   .texts {
