@@ -30,7 +30,9 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     const { subdomain, title, about } = req.body;
     const blogUpdate = { subdomain, title, about, isOnboardingComplete: true };
-    await Blog.findOneAndUpdate({ email: decoded.email }, blogUpdate);
+    await Blog.findOneAndUpdate({ email: decoded.email }, blogUpdate, {
+      new: true,
+    });
     res.status(200).json({ message: "Blog updated", blogUpdate });
     return;
   } catch (error) {
