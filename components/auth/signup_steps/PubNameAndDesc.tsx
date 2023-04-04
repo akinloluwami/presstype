@@ -3,11 +3,12 @@ import styles from "./styles.module.scss";
 import { useCompleteSignupStore } from "@/stores/completeSignUpStore";
 
 const PubNameAndDesc = () => {
-  const { title, setTitle, subdomain, setSubdomain, about, setAbout } =
+  const { title, setTitle, subdomain, setSubdomain, about, setAbout, message } =
     useCompleteSignupStore();
 
   return (
     <div className={styles.pub_name_n_desc}>
+      {message && <h4>{message}</h4>}
       <div className={styles.pub_name_n_bc}>
         <div className={styles.subdomain}>
           <p>Choose a subdomain</p>
