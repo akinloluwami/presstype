@@ -1,6 +1,14 @@
 @import "../../../styles/variables.scss";
 
 .pub_name_n_desc {
+  h4 {
+    color: #d10808;
+    text-align: center;
+    font-weight: 400;
+    margin-bottom: 10px;
+    max-width: 400px;
+    margin: auto;
+  }
   .pub_name_n_bc {
     display: flex;
     margin-bottom: 15px;
