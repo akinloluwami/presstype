@@ -15,10 +15,15 @@ const completeSignUp = async (
   const data = { title, about, subdomain };
 
   try {
-    axios.post("/api/blogs/complete", data, {
+    const response = axios.post("/api/blogs/complete", data, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
     });
-  } catch (error) {}
+    return response;
+  } catch (error: any) {
+    return error.response;
+  }
 };
+
+export default completeSignUp;
