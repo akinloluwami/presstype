@@ -5,10 +5,12 @@ type CompleteSignupStore = {
   title: string;
   subdomain: string;
   about: string;
+  message: string;
   setStep: (step: number) => void;
   setTitle: (title: string) => void;
   setSubdomain: (subdomain: string) => void;
   setAbout: (about: string) => void;
+  setMessage: (message: string) => void;
 };
 
 export const useCompleteSignupStore = create<CompleteSignupStore>((set) => ({
@@ -16,8 +18,10 @@ export const useCompleteSignupStore = create<CompleteSignupStore>((set) => ({
   title: "",
   subdomain: "",
   about: "",
+  message: "",
   setStep: (step: number) => set(() => ({ step })),
   setTitle: (title: string) => set(() => ({ title })),
   setSubdomain: (subdomain: string) => set(() => ({ subdomain })),
   setAbout: (about: string) => set(() => ({ about })),
+  setMessage: (message: string) => set(() => ({ message })),
 }));
