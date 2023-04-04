@@ -3,11 +3,14 @@ import PubNameAndDesc from "@/components/auth/signup_steps/PubNameAndDesc";
 import { useState, useEffect } from "react";
 import styles from "./styles.module.scss";
 import { useCompleteSignupStore } from "@/stores/completeSignUpStore";
+import completeSignUp from "@/actions/auth/complete";
 
 const Complete = () => {
   const { step, setStep, title, subdomain, about } = useCompleteSignupStore();
 
-  const nextHandler = () => {};
+  const nextHandler = async () => {
+    const data = { title, subdomain, about };
+  };
 
   return (
     <div className={styles.complete_container}>
