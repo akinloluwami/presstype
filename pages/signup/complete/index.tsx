@@ -18,6 +18,8 @@ const Complete = () => {
 
   const nextHandler = async () => {
     const data = { title, subdomain, about };
+    const next = await completeSignUp(data, token);
+    console.log(next);
   };
 
   return (
