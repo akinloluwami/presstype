@@ -4,6 +4,7 @@ import AuthToken from "@/schema/AuthToken";
 import dayjs from "dayjs";
 import jwt from "jsonwebtoken";
 import Blog from "@/schema/Blog";
+import decodeToken from "@/utils/decode_token";
 
 interface DecodedToken {
   email: string;
@@ -22,20 +23,12 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     return;
   }
 
-  const secret: string = process.env.JWT_SECRET ?? "";
-  const decoded: DecodedToken = jwt.verify(
-    token as string,
-    secret
-  ) as unknown as DecodedToken;
+  const decoded: DecodedToken | null = decodeToken(token as string);
 
-  const now = dayjs();
-  const expirationTime = dayjs.unix(decoded.exp);
-
-  if (now.isAfter(expirationTime)) {
+  if (!decoded) {
     res.status(400).send("Token expired");
     return;
   }
-
   const blog = await Blog.findOne({ email });
 
   if (blog) {
