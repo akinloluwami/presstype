@@ -32,6 +32,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     const blogUpdate = { subdomain, title, about, isOnboardingComplete: true };
     await Blog.findOneAndUpdate({ email: decoded.email }, blogUpdate, {
       new: true,
+      runValidators: true,
     });
     res.status(200).json({ message: "Blog updated", blogUpdate });
     return;
