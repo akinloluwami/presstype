@@ -18,12 +18,9 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     return;
   }
 
-  const decoded: DecodedToken = decodeToken(token as string);
+  const decoded: DecodedToken | null = decodeToken(token as string);
 
-  const now = dayjs();
-  const expirationTime = dayjs.unix(decoded.exp);
-
-  if (now.isAfter(expirationTime)) {
+  if (!decoded) {
     res.status(400).send("Token expired");
     return;
   }
