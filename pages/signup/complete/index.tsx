@@ -8,10 +8,11 @@ import { useRouter } from "next/router";
 import { useTokenStore } from "@/stores/tokenStore";
 
 const Complete = () => {
-  const { step, setStep, title, subdomain, about } = useCompleteSignupStore();
+  const { step, setStep, title, subdomain, about, setMessage } =
+    useCompleteSignupStore();
   const { token, setToken } = useTokenStore();
   const [loading, setLoading] = useState<boolean>(false);
-  const [message, setMessage] = useState<string>("");
+
   const router = useRouter();
   useEffect(() => {
     setToken(router.query.token as string);
@@ -21,10 +22,10 @@ const Complete = () => {
     const data = { title, subdomain, about };
     const next = await completeSignUp(data, token);
     if (next.status === 200) {
-      //do something
+      setStep(step + 1);
       return;
     }
-    console.log(next);
+    setMessage(next.data.message);
   };
 
   return (
