@@ -49,7 +49,7 @@ const Complete = () => {
       <div className={styles.steps_btn}>
         {step === 0 && (
           <button onClick={nextHandler} className={styles.btn}>
-            Continue
+            {loading ? "..." : "Continue"}
           </button>
         )}
       </div>
