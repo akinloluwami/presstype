@@ -31,10 +31,11 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   }
 
   try {
-    const { subdomain, title, about } = req.body;
-    const blogUpdate = { subdomain, title, about, isOnboardingComplete: true };
-
-    await Blog.updateOne({ email: decoded.email }, blogUpdate);
+    blog.subdomain = req.body.subdomain;
+    blog.title = req.body.title;
+    blog.about = req.body.about;
+    blog.isOnboardingComplete = true;
+    await blog.save();
     res.status(200).json({ message: "Blog updated" });
     return;
   } catch (error) {
