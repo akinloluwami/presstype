@@ -7,7 +7,7 @@ const PubNameAndDesc = () => {
       <div className={styles.pub_name_n_bc}>
         <div className={styles.subdomain}>
           <p>Choose a subdomain</p>
-          <input type="text" />
+          <input type="text" placeholder="something" />
           .presstype.co
         </div>
         {/* <div className="">
