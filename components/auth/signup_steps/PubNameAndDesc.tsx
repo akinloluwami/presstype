@@ -11,7 +11,11 @@ const PubNameAndDesc = () => {
       <div className={styles.pub_name_n_bc}>
         <div className={styles.subdomain}>
           <p>Choose a subdomain</p>
-          <input type="text" placeholder="something" />
+          <input
+            type="text"
+            placeholder="something"
+            onChange={(e) => setSubdomain(e.target.value.trim().toLowerCase())}
+          />
           .presstype.co
         </div>
         {/* <div className="">
