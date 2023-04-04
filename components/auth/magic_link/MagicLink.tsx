@@ -3,6 +3,7 @@ import styles from "./styles.module.scss";
 import { useTheme } from "@/contexts/ThemeContext";
 import Link from "next/link";
 import blogExists from "@/actions/auth/exists";
+import singIn from "@/actions/auth/signin";
 
 interface MagicLinkProps {
   type: "Sign in" | "Sign up";
@@ -19,7 +20,10 @@ const MagicLink = ({ type }: MagicLinkProps) => {
     if (type === "Sign in") {
       const blog: any = await blogExists(email);
       if (blog.status === 200) {
-        setMessage(blog.data.message);
+        const signin: any = await singIn(email);
+        if (signin.status === 200) {
+          setMessage(signin.data.message);
+        }
         setLoading(false);
         return;
       }
