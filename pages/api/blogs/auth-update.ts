@@ -8,11 +8,6 @@ import decodeToken from "@/utils/decode_token";
 import dayjs from "dayjs";
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
-  const { email } = req.query;
-  if (!email) {
-    res.status(400).json({ message: "Email is required" });
-    return;
-  }
   if (!req.headers.authorization) {
     res.status(401).json({
       message: "Unauthorized request",
@@ -41,7 +36,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     const { subdomain, title, about } = req.body;
     const blogUpdate = { subdomain, title, about, isOnboardingComplete: true };
 
-    await Blog.updateOne({ email }, blogUpdate);
+    await Blog.updateOne({ email: decoded.email }, blogUpdate);
     res.status(200).json({ message: "Blog updated" });
     return;
   } catch (error) {
