@@ -19,13 +19,17 @@ const Complete = () => {
   }, [router]);
 
   const nextHandler = async () => {
+    setLoading(true);
     const data = { title, subdomain, about };
     const next = await completeSignUp(data, token);
     if (next.status === 200) {
       setStep(step + 1);
+      setLoading(false);
       return;
     }
     setMessage(next.data.message);
+    setLoading(false);
+    return;
   };
 
   return (
