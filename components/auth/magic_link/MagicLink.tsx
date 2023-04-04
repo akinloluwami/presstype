@@ -19,12 +19,10 @@ const MagicLink = ({ type }: MagicLinkProps) => {
     if (type === "Sign in") {
       const blog: any = await blogExists(email);
       if (blog.status === 200) {
-        console.log(blog);
         setMessage(blog.data.message);
         setLoading(false);
         return;
       }
-      console.log(blog);
       setMessage(blog.data.message);
       setLoading(false);
     }
