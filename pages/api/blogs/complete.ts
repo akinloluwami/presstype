@@ -30,11 +30,8 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     const { subdomain, title, about } = req.body;
     const blogUpdate = { subdomain, title, about, isOnboardingComplete: true };
-    await Blog.findOneAndUpdate({ email: decoded.email }, blogUpdate, {
-      new: true,
-      runValidators: true,
-    });
-    res.status(200).json({ message: "Blog updated", blogUpdate });
+    await Blog.findOneAndUpdate({ email: decoded.email }, blogUpdate);
+    res.status(200).json({ message: "Blog updated" });
     return;
   } catch (error) {
     res.status(500).json({ message: "Internal server error" });
