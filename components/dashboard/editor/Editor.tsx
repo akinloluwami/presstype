@@ -10,11 +10,6 @@ const Editor = () => {
   });
   return (
     <>
-      {/* {editor && (
-        <FloatingMenu editor={editor} tippyOptions={{ duration: 100 }}>
-        
-        </FloatingMenu>
-      )} */}
       <EditorContent editor={editor} />
       <EditorMenu editor={editor} />
     </>
