@@ -30,6 +30,9 @@ const EditorMenu = ({ editor }: any) => {
       >
         bold
       </button>
+
+      <button onClick={toggleLinkModal}>link</button>
+
       <button
         onClick={() => editor.chain().focus().toggleItalic().run()}
         disabled={!editor.can().chain().focus().toggleItalic().run()}
