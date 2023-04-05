@@ -143,7 +143,12 @@ const Editor = () => {
     extensions: [StarterKit],
     content: "<p>Hello World! 🌎️</p>",
   });
-  return <EditorContent editor={editor} />;
+  return (
+    <>
+      <MenuBar editor={editor} />
+      <EditorContent editor={editor} />
+    </>
+  );
 };
 
 export default Editor;
