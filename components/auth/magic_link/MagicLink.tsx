@@ -4,6 +4,7 @@ import { useTheme } from "@/contexts/ThemeContext";
 import Link from "next/link";
 import blogExists from "@/actions/auth/exists";
 import singIn from "@/actions/auth/signin";
+import signUp from "@/actions/auth/signup";
 
 interface MagicLinkProps {
   type: "Sign in" | "Sign up";
@@ -31,6 +32,12 @@ const MagicLink = ({ type }: MagicLinkProps) => {
       setLoading(false);
       return;
     }
+    const signup: any = await signUp(email);
+    if (signup.status === 200) {
+      setMessage(signup.data.message);
+    }
+    setLoading(false);
+    return;
   };
 
   return (
