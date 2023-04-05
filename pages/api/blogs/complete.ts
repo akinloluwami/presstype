@@ -27,6 +27,15 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     return;
   }
 
+  if (blog.isOnboardingComplete) {
+    res
+      .status(400)
+      .json({
+        message: "You have previously setup your PressType. Login instead.",
+      });
+    return;
+  }
+
   const { subdomain, title, about } = req.body;
 
   if (!subdomain || !title) {
