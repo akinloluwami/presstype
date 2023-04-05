@@ -26,7 +26,7 @@ const DoYouWantToImport = () => {
             >
               Yes
             </button>
-            <Link href={"/dashboard"}>
+            <Link href={dashboardUrl}>
               <button>No, continue to dashboard</button>
             </Link>
           </>
@@ -42,7 +42,7 @@ const DoYouWantToImport = () => {
             >
               Yes
             </button>
-            <Link href={"/dashboard"}>
+            <Link href={dashboardUrl}>
               <button>No, continue to dashboard</button>
             </Link>
           </>
