@@ -10,6 +10,8 @@ const DoYouWantToImport = () => {
   const [chosen, setChosen] = useState(false);
   const [chosen2, setChosen2] = useState(false);
   const { token } = useTokenStore();
+
+  const dashboardUrl = `/dashboard?token=${token}`;
   return (
     <div>
       <div className={styles.questions}>
