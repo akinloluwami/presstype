@@ -25,23 +25,19 @@ const EditorMenu = ({ editor }: any) => {
     <div className={styles.editor_menu}>
       {showLinkModal && (
         <div className={styles.modal}>
-          <div className={styles.modal_content}>
-            <h2>Insert Link</h2>
-            <input
-              type="text"
-              value={linkText}
-              onChange={(e) => setLinkText(e.target.value)}
-              placeholder="Link Text"
-            />
-            <input
-              type="text"
-              value={linkHref}
-              onChange={(e) => setLinkHref(e.target.value)}
-              placeholder="Link URL"
-            />
-            <button onClick={handleLinkSubmit}>Insert</button>
-            <button onClick={toggleLinkModal}>Cancel</button>
-          </div>
+          <input
+            type="text"
+            placeholder="Link Text"
+            value={linkText}
+            onChange={(e) => setLinkText(e.target.value)}
+          />
+          <input
+            type="text"
+            placeholder="Link URL"
+            value={linkHref}
+            onChange={(e) => setLinkHref(e.target.value)}
+          />
+          <button onClick={handleLinkSubmit}>Add Link</button>
         </div>
       )}
       <button
