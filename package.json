@@ -9,6 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@tiptap/pm": "^2.0.2",
+    "@tiptap/react": "^2.0.2",
+    "@tiptap/starter-kit": "^2.0.2",
     "@types/faker": "^6.6.9",
     "@types/node": "18.15.5",
     "@types/react": "18.0.28",
