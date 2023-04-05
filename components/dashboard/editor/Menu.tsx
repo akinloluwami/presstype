@@ -1,9 +1,11 @@
+import styles from "./styles.module.scss";
+
 const EditorMenu = ({ editor }: any) => {
   if (!editor) {
     return null;
   }
   return (
-    <>
+    <div className={styles.editor_menu}>
       <button
         onClick={() => editor.chain().focus().toggleBold().run()}
         disabled={!editor.can().chain().focus().toggleBold().run()}
@@ -130,7 +132,7 @@ const EditorMenu = ({ editor }: any) => {
       >
         purple
       </button>
-    </>
+    </div>
   );
 };
 
