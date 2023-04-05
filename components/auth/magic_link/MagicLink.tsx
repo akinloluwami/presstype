@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import styles from "./styles.module.scss";
 import { useTheme } from "@/contexts/ThemeContext";
 import Link from "next/link";
-import blogExists from "@/actions/auth/exists";
 import singIn from "@/actions/auth/signin";
 import signUp from "@/actions/auth/signup";
 
