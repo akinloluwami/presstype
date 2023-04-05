@@ -1,9 +1,14 @@
+import { useState } from "react";
 import styles from "./styles.module.scss";
 
 const EditorMenu = ({ editor }: any) => {
   if (!editor) {
     return null;
   }
+  const [showLinkModal, setShowLinkModal] = useState(false);
+  const [linkText, setLinkText] = useState("");
+  const [linkHref, setLinkHref] = useState("");
+
   return (
     <div className={styles.editor_menu}>
       <button
