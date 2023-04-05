@@ -2,12 +2,14 @@ import Link from "next/link";
 import React, { useState } from "react";
 import styles from "./styles.module.scss";
 import BlogProviders from "../blog_providers/BlogProviders";
+import { useTokenStore } from "@/stores/tokenStore";
 
 const DoYouWantToImport = () => {
   const [yes, setYes] = useState(false);
   const [wannaImport, setWannaImport] = useState(false);
   const [chosen, setChosen] = useState(false);
   const [chosen2, setChosen2] = useState(false);
+  const { token } = useTokenStore();
   return (
     <div>
       <div className={styles.questions}>
