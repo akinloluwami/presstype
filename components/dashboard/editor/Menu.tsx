@@ -23,6 +23,27 @@ const EditorMenu = ({ editor }: any) => {
 
   return (
     <div className={styles.editor_menu}>
+      {showLinkModal && (
+        <div className={styles.modal}>
+          <div className={styles.modal_content}>
+            <h2>Insert Link</h2>
+            <input
+              type="text"
+              value={linkText}
+              onChange={(e) => setLinkText(e.target.value)}
+              placeholder="Link Text"
+            />
+            <input
+              type="text"
+              value={linkHref}
+              onChange={(e) => setLinkHref(e.target.value)}
+              placeholder="Link URL"
+            />
+            <button onClick={handleLinkSubmit}>Insert</button>
+            <button onClick={toggleLinkModal}>Cancel</button>
+          </div>
+        </div>
+      )}
       <button
         onClick={() => editor.chain().focus().toggleBold().run()}
         disabled={!editor.can().chain().focus().toggleBold().run()}
