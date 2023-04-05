@@ -22,9 +22,7 @@ const MagicLink = ({ type }: MagicLinkProps) => {
       const blog: any = await blogExists(email);
       if (blog.status === 200) {
         const signin: any = await singIn(email);
-        if (signin.status === 200) {
-          setMessage(signin.data.message);
-        }
+        setMessage(signin.data.message);
         setLoading(false);
         return;
       }
@@ -33,9 +31,7 @@ const MagicLink = ({ type }: MagicLinkProps) => {
       return;
     }
     const signup: any = await signUp(email);
-    if (signup.status === 200) {
-      setMessage(signup.data.message);
-    }
+    setMessage(signup.data.message);
     setLoading(false);
     return;
   };
