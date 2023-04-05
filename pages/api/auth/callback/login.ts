@@ -32,16 +32,13 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     return;
   }
 
+  const tokenParam = token ? encodeURIComponent(token as string) : "";
   if (!blog.isOnboardingComplete) {
-    const emailParam = email ? encodeURIComponent(email as string) : "";
-    const tokenParam = token ? encodeURIComponent(token as string) : "";
-    res.redirect(`/signup/complete?email=${emailParam}&token=${tokenParam}`);
+    res.redirect(`/signup/complete?&token=${tokenParam}`);
     return;
   }
 
-  const emailParam = email ? encodeURIComponent(email as string) : "";
-  const tokenParam = token ? encodeURIComponent(token as string) : "";
-  res.redirect(`/dashboard?email=${emailParam}&token=${tokenParam}`);
+  res.redirect(`/dashboard?token=${tokenParam}`);
 };
 
 export default handler;
