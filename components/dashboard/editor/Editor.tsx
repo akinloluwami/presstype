@@ -1,5 +1,5 @@
 import React from "react";
-import { useEditor, EditorContent } from "@tiptap/react";
+import { useEditor, EditorContent, FloatingMenu } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import EditorMenu from "./Menu";
 
@@ -10,7 +10,11 @@ const Editor = () => {
   });
   return (
     <>
-      <EditorMenu editor={editor} />
+      {editor && (
+        <FloatingMenu editor={editor} tippyOptions={{ duration: 100 }}>
+          <EditorMenu editor={editor} />
+        </FloatingMenu>
+      )}
       <EditorContent editor={editor} />
     </>
   );
