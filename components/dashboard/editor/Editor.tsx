@@ -6,11 +6,7 @@ const Editor = () => {
     extensions: [StarterKit],
     content: "<p>Hello World! 🌎️</p>",
   });
-  return (
-    <div contentEditable={true}>
-      <code>Start with something...</code>
-    </div>
-  );
+  return <EditorContent editor={editor} />;
 };
 
 export default Editor;
