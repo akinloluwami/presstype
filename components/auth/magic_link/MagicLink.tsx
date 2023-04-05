@@ -19,14 +19,8 @@ const MagicLink = ({ type }: MagicLinkProps) => {
   const clickHandler = async () => {
     setLoading(true);
     if (type === "Sign in") {
-      const blog: any = await blogExists(email);
-      if (blog.status === 200) {
-        const signin: any = await singIn(email);
-        setMessage(signin.data.message);
-        setLoading(false);
-        return;
-      }
-      setMessage(blog.data.message);
+      const signin: any = await singIn(email);
+      setMessage(signin.data.message);
       setLoading(false);
       return;
     }
