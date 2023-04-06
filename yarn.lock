@@ -256,6 +256,11 @@
   resolved "https://registry.npmjs.org/@tiptap/extension-horizontal-rule/-/extension-horizontal-rule-2.0.2.tgz"
   integrity sha512-QUqNnHqRXMZRE6uFRX0UDFn07JDiiNukPRCIL4vyV/YJ6HmQiBjbsS/1hLjAwBuqaN8dtlHLdR4PjMuA6qrUYw==
 
+"@tiptap/extension-image@^2.0.2":
+  version "2.0.2"
+  resolved "https://registry.npmjs.org/@tiptap/extension-image/-/extension-image-2.0.2.tgz"
+  integrity sha512-Jyfzp78Mn20R1Bcpz4Cm47EOU5xrOcDkhSisvNcFqcaxSV/CHyNVPDRpRMussK3k7qDcDuf2flDjrTRXPWZqIg==
+
 "@tiptap/extension-italic@^2.0.2":
   version "2.0.2"
   resolved "https://registry.npmjs.org/@tiptap/extension-italic/-/extension-italic-2.0.2.tgz"
