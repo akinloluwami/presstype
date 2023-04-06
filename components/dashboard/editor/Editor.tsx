@@ -12,6 +12,7 @@ import styles from "./styles.module.scss";
 import Placeholder from "@tiptap/extension-placeholder";
 import TextSelectMenu from "./TextSelectMenu";
 import LinkSelectMenu from "./LinkSelectMenu";
+import Image from "@tiptap/extension-image";
 
 const Editor = () => {
   const editor = useEditor({
@@ -20,6 +21,7 @@ const Editor = () => {
       Link.configure({
         openOnClick: false,
       }),
+      Image,
       Placeholder.configure({
         placeholder: `Type "." for commands.`,
         emptyEditorClass: "is-editor-empty",
