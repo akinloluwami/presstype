@@ -1,10 +1,17 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import styles from "./styles.module.scss";
 
 const EditorMenu = ({ editor }: any) => {
   if (!editor) {
     return null;
   }
+  const addImage = useCallback(() => {
+    const url = window.prompt("URL");
+
+    if (url) {
+      editor.chain().focus().setImage({ src: url }).run();
+    }
+  }, [editor]);
 
   return (
     <div className={styles.editor_menu}>
