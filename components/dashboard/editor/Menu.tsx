@@ -2,22 +2,6 @@ import { useState } from "react";
 import styles from "./styles.module.scss";
 
 const EditorMenu = ({ editor }: any) => {
-  const [showLinkModal, setShowLinkModal] = useState(false);
-  const [linkText, setLinkText] = useState("");
-  const [linkHref, setLinkHref] = useState("");
-  const toggleLinkModal = () => setShowLinkModal((prev) => !prev);
-
-  const handleLinkSubmit = () => {
-    editor
-      .chain()
-      .focus()
-      .extendMarkRange("link")
-      .setLink({ href: linkHref })
-      .insertContent(linkText)
-      .run();
-    toggleLinkModal();
-  };
-
   if (!editor) {
     return null;
   }
