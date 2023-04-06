@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@tiptap/extension-bubble-menu": "^2.0.2",
     "@tiptap/extension-floating-menu": "^2.0.2",
     "@tiptap/extension-link": "^2.0.2",
     "@tiptap/extension-placeholder": "^2.0.2",
