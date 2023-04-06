@@ -4,6 +4,7 @@ import StarterKit from "@tiptap/starter-kit";
 import EditorMenu from "./Menu";
 import Link from "@tiptap/extension-link";
 import styles from "./styles.module.scss";
+import Placeholder from "@tiptap/extension-placeholder";
 
 const Editor = () => {
   const editor = useEditor({
@@ -12,8 +13,13 @@ const Editor = () => {
       Link.configure({
         openOnClick: false,
       }),
+      Placeholder.configure({
+        placeholder: `Type "." for commands.`,
+        emptyEditorClass: "is-editor-empty",
+        emptyNodeClass: "is-empty",
+      }),
     ],
-    content: "<p>Hello World! 🌎️</p>",
+    content: "",
   });
   return (
     <>
