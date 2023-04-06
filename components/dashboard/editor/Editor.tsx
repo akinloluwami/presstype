@@ -1,4 +1,4 @@
-import React from "react";
+import { useCallback } from "react";
 import {
   useEditor,
   EditorContent,
@@ -10,6 +10,7 @@ import EditorMenu from "./Menu";
 import Link from "@tiptap/extension-link";
 import styles from "./styles.module.scss";
 import Placeholder from "@tiptap/extension-placeholder";
+import TextSelectMenu from "./TextSelectMenu";
 
 const Editor = () => {
   const editor = useEditor({
@@ -26,28 +27,12 @@ const Editor = () => {
     ],
     content: "",
   });
+
   return (
     <>
       {editor && (
         <BubbleMenu editor={editor} tippyOptions={{ duration: 100 }}>
-          <button
-            onClick={() => editor.chain().focus().toggleBold().run()}
-            className={editor.isActive("bold") ? "is-active" : ""}
-          >
-            bold
-          </button>
-          <button
-            onClick={() => editor.chain().focus().toggleItalic().run()}
-            className={editor.isActive("italic") ? "is-active" : ""}
-          >
-            italic
-          </button>
-          <button
-            onClick={() => editor.chain().focus().toggleStrike().run()}
-            className={editor.isActive("strike") ? "is-active" : ""}
-          >
-            strike
-          </button>
+          {editor.isActive("link") ? <></> : <TextSelectMenu editor={editor} />}
         </BubbleMenu>
       )}
       <EditorContent editor={editor} className={styles.editor_content} />
