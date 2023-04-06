@@ -1,4 +1,4 @@
-import { useCallback } from "react";
+import { useCallback, useState, useEffect } from "react";
 import {
   useEditor,
   EditorContent,
@@ -15,6 +15,7 @@ import LinkSelectMenu from "./LinkSelectMenu";
 import Image from "@tiptap/extension-image";
 
 const Editor = () => {
+  const [content, setContent] = useState("");
   const editor = useEditor({
     extensions: [
       StarterKit,
@@ -28,16 +29,27 @@ const Editor = () => {
         emptyNodeClass: "is-empty",
       }),
     ],
-    content: "",
+    content: content,
+    onUpdate: ({ editor }) => {
+      setContent(editor.getHTML()); // update the content state with the editor's HTML content
+    },
   });
+  const [showEditorMenu, setShowEditorMenu] = useState(false);
+  useEffect(() => {
+    console.log(editor?.getHTML()); // log the editor's content as HTML
+  }, [editor]);
 
   return (
     <>
+      <button onClick={() => console.log(content)}>Log</button>
       {editor && (
         <BubbleMenu editor={editor} tippyOptions={{ duration: 100 }}>
           {editor.isActive("link") ? (
             <LinkSelectMenu editor={editor} />
+          ) : editor.isActive("image") ? (
+            <>Image</>
           ) : (
+            // <ImageSelectMenu editor={editor} />
             <TextSelectMenu editor={editor} />
           )}
         </BubbleMenu>
