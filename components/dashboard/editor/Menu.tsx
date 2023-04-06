@@ -24,23 +24,6 @@ const EditorMenu = ({ editor }: any) => {
 
   return (
     <div className={styles.editor_menu}>
-      {showLinkModal && (
-        <div className={styles.modal}>
-          <input
-            type="text"
-            placeholder="Link Text"
-            value={linkText}
-            onChange={(e) => setLinkText(e.target.value)}
-          />
-          <input
-            type="text"
-            placeholder="Link URL"
-            value={linkHref}
-            onChange={(e) => setLinkHref(e.target.value)}
-          />
-          <button onClick={handleLinkSubmit}>Add Link</button>
-        </div>
-      )}
       <button
         onClick={() => editor.chain().focus().toggleBold().run()}
         disabled={!editor.can().chain().focus().toggleBold().run()}
@@ -48,8 +31,6 @@ const EditorMenu = ({ editor }: any) => {
       >
         bold
       </button>
-
-      <button onClick={toggleLinkModal}>link</button>
 
       <button
         onClick={() => editor.chain().focus().toggleItalic().run()}
