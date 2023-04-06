@@ -13,6 +13,7 @@ const EditorMenu = ({ editor }: any) => {
       .focus()
       .extendMarkRange("link")
       .setLink({ href: linkHref })
+      .insertContent(linkText)
       .run();
     toggleLinkModal();
   };
