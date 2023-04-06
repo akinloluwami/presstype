@@ -50,6 +50,9 @@ const EditorMenu = ({ editor }: any) => {
       >
         paragraph
       </button>
+
+      <button onClick={addImage}>image</button>
+
       <button
         onClick={() => editor.chain().focus().toggleHeading({ level: 1 }).run()}
         className={editor.isActive("heading", { level: 1 }) ? "is-active" : ""}
