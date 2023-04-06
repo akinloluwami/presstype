@@ -11,6 +11,7 @@ import Link from "@tiptap/extension-link";
 import styles from "./styles.module.scss";
 import Placeholder from "@tiptap/extension-placeholder";
 import TextSelectMenu from "./TextSelectMenu";
+import LinkSelectMenu from "./LinkSelectMenu";
 
 const Editor = () => {
   const editor = useEditor({
@@ -32,7 +33,11 @@ const Editor = () => {
     <>
       {editor && (
         <BubbleMenu editor={editor} tippyOptions={{ duration: 100 }}>
-          {editor.isActive("link") ? <></> : <TextSelectMenu editor={editor} />}
+          {editor.isActive("link") ? (
+            <LinkSelectMenu editor={editor} />
+          ) : (
+            <TextSelectMenu editor={editor} />
+          )}
         </BubbleMenu>
       )}
       <EditorContent editor={editor} className={styles.editor_content} />
