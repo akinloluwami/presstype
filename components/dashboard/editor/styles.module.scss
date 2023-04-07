@@ -9,6 +9,9 @@
   overflow-y: scroll;
   margin-top: 10px;
   border-radius: 5px;
+  img {
+    max-width: 500px;
+  }
   button {
     width: 100%;
     font-size: 1rem;
@@ -44,6 +47,9 @@
     color: #616161;
     font-size: 0.9rem;
     padding: 0.25em;
+  }
+  img {
+    max-width: 400px;
   }
 }
 
