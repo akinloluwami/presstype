@@ -19,6 +19,8 @@
     border: none;
     background-color: rgba($dark-secondary, 0.3);
     color: $white-secondary;
+    display: flex;
+    align-items: center;
     &:hover {
       background-color: rgba($accent-base, 0.7);
     }
