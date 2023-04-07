@@ -34,6 +34,7 @@ const EditorMenu = ({ editor }: any) => {
     if (url) {
       editor.chain().focus().setImage({ src: url }).run();
     }
+    setUrl("");
   }, [editor]);
 
   return (
@@ -41,6 +42,15 @@ const EditorMenu = ({ editor }: any) => {
       {showModal && (
         <Modal onClose={handleCloseModal}>
           <h1>Add an image</h1>
+          <input type="text" onChange={(e) => setUrl(e.target.value)} />
+          <button
+            onClick={() => {
+              addImage();
+              handleCloseModal();
+            }}
+          >
+            Add hyperlink
+          </button>
         </Modal>
       )}
       <div className={styles.editor_menu}>
