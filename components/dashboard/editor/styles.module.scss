@@ -21,6 +21,12 @@
     color: $white-secondary;
     display: flex;
     align-items: center;
+    svg {
+      margin-right: 5px;
+      font-size: 1.3rem;
+      background-color: rgba($accent-base, 0.2);
+      padding: 7px;
+    }
     &:hover {
       background-color: rgba($accent-base, 0.7);
     }
