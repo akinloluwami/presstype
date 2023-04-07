@@ -42,7 +42,6 @@ const Editor = () => {
 
   return (
     <>
-      <button onClick={() => console.log(content)}>Log</button>
       {editor && (
         <BubbleMenu editor={editor} tippyOptions={{ duration: 100 }}>
           {editor.isActive("link") ? (
