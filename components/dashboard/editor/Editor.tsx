@@ -15,6 +15,7 @@ import LinkSelectMenu from "./LinkSelectMenu";
 import Image from "@tiptap/extension-image";
 import ImageSelectMenu from "./ImageSelectMenu";
 import Code from "@tiptap/extension-code";
+
 const Editor = () => {
   const [content, setContent] = useState("");
   const editor = useEditor({
