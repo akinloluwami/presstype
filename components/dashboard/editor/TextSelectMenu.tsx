@@ -84,13 +84,11 @@ const TextSelectMenu = ({ editor }: any) => {
 
   return (
     <div className={styles.text_select_menu}>
-      <>
-        {tools.map((tool, i) => (
-          <Tippy content={tool.text} key={i}>
-            <button>{tool.node}</button>
-          </Tippy>
-        ))}
-      </>
+      {tools.map((tool, i) => (
+        <Tippy content={tool.text} key={i}>
+          <button>{tool.node}</button>
+        </Tippy>
+      ))}
     </div>
   );
 };
