@@ -253,6 +253,11 @@
   resolved "https://registry.npmjs.org/@tiptap/extension-heading/-/extension-heading-2.0.2.tgz"
   integrity sha512-99PL9Rx8mioo13SNuIkhZm1VW6UuUKKG0b7fAimsunaEbbLNtToXIasS68pX8BkgWnsBfDhR0HyhnpIBRg7W0w==
 
+"@tiptap/extension-highlight@^2.0.2":
+  version "2.0.2"
+  resolved "https://registry.npmjs.org/@tiptap/extension-highlight/-/extension-highlight-2.0.2.tgz"
+  integrity sha512-FLW7VvHr6UjiHCxzGMrnTBCslDfUqpLJjg0j6P4+0ksKKEcjfgRNkI8ln5NB1IyphXYUvWczeD83rMTtX8+feA==
+
 "@tiptap/extension-history@^2.0.2":
   version "2.0.2"
   resolved "https://registry.npmjs.org/@tiptap/extension-history/-/extension-history-2.0.2.tgz"
