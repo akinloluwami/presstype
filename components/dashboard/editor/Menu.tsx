@@ -18,20 +18,31 @@ const EditorMenu = ({ editor }: any) => {
   if (!editor) {
     return null;
   }
-  const addImage = useCallback(() => {
-    const url = window.prompt("URL");
+  const [url, setUrl] = useState("");
 
+  const [showModal, setShowModal] = useState(false);
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
+
+  const handleOpenModal = () => {
+    setShowModal(true);
+  };
+
+  const addImage = useCallback(() => {
     if (url) {
       editor.chain().focus().setImage({ src: url }).run();
     }
   }, [editor]);
 
-  const onClose = () => {};
   return (
     <>
-      <Modal onClose={onClose}>
-        <h1>Babe</h1>
-      </Modal>
+      {showModal && (
+        <Modal onClose={handleCloseModal}>
+          <h1>Add an image</h1>
+        </Modal>
+      )}
       <div className={styles.editor_menu}>
         <button
           onClick={() => editor.chain().focus().toggleBold().run()}
@@ -69,7 +80,7 @@ const EditorMenu = ({ editor }: any) => {
           <MdOutlineTextFields /> Text
         </button>
 
-        <button onClick={addImage}>
+        <button onClick={handleOpenModal}>
           <BsImage /> Image
         </button>
 
