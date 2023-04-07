@@ -15,6 +15,7 @@ import LinkSelectMenu from "./LinkSelectMenu";
 import Image from "@tiptap/extension-image";
 import ImageSelectMenu from "./ImageSelectMenu";
 import Code from "@tiptap/extension-code";
+import Highlight from "@tiptap/extension-highlight";
 
 const Editor = () => {
   const [content, setContent] = useState("");
@@ -31,6 +32,7 @@ const Editor = () => {
         emptyNodeClass: "is-empty",
       }),
       Code,
+      Highlight,
     ],
     content: content,
     onUpdate: ({ editor }) => {

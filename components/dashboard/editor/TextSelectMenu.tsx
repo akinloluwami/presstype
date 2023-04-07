@@ -67,7 +67,10 @@ const TextSelectMenu = ({ editor }: any) => {
     {
       text: "Highlight",
       node: (
-        <button onClick={setLink}>
+        <button
+          onClick={() => editor.chain().focus().toggleHighlight().run()}
+          className={editor.isActive("highlight") ? "is-active" : ""}
+        >
           <FaHighlighter />
         </button>
       ),
