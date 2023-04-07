@@ -12,26 +12,29 @@
   img {
     max-width: 500px;
   }
-  button {
+  .btn_container {
     width: 100%;
-    font-size: 1rem;
-    padding: 15px 0;
-    text-align: left;
-    padding-left: 15px;
-    outline: none;
-    border: none;
-    background-color: rgba($dark-secondary, 0.3);
-    color: $white-secondary;
-    display: flex;
-    align-items: center;
-    svg {
-      margin-right: 5px;
-      font-size: 1.3rem;
-      background-color: rgba($accent-base, 0.2);
-      padding: 7px;
-    }
-    &:hover {
-      background-color: rgba($accent-base, 0.7);
+    button {
+      width: 100%;
+      font-size: 1rem;
+      padding: 15px 0;
+      text-align: left;
+      padding-left: 15px;
+      outline: none;
+      border: none;
+      background-color: rgba($dark-secondary, 0.3);
+      color: $white-secondary;
+      display: flex;
+      align-items: center;
+      svg {
+        margin-right: 5px;
+        font-size: 1.3rem;
+        background-color: rgba($accent-base, 0.2);
+        padding: 7px;
+      }
+      &:hover {
+        background-color: rgba($accent-base, 0.7);
+      }
     }
   }
 }
