@@ -30,13 +30,13 @@ const EditorMenu = ({ editor }: any) => {
     setShowModal(true);
   };
 
-  const addImage = useCallback(() => {
+  const addImage = () => {
     if (url) {
       editor.chain().focus().setImage({ src: url }).run();
     }
     setUrl("");
     handleCloseModal();
-  }, [editor]);
+  };
 
   return (
     <>
@@ -44,7 +44,12 @@ const EditorMenu = ({ editor }: any) => {
         <Modal onClose={handleCloseModal}>
           <h1>Add an image</h1>
           <input type="text" onChange={(e) => setUrl(e.target.value)} />
-          <button className={styles.add_btn} onClick={addImage}>
+          <button
+            className={styles.add_btn}
+            onClick={() => {
+              addImage();
+            }}
+          >
             Add hyperlink
           </button>
         </Modal>
