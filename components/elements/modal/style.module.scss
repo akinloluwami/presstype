@@ -1,3 +1,5 @@
+@import "../../../styles/variables.scss";
+
 $modal-bg-color: rgba(0, 0, 0, 0.5);
 $modal-border-radius: 5px;
 $modal-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
@@ -22,7 +24,7 @@ $modal-close-button-hover-color: black;
 }
 
 .modal-container {
-  background-color: white;
+  background-color: $dark-secondary;
   border-radius: $modal-border-radius;
   box-shadow: $modal-box-shadow;
   padding: $modal-padding;
