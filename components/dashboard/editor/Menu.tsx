@@ -47,7 +47,7 @@ const EditorMenu = ({ editor }: any) => {
             className={styles.add_btn}
             onClick={() => {
               addImage();
-              handleCloseModal();
+              // handleCloseModal();
             }}
           >
             Add hyperlink
