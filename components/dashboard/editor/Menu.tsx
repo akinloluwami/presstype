@@ -223,7 +223,13 @@ const EditorMenu = ({ editor }: any) => {
           </button>
         </Modal>
       )}
-      <div className={styles.editor_menu}></div>
+      <div className={styles.editor_menu}>
+        {tools.map((tool) => (
+          <div className={styles.btn_container} key={tool.name}>
+            {tool.node}
+          </div>
+        ))}
+      </div>
     </>
   );
 };
