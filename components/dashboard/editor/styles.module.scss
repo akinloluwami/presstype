@@ -68,3 +68,13 @@
     font-size: 1rem;
   }
 }
+
+.add_btn {
+  background-color: $accent-base;
+  color: $white-base;
+  outline: none;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 5px;
+}
