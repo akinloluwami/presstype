@@ -49,4 +49,14 @@
 
 .text_select_menu {
   display: flex;
+  button {
+    outline: none;
+    border: none;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    margin: 0 5px;
+    color: $white-secondary;
+    font-size: 1rem;
+  }
 }
