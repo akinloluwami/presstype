@@ -31,12 +31,12 @@ const Editor = () => {
     ],
     content: content,
     onUpdate: ({ editor }) => {
-      setContent(editor.getHTML()); // update the content state with the editor's HTML content
+      setContent(editor.getHTML());
     },
   });
   const [showEditorMenu, setShowEditorMenu] = useState(false);
   useEffect(() => {
-    console.log(editor?.getHTML()); // log the editor's content as HTML
+    console.log(editor?.getHTML());
   }, [editor]);
 
   return (
@@ -47,9 +47,8 @@ const Editor = () => {
           {editor.isActive("link") ? (
             <LinkSelectMenu editor={editor} />
           ) : editor.isActive("image") ? (
-            <>Image</>
+            <></>
           ) : (
-            // <ImageSelectMenu editor={editor} />
             <TextSelectMenu editor={editor} />
           )}
         </BubbleMenu>
