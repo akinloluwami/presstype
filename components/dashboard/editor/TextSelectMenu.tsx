@@ -1,4 +1,12 @@
 import { useCallback } from "react";
+import styles from "./styles.module.scss";
+import {
+  MdFormatBold,
+  MdFormatItalic,
+  MdLink,
+  MdOutlineStrikethroughS,
+} from "react-icons/md";
+import { FaCode, FaHighlighter } from "react-icons/fa";
 
 const TextSelectMenu = ({ editor }: any) => {
   const setLink = useCallback(() => {
@@ -26,7 +34,7 @@ const TextSelectMenu = ({ editor }: any) => {
       text: "Bold",
       node: (
         <button onClick={() => editor.chain().focus().toggleBold().run()}>
-          Bold
+          <MdFormatBold />
         </button>
       ),
     },
@@ -34,7 +42,7 @@ const TextSelectMenu = ({ editor }: any) => {
       text: "Italic",
       node: (
         <button onClick={() => editor.chain().focus().toggleItalic().run()}>
-          Italic
+          <MdFormatItalic />
         </button>
       ),
     },
@@ -42,18 +50,38 @@ const TextSelectMenu = ({ editor }: any) => {
       text: "Strike",
       node: (
         <button onClick={() => editor.chain().focus().toggleStrike().run()}>
-          Strike
+          <MdOutlineStrikethroughS />
         </button>
       ),
     },
     {
       text: "Link",
-      node: <button onClick={setLink}>Link</button>,
+      node: (
+        <button onClick={setLink}>
+          <MdLink />
+        </button>
+      ),
+    },
+    {
+      text: "Highlight",
+      node: (
+        <button onClick={setLink}>
+          <FaHighlighter />
+        </button>
+      ),
+    },
+    {
+      text: "Inline code",
+      node: (
+        <button onClick={setLink}>
+          <FaCode />
+        </button>
+      ),
     },
   ];
 
   return (
-    <div>
+    <div className={styles.text_select_menu}>
       <>
         {tools.map((tool, i) => (
           <div key={i}>{tool.node}</div>
