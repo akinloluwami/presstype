@@ -1,5 +1,17 @@
 import { useCallback, useState } from "react";
 import styles from "./styles.module.scss";
+import {
+  MdFormatBold,
+  MdFormatItalic,
+  MdFormatListBulleted,
+  MdFormatListNumbered,
+  MdFormatQuote,
+  MdOutlineTextFields,
+  MdStrikethroughS,
+} from "react-icons/md";
+import { BiCodeBlock } from "react-icons/bi";
+import { BsCode, BsImage } from "react-icons/bs";
+import { TbDivide } from "react-icons/tb";
 
 const EditorMenu = ({ editor }: any) => {
   if (!editor) {
@@ -20,7 +32,7 @@ const EditorMenu = ({ editor }: any) => {
         disabled={!editor.can().chain().focus().toggleBold().run()}
         className={editor.isActive("bold") ? "is-active" : ""}
       >
-        bold
+        <MdFormatBold /> Bold
       </button>
 
       <button
@@ -28,96 +40,78 @@ const EditorMenu = ({ editor }: any) => {
         disabled={!editor.can().chain().focus().toggleItalic().run()}
         className={editor.isActive("italic") ? "is-active" : ""}
       >
-        italic
+        <MdFormatItalic /> Italic
       </button>
       <button
         onClick={() => editor.chain().focus().toggleStrike().run()}
         disabled={!editor.can().chain().focus().toggleStrike().run()}
         className={editor.isActive("strike") ? "is-active" : ""}
       >
-        strike
+        <MdStrikethroughS /> Strike
       </button>
       <button
         onClick={() => editor.chain().focus().toggleCode().run()}
         disabled={!editor.can().chain().focus().toggleCode().run()}
         className={editor.isActive("code") ? "is-active" : ""}
       >
-        code
+        <BsCode /> Code
       </button>
       <button
         onClick={() => editor.chain().focus().setParagraph().run()}
         className={editor.isActive("paragraph") ? "is-active" : ""}
       >
-        paragraph
+        <MdOutlineTextFields /> Text
       </button>
 
-      <button onClick={addImage}>image</button>
+      <button onClick={addImage}>
+        <BsImage /> Image
+      </button>
 
       <button
         onClick={() => editor.chain().focus().toggleHeading({ level: 1 }).run()}
         className={editor.isActive("heading", { level: 1 }) ? "is-active" : ""}
       >
-        h1
+        Heading 1
       </button>
       <button
         onClick={() => editor.chain().focus().toggleHeading({ level: 2 }).run()}
         className={editor.isActive("heading", { level: 2 }) ? "is-active" : ""}
       >
-        h2
+        Heading 2
       </button>
       <button
         onClick={() => editor.chain().focus().toggleHeading({ level: 3 }).run()}
         className={editor.isActive("heading", { level: 3 }) ? "is-active" : ""}
       >
-        h3
+        Heading 3
       </button>
-      <button
-        onClick={() => editor.chain().focus().toggleHeading({ level: 4 }).run()}
-        className={editor.isActive("heading", { level: 4 }) ? "is-active" : ""}
-      >
-        h4
-      </button>
-      <button
-        onClick={() => editor.chain().focus().toggleHeading({ level: 5 }).run()}
-        className={editor.isActive("heading", { level: 5 }) ? "is-active" : ""}
-      >
-        h5
-      </button>
-      <button
-        onClick={() => editor.chain().focus().toggleHeading({ level: 6 }).run()}
-        className={editor.isActive("heading", { level: 6 }) ? "is-active" : ""}
-      >
-        h6
-      </button>
+
       <button
         onClick={() => editor.chain().focus().toggleBulletList().run()}
         className={editor.isActive("bulletList") ? "is-active" : ""}
       >
-        bullet list
+        <MdFormatListBulleted /> Bullet list
       </button>
       <button
         onClick={() => editor.chain().focus().toggleOrderedList().run()}
         className={editor.isActive("orderedList") ? "is-active" : ""}
       >
-        ordered list
+        <MdFormatListNumbered /> Numbered list
       </button>
       <button
         onClick={() => editor.chain().focus().toggleCodeBlock().run()}
         className={editor.isActive("codeBlock") ? "is-active" : ""}
       >
-        code block
+        <BiCodeBlock /> Code block
       </button>
       <button
         onClick={() => editor.chain().focus().toggleBlockquote().run()}
         className={editor.isActive("blockquote") ? "is-active" : ""}
       >
-        blockquote
+        <MdFormatQuote /> Quote
       </button>
       <button onClick={() => editor.chain().focus().setHorizontalRule().run()}>
-        divider
-      </button>
-      <button onClick={() => editor.chain().focus().setHardBreak().run()}>
-        hard break
+        <TbDivide /> Divider
       </button>
     </div>
   );
