@@ -75,7 +75,10 @@ const TextSelectMenu = ({ editor }: any) => {
     {
       text: "Inline code",
       node: (
-        <button onClick={setLink}>
+        <button
+          onClick={() => editor.chain().focus().toggleCode().run()}
+          className={editor.isActive("code") ? "is-active" : ""}
+        >
           <FaCode />
         </button>
       ),
