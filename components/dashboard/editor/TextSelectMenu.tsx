@@ -54,7 +54,11 @@ const TextSelectMenu = ({ editor }: any) => {
 
   return (
     <div>
-      <></>
+      <>
+        {tools.map((tool, i) => (
+          <>{tool.node}</>
+        ))}
+      </>
     </div>
   );
 };
