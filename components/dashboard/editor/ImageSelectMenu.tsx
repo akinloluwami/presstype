@@ -1,6 +1,6 @@
 import React from "react";
 
-const ImageSelectMenu = () => {
+const ImageSelectMenu = ({ editor }: any) => {
   return <div>ImageSelectMenu</div>;
 };
 
