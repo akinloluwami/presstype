@@ -13,6 +13,7 @@ import Placeholder from "@tiptap/extension-placeholder";
 import TextSelectMenu from "./TextSelectMenu";
 import LinkSelectMenu from "./LinkSelectMenu";
 import Image from "@tiptap/extension-image";
+import ImageSelectMenu from "./ImageSelectMenu";
 
 const Editor = () => {
   const [content, setContent] = useState("");
@@ -47,7 +48,7 @@ const Editor = () => {
           {editor.isActive("link") ? (
             <LinkSelectMenu editor={editor} />
           ) : editor.isActive("image") ? (
-            <></>
+            <ImageSelectMenu editor={editor} />
           ) : (
             <TextSelectMenu editor={editor} />
           )}
