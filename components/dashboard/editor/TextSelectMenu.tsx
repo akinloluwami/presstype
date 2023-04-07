@@ -21,20 +21,40 @@ const TextSelectMenu = ({ editor }: any) => {
       .run();
   }, [editor]);
 
+  const tools = [
+    {
+      text: "Bold",
+      node: (
+        <button onClick={() => editor.chain().focus().toggleBold().run()}>
+          Bold
+        </button>
+      ),
+    },
+    {
+      text: "Italic",
+      node: (
+        <button onClick={() => editor.chain().focus().toggleItalic().run()}>
+          Italic
+        </button>
+      ),
+    },
+    {
+      text: "Strike",
+      node: (
+        <button onClick={() => editor.chain().focus().toggleStrike().run()}>
+          Strike
+        </button>
+      ),
+    },
+    {
+      text: "Link",
+      node: <button onClick={setLink}>Link</button>,
+    },
+  ];
+
   return (
     <div>
-      <>
-        <button onClick={setLink}>link</button>
-        <button onClick={() => editor.chain().focus().toggleBold().run()}>
-          bold
-        </button>
-        <button onClick={() => editor.chain().focus().toggleItalic().run()}>
-          italic
-        </button>
-        <button onClick={() => editor.chain().focus().toggleStrike().run()}>
-          strike
-        </button>
-      </>
+      <></>
     </div>
   );
 };
