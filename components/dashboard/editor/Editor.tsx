@@ -1,10 +1,5 @@
-import { useCallback, useState, useEffect } from "react";
-import {
-  useEditor,
-  EditorContent,
-  FloatingMenu,
-  BubbleMenu,
-} from "@tiptap/react";
+import { useState, useEffect } from "react";
+import { useEditor, EditorContent, BubbleMenu } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import EditorMenu from "./Menu";
 import Link from "@tiptap/extension-link";
