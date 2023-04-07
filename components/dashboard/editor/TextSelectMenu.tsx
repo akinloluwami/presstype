@@ -7,6 +7,8 @@ import {
   MdOutlineStrikethroughS,
 } from "react-icons/md";
 import { FaCode, FaHighlighter } from "react-icons/fa";
+import Tippy from "@tippyjs/react";
+import "tippy.js/dist/tippy.css";
 
 const TextSelectMenu = ({ editor }: any) => {
   const setLink = useCallback(() => {
@@ -84,7 +86,9 @@ const TextSelectMenu = ({ editor }: any) => {
     <div className={styles.text_select_menu}>
       <>
         {tools.map((tool, i) => (
-          <div key={i}>{tool.node}</div>
+          <Tippy content={tool.text} key={i}>
+            <button>{tool.node}</button>
+          </Tippy>
         ))}
       </>
     </div>
