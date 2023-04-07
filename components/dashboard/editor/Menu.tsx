@@ -44,6 +44,7 @@ const EditorMenu = ({ editor }: any) => {
           <h1>Add an image</h1>
           <input type="text" onChange={(e) => setUrl(e.target.value)} />
           <button
+            className={styles.add_btn}
             onClick={() => {
               addImage();
               handleCloseModal();
