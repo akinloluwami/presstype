@@ -49,11 +49,6 @@ const Editor = () => {
           )}
         </BubbleMenu>
       )}
-      <input
-        type="text"
-        className={styles.article_title}
-        placeholder="Article title"
-      />
       <EditorContent editor={editor} className={styles.editor_content} />
       <EditorMenu editor={editor} />
     </>
