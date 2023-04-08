@@ -22,7 +22,7 @@ const Editor = () => {
       }),
       Image,
       Placeholder.configure({
-        placeholder: `Type "." for commands.`,
+        placeholder: `Type "/" for commands.`,
         emptyEditorClass: "is-editor-empty",
         emptyNodeClass: "is-empty",
       }),
