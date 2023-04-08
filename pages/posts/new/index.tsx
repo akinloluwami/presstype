@@ -8,7 +8,7 @@ import { useNewPostStore } from "@/stores/newPostStore";
 const NewPost = () => {
   const { title, setTitle } = useNewPostStore();
   return (
-    <DashboardLayout>
+    <DashboardLayout page_name={`Editing ${title ? `"${title}"` : ""}`}>
       <NewPostHeader />
       <input
         type="text"
