@@ -1,0 +1,14 @@
+@import "../../../styles/variables.scss";
+
+.article_title {
+  width: 100%;
+  font-size: 2.5rem;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  color: $white-secondary;
+}
+
+.editor {
+  margin-top: 30px;
+}
