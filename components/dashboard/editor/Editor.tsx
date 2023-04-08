@@ -35,9 +35,6 @@ const Editor = () => {
     },
   });
   const [showEditorMenu, setShowEditorMenu] = useState(false);
-  useEffect(() => {
-    console.log(editor?.getHTML());
-  }, [editor]);
 
   return (
     <>
