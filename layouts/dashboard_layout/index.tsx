@@ -32,7 +32,7 @@ const DashboardLayout = ({ children, page_name, showButton, button }: any) => {
       </div>
       <div className={styles.main}>
         <div className={styles.top}>
-          <h1>{page_name}</h1>
+          {/* <h1>{page_name}</h1> */}
           {showButton && button}
         </div>
         <div className={styles.body}>{children}</div>
