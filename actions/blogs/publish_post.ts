@@ -1,10 +1,14 @@
 import { useNewPostStore } from "@/stores/newPostStore";
 
-const publishPost = async () => {
+const usePublishPost = () => {
   const { title, content } = useNewPostStore();
 
-  const payload = { content, title };
-  console.log(payload);
+  const publishPost = async () => {
+    const payload = { content, title };
+    console.log(payload);
+  };
+
+  return publishPost;
 };
 
-export default publishPost;
+export default usePublishPost;
