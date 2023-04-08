@@ -372,6 +372,11 @@
     "@tiptap/extension-strike" "^2.0.2"
     "@tiptap/extension-text" "^2.0.2"
 
+"@tiptap/suggestion@^2.0.2":
+  version "2.0.2"
+  resolved "https://registry.npmjs.org/@tiptap/suggestion/-/suggestion-2.0.2.tgz"
+  integrity sha512-JTfmLYr0MKigExma/P67kOClCWnqtLkOfPSNA4JmzG5rupjhaesGcoYlsptewbzl7MtJCthJDP81BNcncIEcBg==
+
 "@types/faker@^6.6.9":
   version "6.6.9"
   resolved "https://registry.npmjs.org/@types/faker/-/faker-6.6.9.tgz"
