@@ -42,6 +42,10 @@
 .editor_content {
   * {
     outline: none;
+    margin: 10px 0;
+  }
+  p {
+    font-size: 1.2rem;
   }
   code {
     background-color: rgba(#616161, 0.1);
@@ -52,13 +56,16 @@
     padding: 0.25em;
   }
   img {
-    max-width: 400px;
+    max-width: 100%;
   }
   mark {
-    background-color: #ffe066;
+    background-color: yellow;
     border-radius: 0.25em;
     box-decoration-break: clone;
-    padding: 0.125em 0;
+    // padding: 0.125em 0;
+  }
+  a {
+    color: $accent-base;
   }
 }
 
