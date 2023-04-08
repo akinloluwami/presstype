@@ -11,9 +11,10 @@ import Image from "@tiptap/extension-image";
 import ImageSelectMenu from "./ImageSelectMenu";
 import Code from "@tiptap/extension-code";
 import Highlight from "@tiptap/extension-highlight";
+import { useNewPostStore } from "@/stores/newPostStore";
 
 const Editor = () => {
-  const [content, setContent] = useState("");
+  const { content, setContent } = useNewPostStore();
   const editor = useEditor({
     extensions: [
       StarterKit,
