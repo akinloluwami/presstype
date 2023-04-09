@@ -1,12 +1,16 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { allowMethods } from "@/middlewares/allowMethods";
-import AWS from "aws-sdk";
+// import AWS from "aws-sdk";
+
+import { S3Client } from "@aws-sdk/client-s3";
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
-  const s3 = new AWS.S3({
-    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-    region: process.env.AWS_REGION,
+  const s3 = new S3Client({
+    credentials: {
+      accessKeyId: process.env.AWS_ACCESS_KEY_ID as string,
+      secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY as string,
+    },
+    region: process.env.AWS_REGION as string,
   });
 
   const file = req.body.file;
