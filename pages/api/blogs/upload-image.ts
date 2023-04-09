@@ -37,7 +37,6 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     Body: buffer,
   };
 
-  // Upload the file to S3
   try {
     const result = await s3.send(new PutObjectCommand(params));
     console.log(result);
