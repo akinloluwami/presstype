@@ -11,10 +11,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     region: process.env.AWS_REGION as string,
   });
 
-  const file = Buffer.from(
-    req.body.file.replace(/^data:image\/\w+;base64,/, ""),
-    "base64"
-  );
+  const file = req.body.file;
   const fileName = req.body.fileName;
 
   if (!file) {
@@ -27,26 +24,27 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     return;
   }
 
+  const base64Data = file.replace(/^data:image\/\w+;base64,/, "");
+  const buffer = Buffer.from(base64Data, "base64");
+
   const params: {
     Bucket: string;
     Key: string;
     Body: any;
-    ContentType: string;
   } = {
     Bucket: process.env.AWS_BUCKET_NAME as string,
     Key: fileName,
-    Body: file,
-    ContentType: req.body.contentType,
+    Body: buffer,
   };
 
-  const command = new PutObjectCommand(params);
-
+  // Upload the file to S3
   try {
-    await s3.send(command);
-    res.status(200).send("File uploaded successfully");
-  } catch (error) {
-    console.error(error);
-    res.status(500).send("Failed to upload file");
+    const result = await s3.send(new PutObjectCommand(params));
+    console.log(result);
+    res.status(200).json({ success: true });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Internal Server Error");
   }
 };
 
