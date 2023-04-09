@@ -11,8 +11,22 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const file = req.body.file;
   const fileName = req.body.fileName;
 
-  const params = {
-    Bucket: process.env.AWS_BUCKET_NAME,
+  if (!file) {
+    res.status(400).send("No file");
+    return;
+  }
+
+  if (!fileName) {
+    res.status(400).send("No fileName");
+    return;
+  }
+
+  const params: {
+    Bucket: string;
+    Key: string;
+    Body: any;
+  } = {
+    Bucket: process.env.AWS_BUCKET_NAME as string,
     Key: fileName,
     Body: file,
   };
@@ -20,8 +34,10 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   s3.upload(params, (err: any, data: any) => {
     if (err) {
       res.status(500).send(err);
+      return;
     }
     res.status(200).send(data);
+    return;
   });
 };
 
