@@ -1,11 +1,18 @@
 import { useNewPostStore } from "@/stores/newPostStore";
+import { useTokenStore } from "@/stores/tokenStore";
+import axios from "axios";
 
 const usePublishPost = () => {
   const { title, content } = useNewPostStore();
-
+  const { token } = useTokenStore();
   const publishPost = async () => {
     const payload = { content, title };
-    console.log(payload);
+    const response = await axios.post("/api/blogs/posts/create", payload, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    return response;
   };
 
   return publishPost;
