@@ -15,10 +15,10 @@ export const config = {
 };
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
-  if (!req.headers.authorization) {
-    res.status(401).json({ message: "Unauthorized" });
-    return;
-  }
+  // if (!req.headers.authorization) {
+  //   res.status(401).json({ message: "Unauthorized" });
+  //   return;
+  // }
 
   try {
     await new Promise<void>((resolve, reject) => {
@@ -36,9 +36,12 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
         }
 
         const fileStream = fs.createReadStream(file.path);
+        const key: string = file.originalname
+          .toLowerCase()
+          .replaceAll(" ", "-");
         const uploadParams = {
           Bucket: process.env.AWS_BUCKET_NAME,
-          Key: file.originalname,
+          Key: key,
           Body: fileStream,
           ContentType: file.mimetype,
         };
@@ -47,7 +50,8 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
         try {
           await s3.send(command);
-          res.status(200).json({ message: "File uploaded successfully" });
+          const url = `https://presstype.s3.amazonaws.com/${key}`;
+          res.status(200).json({ message: "File uploaded successfully", url });
           resolve();
         } catch (err) {
           console.error(err);
