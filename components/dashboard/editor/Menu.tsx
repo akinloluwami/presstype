@@ -22,6 +22,8 @@ const EditorMenu = ({ editor }: any) => {
 
   const [showModal, setShowModal] = useState(false);
 
+  const [cdnImage, setCdnImage] = useState("");
+
   const handleCloseModal = () => {
     setShowModal(false);
   };
