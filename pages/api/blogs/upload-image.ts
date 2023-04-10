@@ -5,10 +5,6 @@ import { v4 as uuidv4 } from "uuid";
 import path from "path";
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
-  if (req.method !== "POST") {
-    return res.status(405).json({ message: "Method not allowed" });
-  }
-
   try {
     const s3 = new S3Client({
       credentials: {
