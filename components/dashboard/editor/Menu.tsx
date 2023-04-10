@@ -43,18 +43,13 @@ const EditorMenu = ({ editor }: any) => {
   };
 
   const addCdnImage = async () => {
-    // if (cdnImage) {
-    //   editor.chain().focus().setImage({ src: cdnImage }).run();
-    // }
-    // setCdnImage("");
-    // handleCloseModal();
-    console.log(cdnImage);
-
     const formData = new FormData();
     formData.append("file", cdnImage);
 
-    axios.post("/api/blogs/upload-image", formData).then((data) => {
+    axios.post("/api/blogs/upload-image", formData).then((data: any) => {
       console.log(data);
+      editor.chain().focus().setImage({ src: data?.url }).run();
+      handleCloseModal();
     });
   };
 
