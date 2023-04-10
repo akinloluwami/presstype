@@ -16,7 +16,8 @@ const MagicLink = ({ type }: MagicLinkProps) => {
   const { theme } = useTheme();
 
   const clickHandler = async () => {
-    setLoading(true);
+    // setLoading(true);
+
     if (type === "Sign in") {
       const signin: any = await singIn(email);
       setMessage(signin.data.message);
@@ -41,7 +42,7 @@ const MagicLink = ({ type }: MagicLinkProps) => {
         onChange={(e) => setEmail(e.target.value)}
       />
       <button onClick={clickHandler} disabled={!email || loading}>
-        {loading ? "..." : "Send magic link"}
+        Send magic link
       </button>
       {!loading && <small>{message}</small>}
       <p>
