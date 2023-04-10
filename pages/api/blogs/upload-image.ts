@@ -14,7 +14,10 @@ export const config = {
   },
 };
 
-const handler = async (req: NextApiRequest, res: NextApiResponse) => {
+const handler = async (
+  req: NextApiRequest | any,
+  res: NextApiResponse | any
+) => {
   try {
     await new Promise<void>((resolve, reject) => {
       upload.single("file")(req, res, async (err) => {
@@ -24,7 +27,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
           return reject(err);
         }
 
-        const file: any = req.file;
+        const file = req.file;
         if (!file) {
           res.status(400).json({ message: "No file provided" });
           return reject(new Error("No file provided"));
