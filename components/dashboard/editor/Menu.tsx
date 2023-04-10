@@ -40,6 +40,14 @@ const EditorMenu = ({ editor }: any) => {
     handleCloseModal();
   };
 
+  const addCdnImage = () => {
+    if (cdnImage) {
+      editor.chain().focus().setImage({ src: cdnImage }).run();
+    }
+    setCdnImage("");
+    handleCloseModal();
+  };
+
   const tools = [
     {
       node: (
