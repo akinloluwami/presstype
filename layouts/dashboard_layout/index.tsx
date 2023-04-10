@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import styles from "./styles.module.scss";
 import { useRouter } from "next/router";
 import { useTokenStore } from "@/stores/tokenStore";
+import isAuthenticated from "@/actions/auth/isAuthenticated";
 
 const DashboardLayout = ({ children, page_name, showButton, button }: any) => {
   const { theme } = useTheme();
@@ -22,6 +23,12 @@ const DashboardLayout = ({ children, page_name, showButton, button }: any) => {
     }
   }, [router.query.token]);
 
+  useEffect(() => {
+    if (!isAuthenticated()) {
+      router.push("/");
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   return (
     <div className={styles.dashboard_layout_container} data-theme={theme}>
       <Head>
