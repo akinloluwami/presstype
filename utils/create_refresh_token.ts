@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 
 export const createRefreshToken = (userId: string) => {
   const refreshToken = uuidv4();
-  const refreshTokenExpiresIn = "7d"; // for example, refresh tokens expire in 7 days
+  const refreshTokenExpiresIn = "7d";
 
   const refreshTokenPayload = {
     sub: userId,
