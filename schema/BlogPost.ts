@@ -13,6 +13,9 @@ const blogPostSchema = new Schema({
     type: String,
     required: true,
   },
+  cover_image: {
+    type: String,
+  },
   createdAt: {
     type: Date,
     default: Date.now,
