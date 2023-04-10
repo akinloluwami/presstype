@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.309.0",
+    "@aws-sdk/lib-storage": "^3.309.0",
     "@tippyjs/react": "^4.2.6",
     "@tiptap/extension-bubble-menu": "^2.0.2",
     "@tiptap/extension-code": "^2.0.2",
