@@ -43,14 +43,18 @@ const EditorMenu = ({ editor }: any) => {
     handleCloseModal();
   };
 
+  const [uploading, setUploading] = useState(false);
+
   const addCdnImage = async () => {
     toast.loading("Uploading image...");
+    setUploading(true);
     const formData = new FormData();
     formData.append("file", cdnImage);
     const res = await axios.post("/api/blogs/upload-image", formData);
     editor.chain().focus().setImage({ src: res.data.url }).run();
     handleCloseModal();
     setCdnImage(null);
+    setUploading(false);
     toast.dismiss();
   };
 
@@ -252,12 +256,14 @@ const EditorMenu = ({ editor }: any) => {
                   onChange={(e: any) => {
                     setCdnImage(e.target.files[0]);
                   }}
+                  disabled={uploading}
                 />
                 <button
                   className={styles.add_btn}
                   onClick={() => {
                     addCdnImage();
                   }}
+                  disabled={uploading}
                 >
                   Upload
                 </button>
