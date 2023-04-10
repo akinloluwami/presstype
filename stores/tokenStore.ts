@@ -6,6 +6,6 @@ interface TokenStore {
 }
 
 export const useTokenStore = create<TokenStore>((set) => ({
-  token: "",
+  token: localStorage.getItem("token") || "",
   setToken: (token: string) => set(() => ({ token })),
 }));
