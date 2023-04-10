@@ -8,6 +8,13 @@ import { useTokenStore } from "@/stores/tokenStore";
 import isAuthenticated from "@/actions/auth/isAuthenticated";
 
 const DashboardLayout = ({ children, page_name, showButton, button }: any) => {
+  useEffect(() => {
+    if (!isAuthenticated()) {
+      router.push("/");
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   const { theme } = useTheme();
   const router = useRouter();
 
@@ -23,12 +30,6 @@ const DashboardLayout = ({ children, page_name, showButton, button }: any) => {
     }
   }, [router.query.token]);
 
-  useEffect(() => {
-    if (!isAuthenticated()) {
-      router.push("/");
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
   return (
     <div className={styles.dashboard_layout_container} data-theme={theme}>
       <Head>
