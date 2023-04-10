@@ -3,6 +3,7 @@ import multer from "multer";
 import { allowMethods } from "@/middlewares/allowMethods";
 import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
 import fs from "fs";
+import { v4 } from "uuid";
 
 const s3 = new S3Client({ region: process.env.AWS_REGION });
 
@@ -36,9 +37,8 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
         }
 
         const fileStream = fs.createReadStream(file.path);
-        const key: string = file.originalname
-          .toLowerCase()
-          .replaceAll(" ", "-");
+        const key: string =
+          file.originalname.toLowerCase().replaceAll(" ", "-") + "-" + v4();
         const uploadParams = {
           Bucket: process.env.AWS_BUCKET_NAME,
           Key: key,
