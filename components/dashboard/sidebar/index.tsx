@@ -51,6 +51,7 @@ const Sidebar = () => {
       <div className={styles.links_container}>
         {routes.map((route, i) => (
           <Link
+            key={i}
             href={route.path}
             className={` ${styles.route_btn} ${
               router.asPath.includes(route.path) && styles.active
