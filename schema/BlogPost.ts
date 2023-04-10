@@ -24,6 +24,10 @@ const blogPostSchema = new Schema({
     type: Date,
     default: Date.now,
   },
+  blog_id: {
+    type: String,
+    required: true,
+  },
 });
 
 const BlogPost = models.BlogPost || model("BlogPost", blogPostSchema);
