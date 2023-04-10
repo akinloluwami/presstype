@@ -23,7 +23,7 @@ const EditorMenu = ({ editor }: any) => {
 
   const [showModal, setShowModal] = useState(false);
 
-  const [cdnImage, setCdnImage] = useState("");
+  const [cdnImage, setCdnImage] = useState<any>();
 
   const handleCloseModal = () => {
     setShowModal(false);
@@ -241,7 +241,10 @@ const EditorMenu = ({ editor }: any) => {
                 </button>
               </Tab.Panel>
               <Tab.Panel>
-                <input type="file" onChange={(e) => setUrl(e.target.value)} />
+                <input
+                  type="file"
+                  onChange={(e) => setUrl(e.target.files[0])}
+                />
                 <button
                   className={styles.add_btn}
                   onClick={() => {
