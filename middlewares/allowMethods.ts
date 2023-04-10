@@ -1,6 +1,5 @@
 import { NextApiHandler, NextApiRequest, NextApiResponse } from "next";
 
-// Modify allowMethods function to send a response when an unsupported request method is used
 export function allowMethods(methods: string[]) {
   return (handler: NextApiHandler) =>
     (req: NextApiRequest, res: NextApiResponse) => {
