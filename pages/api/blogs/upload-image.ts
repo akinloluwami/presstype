@@ -14,7 +14,6 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       region: process.env.AWS_REGION as string,
     });
 
-    // Get the file extension from the uploaded file
     const ext = path.extname(req.headers["content-disposition"] || "");
     const key = `uploads/${uuidv4()}${ext}`;
 
