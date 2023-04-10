@@ -15,6 +15,7 @@ import { TbDivide } from "react-icons/tb";
 import Modal from "@/components/elements/modal/Modal";
 import { Tab } from "@headlessui/react";
 import axios from "axios";
+import toast, { Toaster } from "react-hot-toast";
 
 const EditorMenu = ({ editor }: any) => {
   if (!editor) {
