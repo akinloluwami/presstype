@@ -38,7 +38,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
         const fileStream = fs.createReadStream(file.path);
         const key: string =
-          file.originalname.toLowerCase().replaceAll(" ", "-") + "-" + v4();
+          v4() + "-" + file.originalname.toLowerCase().replaceAll(" ", "-");
         const uploadParams = {
           Bucket: process.env.AWS_BUCKET_NAME,
           Key: key,
