@@ -25,6 +25,25 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     res.status(404).json({ message: "Blog not found" });
     return;
   }
-};
 
+  const { title, content, cover_image } = req.body;
+
+  if (!title) {
+    res.status(400).json({ message: "Title is required" });
+    return;
+  }
+
+  if (title.length < 2) {
+    res.status(400).json({ message: "Title must be at least 2 characters" });
+    return;
+  }
+
+  if (!content) {
+    res.status(400).json({ message: "Content is required" });
+    return;
+  }
+
+  try {
+  } catch (error) {}
+};
 export default allowMethods(["POST"])(handler);
