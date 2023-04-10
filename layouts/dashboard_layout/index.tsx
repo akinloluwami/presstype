@@ -17,6 +17,7 @@ const DashboardLayout = ({ children, page_name, showButton, button }: any) => {
     const tokenFromUrl = router.query.token;
     if (tokenFromUrl) {
       setToken(tokenFromUrl as string);
+      localStorage.setItem("token", tokenFromUrl as string);
       const urlWithoutToken = window.location.pathname;
       history.replaceState(null, "", urlWithoutToken);
       console.log("bro");
