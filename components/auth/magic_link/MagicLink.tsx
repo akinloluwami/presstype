@@ -59,7 +59,8 @@ const MagicLink = ({ type }: MagicLinkProps) => {
       <input
         placeholder="Email address"
         data-theme={theme}
-        onChange={(e) => setEmail(e.target.value)}
+        onChange={(e) => setEmail(e.target.value.toLowerCase().trim())}
+        value={email}
       />
       <button onClick={clickHandler} disabled={!email || loading}>
         Send magic link
