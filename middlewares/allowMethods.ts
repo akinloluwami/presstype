@@ -1,20 +1,18 @@
-import { NextApiRequest, NextApiResponse } from "next";
+import { NextApiHandler, NextApiRequest, NextApiResponse } from "next";
 
-export const allowMethods =
-  (methods: string[]) =>
-  (handler: any) =>
-  async (req: NextApiRequest, res: NextApiResponse) => {
-    if (typeof req.method !== "string") {
-      res.setHeader("Allow", methods.join(", "));
-      return res.status(405).send({ error: "Method Not Allowed" });
-    }
-
-    if (!methods.includes(req.method)) {
-      res.setHeader("Allow", methods.join(", "));
-      return res
-        .status(405)
-        .send({ error: `Method ${req.method} Not Allowed` });
-    }
-
-    return handler(req, res);
-  };
+// Modify allowMethods function to send a response when an unsupported request method is used
+export function allowMethods(methods: string[]) {
+  return (handler: NextApiHandler) =>
+    (req: NextApiRequest, res: NextApiResponse) => {
+      if (!methods.includes(req.method as string)) {
+        res.status(405).json({
+          error: "Method Not Allowed",
+          message: `This endpoint only supports ${methods.join(
+            ", "
+          )}, while your request was: ${req.method}`,
+        });
+        return;
+      }
+      return handler(req, res);
+    };
+}
