@@ -4,6 +4,7 @@ import { useTheme } from "@/contexts/ThemeContext";
 import Link from "next/link";
 import singIn from "@/actions/auth/signin";
 import signUp from "@/actions/auth/signup";
+import toast, { Toaster } from "react-hot-toast";
 
 interface MagicLinkProps {
   type: "Sign in" | "Sign up";
@@ -16,24 +17,31 @@ const MagicLink = ({ type }: MagicLinkProps) => {
   const { theme } = useTheme();
 
   const clickHandler = async () => {
-    // setLoading(true);
-
+    toast.loading("Sending magic link...", {
+      id: "loading",
+    });
     if (type === "Sign in") {
       const signin: any = await singIn(email);
-      setMessage(signin.data.message);
-      setLoading(false);
+      toast.dismiss("loading");
+      toast(signin.data.message, {
+        id: "success",
+        duration: 2500,
+      });
       return;
     }
     const signup: any = await signUp(email);
-    setMessage(signup.data.message);
-    setLoading(false);
+    toast.dismiss("loading");
+    toast(signup.data.message, {
+      id: "success",
+      duration: 2500,
+    });
     return;
   };
 
   return (
     <div className={styles.magic_link_container} data-theme={theme}>
       <h1>P</h1>
-
+      <Toaster />
       <small>Use your email address to {type.toLowerCase()}</small>
 
       <input
