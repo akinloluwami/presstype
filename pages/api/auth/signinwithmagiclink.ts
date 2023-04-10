@@ -6,6 +6,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 import validator from "validator";
 import jwt, { Secret } from "jsonwebtoken";
 import AuthToken from "@/schema/AuthToken";
+import RefreshToken from "@/schema/RefreshToken";
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const { email } = req.body;
@@ -28,15 +29,23 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   }
 
   try {
-    const token = jwt.sign({ email }, process.env.JWT_SECRET!, {
+    const accessToken = jwt.sign({ email }, process.env.JWT_SECRET!, {
       expiresIn: "1h",
     });
+    const refreshToken = jwt.sign({ email }, process.env.JWT_REFRESH_SECRET!, {
+      expiresIn: "30d",
+    });
+
     await AuthToken.create({
-      token,
+      token: accessToken,
+      email,
+    });
+    await RefreshToken.create({
+      token: refreshToken,
       email,
     });
 
-    const magicLinkUrl = `${process.env.BASE_URL}/api/auth/callback/login?token=${token}&email=${email}`;
+    const magicLinkUrl = `${process.env.BASE_URL}/api/auth/callback/login?token=${accessToken}&email=${email}`;
 
     const to = email;
     const subject = "Login to Your Account";
@@ -48,6 +57,8 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
     res.status(200).json({
       message: "Check your email for a link to login to your account",
+      accessToken,
+      refreshToken,
     });
   } catch (error) {
     console.log(error);
