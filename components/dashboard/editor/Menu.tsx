@@ -42,12 +42,14 @@ const EditorMenu = ({ editor }: any) => {
     handleCloseModal();
   };
 
-  const addCdnImage = () => {
+  const addCdnImage = async () => {
     // if (cdnImage) {
     //   editor.chain().focus().setImage({ src: cdnImage }).run();
     // }
     // setCdnImage("");
     // handleCloseModal();
+    console.log(cdnImage);
+
     const formData = new FormData();
     formData.append("file", cdnImage);
 
@@ -250,8 +252,9 @@ const EditorMenu = ({ editor }: any) => {
               <Tab.Panel>
                 <input
                   type="file"
-                  accept="image/*"
-                  onChange={(e: any) => setUrl(e.target.files[0])}
+                  onChange={(e: any) => {
+                    setCdnImage(e.target.files[0]);
+                  }}
                 />
                 <button
                   className={styles.add_btn}
