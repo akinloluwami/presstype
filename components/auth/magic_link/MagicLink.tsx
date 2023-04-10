@@ -23,18 +23,30 @@ const MagicLink = ({ type }: MagicLinkProps) => {
     if (type === "Sign in") {
       const signin: any = await singIn(email);
       toast.dismiss("loading");
-      toast(signin.data.message, {
-        id: "success",
-        duration: 2500,
-      });
+      if (signin.status !== 200) {
+        toast.error(signin.data.message, {
+          duration: 5000,
+        });
+        setEmail("");
+      } else {
+        toast.success(signin.data.message, {
+          duration: 2500,
+        });
+      }
       return;
     }
     const signup: any = await signUp(email);
     toast.dismiss("loading");
-    toast(signup.data.message, {
-      id: "success",
-      duration: 2500,
-    });
+    if (signup.status !== 200) {
+      toast.error(signup.data.message, {
+        duration: 5000,
+      });
+      setEmail("");
+    } else {
+      toast.success(signup.data.message, {
+        duration: 2500,
+      });
+    }
     return;
   };
 
