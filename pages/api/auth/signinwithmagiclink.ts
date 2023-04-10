@@ -29,9 +29,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   }
 
   try {
-    const accessToken = jwt.sign({ email }, process.env.JWT_SECRET!, {
-      expiresIn: "1h",
-    });
+    const accessToken = jwt.sign({ email }, process.env.JWT_SECRET!);
     const refreshToken = jwt.sign({ email }, process.env.JWT_REFRESH_SECRET!, {
       expiresIn: "30d",
     });
