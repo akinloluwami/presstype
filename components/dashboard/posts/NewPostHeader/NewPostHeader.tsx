@@ -17,6 +17,9 @@ const NewPostHeader = () => {
     if (res.status !== 201) {
       toast.error(res.data.message);
       toast.dismiss("publishing");
+    } else {
+      toast.dismiss("publishing");
+      toast.success(res.data.message);
     }
   };
   return (
