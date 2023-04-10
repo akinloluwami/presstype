@@ -45,12 +45,10 @@ const EditorMenu = ({ editor }: any) => {
   const addCdnImage = async () => {
     const formData = new FormData();
     formData.append("file", cdnImage);
-
-    axios.post("/api/blogs/upload-image", formData).then((data: any) => {
-      console.log(data);
-      editor.chain().focus().setImage({ src: data?.url }).run();
-      handleCloseModal();
-    });
+    const res = await axios.post("/api/blogs/upload-image", formData);
+    editor.chain().focus().setImage({ src: res.data.url }).run();
+    handleCloseModal();
+    setCdnImage(null);
   };
 
   const tools = [
