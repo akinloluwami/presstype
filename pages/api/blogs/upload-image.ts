@@ -2,6 +2,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 import { allowMethods } from "@/middlewares/allowMethods";
 import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
 import { v4 as uuidv4 } from "uuid";
+import path from "path";
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method !== "POST") {
@@ -17,7 +18,10 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       region: process.env.AWS_REGION as string,
     });
 
-    const key = `uploads/${uuidv4()}`;
+    // Get the file extension from the uploaded file
+    const ext = path.extname(req.headers["content-disposition"] || "");
+    const key = `uploads/${uuidv4()}${ext}`;
+
     const params = {
       Bucket: process.env.AWS_BUCKET_NAME as string,
       Key: key,
