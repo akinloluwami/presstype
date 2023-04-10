@@ -8,8 +8,16 @@ const NewPostHeader = () => {
   const [loading, setLoading] = useState(false);
   const handle = async () => {
     setLoading(true);
+    toast.loading("Publishing...", {
+      id: "publishing",
+    });
     const res = await publishPost();
-    toast("Hi");
+    console.log(res);
+
+    if (res.status !== 201) {
+      toast.error(res.data.message);
+      toast.dismiss("publishing");
+    }
   };
   return (
     <div className={styles.new_post_header}>
