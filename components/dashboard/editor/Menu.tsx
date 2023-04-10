@@ -14,6 +14,7 @@ import { BsCode, BsImage } from "react-icons/bs";
 import { TbDivide } from "react-icons/tb";
 import Modal from "@/components/elements/modal/Modal";
 import { Tab } from "@headlessui/react";
+import axios from "axios";
 
 const EditorMenu = ({ editor }: any) => {
   if (!editor) {
@@ -42,11 +43,17 @@ const EditorMenu = ({ editor }: any) => {
   };
 
   const addCdnImage = () => {
-    if (cdnImage) {
-      editor.chain().focus().setImage({ src: cdnImage }).run();
-    }
-    setCdnImage("");
-    handleCloseModal();
+    // if (cdnImage) {
+    //   editor.chain().focus().setImage({ src: cdnImage }).run();
+    // }
+    // setCdnImage("");
+    // handleCloseModal();
+    const formData = new FormData();
+    formData.append("file", cdnImage);
+
+    axios.post("/api/blogs/upload-image", formData).then((data) => {
+      console.log(data);
+    });
   };
 
   const tools = [
