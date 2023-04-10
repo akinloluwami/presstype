@@ -45,7 +45,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   }
 
   try {
-    BlogPost.create({
+    await BlogPost.create({
       title,
       content,
       cover_image,
