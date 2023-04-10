@@ -243,7 +243,8 @@ const EditorMenu = ({ editor }: any) => {
               <Tab.Panel>
                 <input
                   type="file"
-                  onChange={(e) => setUrl(e.target.files[0])}
+                  accept="image/*"
+                  onChange={(e: any) => setUrl(e.target.files[0])}
                 />
                 <button
                   className={styles.add_btn}
