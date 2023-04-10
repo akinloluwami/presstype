@@ -1,32 +1,64 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import formidable from "formidable";
+import multer from "multer";
+import { allowMethods } from "@/middlewares/allowMethods";
+import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
+import fs from "fs";
 
-const handler = (req: NextApiRequest, res: NextApiResponse) => {
-  const form = new formidable.IncomingForm();
+const s3 = new S3Client({ region: process.env.AWS_REGION });
 
-  form.parse(req, (err, fields, files) => {
-    if (err) {
-      res.status(500).json({ message: "Failed to upload file to S3" });
-      return;
-    }
+const upload = multer({ dest: "uploads/" });
 
-    const { path, name, type } = files.file;
-    const fileStream = fs.createReadStream(path);
-
-    const uploadParams = {
-      Bucket: process.env.AWS_BUCKET_NAME,
-      Key: name,
-      Body: fileStream,
-      ContentType: type,
-    };
-
-    s3.upload(uploadParams, (err, data) => {
-      if (err) {
-        res.status(500).json({ message: "Failed to upload file to S3" });
-        return;
-      }
-
-      res.status(200).json({ message: "File uploaded successfully" });
-    });
-  });
+export const config = {
+  api: {
+    bodyParser: false,
+  },
 };
+
+const handler = async (req: NextApiRequest, res: NextApiResponse) => {
+  try {
+    await new Promise<void>((resolve, reject) => {
+      upload.single("file")(req, res, async (err) => {
+        if (err) {
+          console.error("Error in file upload:", err);
+          res.status(500).json({ message: "Failed to upload file to S3" });
+          return reject(err);
+        }
+
+        const file: any = req.file;
+        if (!file) {
+          res.status(400).json({ message: "No file provided" });
+          return reject(new Error("No file provided"));
+        }
+
+        const fileStream = fs.createReadStream(file.path);
+        const uploadParams = {
+          Bucket: process.env.AWS_BUCKET_NAME,
+          Key: file.originalname,
+          Body: fileStream,
+          ContentType: file.mimetype,
+        };
+
+        const command = new PutObjectCommand(uploadParams);
+
+        try {
+          await s3.send(command);
+          res.status(200).json({ message: "File uploaded successfully" });
+          resolve();
+        } catch (err) {
+          console.error(err);
+          res.status(500).json({ message: "Failed to upload file to S3" });
+          reject(err);
+        }
+      });
+    });
+  } catch (error) {
+    console.error("Error in file upload:", error);
+    if (!res.writableEnded) {
+      res.status(500).json({ message: "Internal Server Error" });
+    }
+  } finally {
+    res.end();
+  }
+};
+
+export default allowMethods(["POST"])(handler);
