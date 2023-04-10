@@ -13,6 +13,7 @@ import { BiCodeBlock } from "react-icons/bi";
 import { BsCode, BsImage } from "react-icons/bs";
 import { TbDivide } from "react-icons/tb";
 import Modal from "@/components/elements/modal/Modal";
+import { Tab } from "@headlessui/react";
 
 const EditorMenu = ({ editor }: any) => {
   if (!editor) {
@@ -222,15 +223,36 @@ const EditorMenu = ({ editor }: any) => {
       {showModal && (
         <Modal onClose={handleCloseModal}>
           <h1>Add an image</h1>
-          <input type="text" onChange={(e) => setUrl(e.target.value)} />
-          <button
-            className={styles.add_btn}
-            onClick={() => {
-              addImage();
-            }}
-          >
-            Add hyperlink
-          </button>
+          <Tab.Group>
+            <Tab.List>
+              <Tab>URL</Tab>
+              <Tab>Upload</Tab>
+            </Tab.List>
+            <Tab.Panels>
+              <Tab.Panel>
+                <input type="text" onChange={(e) => setUrl(e.target.value)} />
+                <button
+                  className={styles.add_btn}
+                  onClick={() => {
+                    addImage();
+                  }}
+                >
+                  Add hyperlink
+                </button>
+              </Tab.Panel>
+              <Tab.Panel>
+                <input type="file" onChange={(e) => setUrl(e.target.value)} />
+                <button
+                  className={styles.add_btn}
+                  onClick={() => {
+                    addCdnImage();
+                  }}
+                >
+                  Upload
+                </button>
+              </Tab.Panel>
+            </Tab.Panels>
+          </Tab.Group>
         </Modal>
       )}
       <div className={styles.editor_menu}>
