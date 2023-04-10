@@ -44,12 +44,14 @@ const EditorMenu = ({ editor }: any) => {
   };
 
   const addCdnImage = async () => {
+    toast.loading("Uploading image...");
     const formData = new FormData();
     formData.append("file", cdnImage);
     const res = await axios.post("/api/blogs/upload-image", formData);
     editor.chain().focus().setImage({ src: res.data.url }).run();
     handleCloseModal();
     setCdnImage(null);
+    toast.dismiss();
   };
 
   const tools = [
@@ -223,6 +225,7 @@ const EditorMenu = ({ editor }: any) => {
 
   return (
     <>
+      <Toaster />
       {showModal && (
         <Modal onClose={handleCloseModal}>
           <h1>Add an image</h1>
