@@ -20,9 +20,9 @@ const DashboardLayout = ({ children, page_name, showButton, button }: any) => {
       localStorage.setItem("token", tokenFromUrl as string);
       const urlWithoutToken = window.location.pathname;
       history.replaceState(null, "", urlWithoutToken);
-      console.log("bro");
+      // console.log("bro");
     } else {
-      console.log("hiii");
+      // console.log("hiii");
     }
   }, [router.query.token]);
 
