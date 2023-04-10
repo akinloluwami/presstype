@@ -3,10 +3,6 @@ import { allowMethods } from "@/middlewares/allowMethods";
 import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
 import multer from "multer";
 
-const upload = multer({
-  storage: multer.memoryStorage(),
-});
-
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const s3 = new S3Client({
     credentials: {
@@ -16,36 +12,61 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     region: process.env.AWS_REGION as string,
   });
 
-  // Use the `upload` middleware to process the file upload
-  upload.single("file")(req, res, async (err) => {
-    if (err) {
-      console.error(err);
-      return res.status(400).send("Error uploading file");
-    }
+  const storage = multer.memoryStorage();
+  const upload = multer({ storage });
 
-    // Get the uploaded file from `req.file`
-    const file = req.file;
-
-    // Create a `PutObjectCommand` to upload the file to S3
+  const uploadToS3 = async (file: Express.Multer.File) => {
     const command = new PutObjectCommand({
-      Bucket: process.env.AWS_BUCKET_NAME as string,
+      Bucket: process.env.AWS_S3_BUCKET as string,
       Key: file.originalname,
       Body: file.buffer,
       ContentType: file.mimetype,
-      ACL: "public-read",
     });
 
     try {
-      // Upload the file to S3
       const response = await s3.send(command);
-
-      // Send the S3 object URL in the response
-      res.status(200).send(response.Location);
+      return response;
     } catch (error) {
-      console.error(error);
-      res.status(500).send("Error uploading file to S3");
+      console.error("Couldn't upload the file: ", error);
+      throw error;
     }
-  });
+  };
+
+  const handler = async (req: NextApiRequest, res: NextApiResponse) => {
+    const s3 = new S3Client({
+      credentials: {
+        accessKeyId: process.env.AWS_ACCESS_KEY_ID as string,
+        secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY as string,
+      },
+      region: process.env.AWS_REGION as string,
+    });
+
+    await new Promise<void>((resolve, reject) => {
+      upload.single("file")(req, res, (error) => {
+        if (error) {
+          reject(error);
+        } else {
+          resolve();
+        }
+      });
+    });
+
+    if (!req.file) {
+      res.status(400).json({ error: "No file was provided" });
+      return;
+    }
+
+    try {
+      const response = await uploadToS3(req.file);
+      res
+        .status(200)
+        .json({ message: "File uploaded successfully", data: response });
+    } catch (error) {
+      res
+        .status(500)
+        .json({ error: "Failed to upload file", details: error.message });
+    }
+  };
 };
 
 export default allowMethods(["POST"])(handler);
