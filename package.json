@@ -37,6 +37,7 @@
     "eslint": "8.36.0",
     "eslint-config-next": "13.2.4",
     "faker": "^6.6.6",
+    "formidable": "^2.1.1",
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^7.0.3",
     "multer": "^1.4.5-lts.1",
