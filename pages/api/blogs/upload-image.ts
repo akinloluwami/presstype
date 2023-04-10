@@ -1,6 +1,9 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { allowMethods } from "@/middlewares/allowMethods";
 import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
+import multer from "multer";
+
+const upload = multer({ dest: "uploads/" });
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const s3 = new S3Client({
@@ -11,7 +14,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     region: process.env.AWS_REGION as string,
   });
 
-  const file = req.body.file;
+  const file = req.file;
   const fileName = req.body.fileName;
 
   if (!file) {
@@ -24,8 +27,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     return;
   }
 
-  const base64Data = file.replace(/^data:image\/\w+;base64,/, "");
-  const buffer = Buffer.from(base64Data, "base64");
+  const buffer = file.buffer;
 
   const params: {
     Bucket: string;
@@ -47,4 +49,11 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   }
 };
 
-export default allowMethods(["POST"])(handler);
+export const config = {
+  api: {
+    bodyParser: false,
+  },
+};
+
+// export default allowMethods(["POST"])(upload.single("file"), handler);
+export default allowMethods(["POST"])([upload.single("file"), handler]);
