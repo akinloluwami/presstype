@@ -1,55 +1,32 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { allowMethods } from "@/middlewares/allowMethods";
-import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
-import multer from "multer";
-import multerS3 from "multer-s3";
-import { v4 as uuid } from "uuid";
+import formidable from "formidable";
 
-const s3 = new S3Client({
-  credentials: {
-    accessKeyId: process.env.AWS_ACCESS_KEY_ID as string,
-    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY as string,
-  },
-  region: process.env.AWS_REGION as string,
-});
+const handler = (req: NextApiRequest, res: NextApiResponse) => {
+  const form = new formidable.IncomingForm();
 
-const upload = multer({
-  storage: multerS3({
-    s3,
-    bucket: process.env.AWS_BUCKET_NAME as string,
-    contentType: multerS3.AUTO_CONTENT_TYPE,
-    acl: "public-read",
-    key: (req, file, cb) => {
-      const extension = file.originalname.split(".").pop();
-      const filename = `${uuid()}.${extension}`;
-      cb(null, filename);
-    },
-  }),
-});
+  form.parse(req, (err, fields, files) => {
+    if (err) {
+      res.status(500).json({ message: "Failed to upload file to S3" });
+      return;
+    }
 
-const handler = async (req: NextApiRequest, res: NextApiResponse) => {
-  if (req.method !== "POST") {
-    res.status(405).json({ message: "Method not allowed" });
-    return;
-  }
+    const { path, name, type } = files.file;
+    const fileStream = fs.createReadStream(path);
 
-  try {
-    upload.single("file")(req, res, (err: any) => {
+    const uploadParams = {
+      Bucket: process.env.AWS_BUCKET_NAME,
+      Key: name,
+      Body: fileStream,
+      ContentType: type,
+    };
+
+    s3.upload(uploadParams, (err, data) => {
       if (err) {
-        console.error(err);
-        res.status(500).json({ message: "Server error" });
+        res.status(500).json({ message: "Failed to upload file to S3" });
         return;
       }
 
-      const fileUrl = `https://${process.env.AWS_BUCKET_NAME}.s3.amazonaws.com/${req.file.key}`;
-
-      // Save fileUrl to database or return it to client
-      res.status(200).json({ fileUrl });
+      res.status(200).json({ message: "File uploaded successfully" });
     });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: "Server error" });
-  }
+  });
 };
-
-export default allowMethods(["POST"])(handler);
