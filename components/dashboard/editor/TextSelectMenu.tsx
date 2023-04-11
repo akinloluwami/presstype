@@ -10,8 +10,11 @@ import { FaCode, FaHighlighter } from "react-icons/fa";
 import Tippy from "@tippyjs/react";
 import "tippy.js/dist/tippy.css";
 import Modal from "@/components/elements/modal/Modal";
+import { useModalStore } from "@/stores/modalStore";
 
 const TextSelectMenu = ({ editor }: any) => {
+  const { setIsOpen } = useModalStore();
+
   const setLink = useCallback(() => {
     const previousUrl = editor?.getAttributes("link").href;
     const url = window.prompt("URL", previousUrl);
@@ -60,7 +63,7 @@ const TextSelectMenu = ({ editor }: any) => {
     {
       text: "Link",
       node: (
-        <button onClick={}>
+        <button onClick={() => setIsOpen(true)}>
           <MdLink />
         </button>
       ),
