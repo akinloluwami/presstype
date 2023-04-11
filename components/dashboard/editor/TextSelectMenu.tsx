@@ -1,4 +1,4 @@
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 import styles from "./styles.module.scss";
 import {
   MdFormatBold,
@@ -9,8 +9,20 @@ import {
 import { FaCode, FaHighlighter } from "react-icons/fa";
 import Tippy from "@tippyjs/react";
 import "tippy.js/dist/tippy.css";
+import Modal from "@/components/elements/modal/Modal";
 
 const TextSelectMenu = ({ editor }: any) => {
+  const [linkUrl, setLinkUrl] = useState("");
+  const [showModal, setShowModal] = useState(false);
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
+
+  const handleOpenModal = () => {
+    setShowModal(true);
+  };
+
   const setLink = useCallback(() => {
     const previousUrl = editor?.getAttributes("link").href;
     const url = window.prompt("URL", previousUrl);
@@ -90,6 +102,16 @@ const TextSelectMenu = ({ editor }: any) => {
 
   return (
     <div className={styles.text_select_menu}>
+      {showModal && (
+        <Modal onClose={handleCloseModal}>
+          <input
+            type="url"
+            placeholder="URL"
+            value={linkUrl}
+            onChange={(e) => setLinkUrl(e.target.value)}
+          />
+        </Modal>
+      )}
       {tools.map((tool, i) => (
         <Tippy content={tool.text} key={i}>
           <button>{tool.node}</button>

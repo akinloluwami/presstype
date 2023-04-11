@@ -23,9 +23,8 @@ const EditorMenu = ({ editor }: any) => {
   }
   const [url, setUrl] = useState("");
 
-  const [showModal, setShowModal] = useState(false);
-
   const [cdnImage, setCdnImage] = useState<any>();
+  const [showModal, setShowModal] = useState(false);
 
   const handleCloseModal = () => {
     setShowModal(false);
