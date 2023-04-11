@@ -3,7 +3,8 @@ import { useTokenStore } from "@/stores/tokenStore";
 import axios from "axios";
 
 const usePublishPost = () => {
-  const { title, content } = useNewPostStore();
+  const { title, content, setContent, setTitle, setCoverImage } =
+    useNewPostStore();
   const { token } = useTokenStore();
 
   const publishPost = async () => {
@@ -14,6 +15,10 @@ const usePublishPost = () => {
           Authorization: `Bearer ${token}`,
         },
       });
+
+      setContent("");
+      setTitle("");
+      setCoverImage?.("");
       return response;
     } catch (error: any) {
       return error.response;
