@@ -6,13 +6,14 @@ import { toast, Toaster } from "react-hot-toast";
 const NewPostHeader = () => {
   const publishPost = usePublishPost();
   const [loading, setLoading] = useState(false);
+
   const handle = async () => {
     setLoading(true);
     toast.loading("Publishing...", {
       id: "publishing",
     });
+
     const res = await publishPost();
-    console.log(res);
 
     if (res.status !== 201) {
       toast.error(res.data.message || "Something went wrong");
@@ -22,6 +23,7 @@ const NewPostHeader = () => {
       toast.success(res.data.message);
     }
   };
+
   return (
     <div className={styles.new_post_header}>
       <Toaster />
