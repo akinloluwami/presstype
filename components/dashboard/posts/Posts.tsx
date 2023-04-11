@@ -22,7 +22,6 @@ const Posts = () => {
     })();
   }, []);
 
-  // useEffect(() => {}, []);
   return (
     <div className={styles.posts_container}>
       {/* <div className={styles.posts_types}>
