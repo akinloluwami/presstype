@@ -60,7 +60,7 @@ const TextSelectMenu = ({ editor }: any) => {
     {
       text: "Link",
       node: (
-        <button onClick={handleOpenModal}>
+        <button onClick={}>
           <MdLink />
         </button>
       ),
