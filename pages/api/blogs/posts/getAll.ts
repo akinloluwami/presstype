@@ -32,6 +32,9 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
   const blogPosts = await BlogPost.find({ blog_id: blog._id });
 
+  if (!blogPosts)
+    return res.status(404).json({ message: "Blog posts not found" });
+
   res.status(200).json({ blogPosts });
 };
 
