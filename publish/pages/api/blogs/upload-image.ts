@@ -16,11 +16,6 @@ export const config = {
 };
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
-  // if (!req.headers.authorization) {
-  //   res.status(401).json({ message: "Unauthorized" });
-  //   return;
-  // }
-
   try {
     await new Promise<void>((resolve, reject) => {
       upload.single("file")(req, res, async (err) => {
