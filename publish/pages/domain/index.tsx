@@ -18,7 +18,7 @@ const Index = () => {
           fontSize: 10,
         }}
       >
-        Presstype won't redirect your old sub-domain to the new one.
+  {"Presstype won't redirect your old sub-domain to the new one."}
       </i>
       <InputGroup text=".presstype.co" />
     </DomainsLayout>
