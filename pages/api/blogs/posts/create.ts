@@ -4,8 +4,10 @@ import DecodedToken from "@/interfaces/DecodedToken";
 import decodeToken from "@/utils/decode_token";
 import { allowMethods } from "@/middlewares/allowMethods";
 import BlogPost from "@/schema/BlogPost";
+import { connectToDatabase } from "@/utils/db";
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
+  connectToDatabase();
   if (!req.headers.authorization) {
     res.status(401).json({
       message: "Unauthorized request",
