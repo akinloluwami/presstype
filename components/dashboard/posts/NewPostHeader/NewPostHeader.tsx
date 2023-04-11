@@ -25,7 +25,9 @@ const NewPostHeader = () => {
   return (
     <div className={styles.new_post_header}>
       <Toaster />
-      <button onClick={handle}>Publish</button>
+      <button onClick={handle} disabled={loading}>
+        Publish
+      </button>
     </div>
   );
 };
