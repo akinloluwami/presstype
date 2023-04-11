@@ -12,6 +12,13 @@ const Posts = () => {
   useEffect(() => {
     (async () => {
       const res = await getAllPosts();
+
+      if (res.data.blogPosts) {
+        setPosts(res.data.blogPosts);
+        return;
+      }
+
+      console.log("No POSTS");
     })();
   }, []);
 
