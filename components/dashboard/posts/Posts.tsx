@@ -3,24 +3,8 @@ import PostCard from "./PostCard";
 import styles from "./styles.module.scss";
 import useGetAllPosts from "@/actions/blogs/get_all_posts";
 
-const Posts = () => {
+const Posts = ({ posts }: { posts: any }) => {
   // const postTypes = ["All", "Scheduled", "Deleted"];
-  const [posts, setPosts] = useState<[]>([]);
-
-  const getAllPosts = useGetAllPosts();
-
-  useEffect(() => {
-    (async () => {
-      const res = await getAllPosts();
-
-      if (res.data.blogPosts) {
-        setPosts(res.data.blogPosts);
-        return;
-      }
-
-      console.log("No POSTS");
-    })();
-  }, []);
 
   return (
     <div className={styles.posts_container}>
