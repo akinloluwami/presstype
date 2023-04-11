@@ -4,6 +4,8 @@ import { allowMethods } from "@/middlewares/allowMethods";
 import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
 import fs from "fs";
 import { v4 } from "uuid";
+import nextConnect from "next-connect";
+import { Request, Response } from "express";
 
 const s3 = new S3Client({ region: process.env.AWS_REGION });
 
@@ -15,7 +17,7 @@ export const config = {
   },
 };
 
-const handler = async (req: NextApiRequest, res: NextApiResponse) => {
+const handler = async (req: Request, res: Response) => {
   try {
     await new Promise<void>((resolve, reject) => {
       upload.single("file")(req, res, async (err) => {
@@ -65,4 +67,13 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   }
 };
 
-export default allowMethods(["POST"])(handler);
+const apiRoute = nextConnect<NextApiRequest, NextApiResponse>();
+
+apiRoute.use((req: any, res: any, next: () => void) => {
+  (req as any).file = (req as any).files?.[0] ?? null;
+  next();
+});
+
+apiRoute.post(handler);
+
+export default allowMethods(["POST"])(apiRoute); 
