@@ -1,10 +1,12 @@
 import { useNewPostStore } from "@/stores/newPostStore";
 import { useTokenStore } from "@/stores/tokenStore";
 import axios from "axios";
+import { useRouter } from "next/router";
 
 const usePublishPost = () => {
   const { title, content, setContent, setTitle, setCoverImage } =
     useNewPostStore();
+  const router = useRouter();
   const { token } = useTokenStore();
 
   const publishPost = async () => {
@@ -15,7 +17,7 @@ const usePublishPost = () => {
           Authorization: `Bearer ${token}`,
         },
       });
-
+      router.push("/posts");
       setContent("");
       setTitle("");
       setCoverImage?.("");
