@@ -59,7 +59,12 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       content,
       cover_image,
       blog_id: blog._id,
-      slug: title.toLowerCase().replace(/ /g, "-"),
+      slug: title
+        .replace(/[^\w\s]|_/g, "")
+        .trim()
+        .toLowerCase()
+        .replace(/\s+/g, "-")
+        .replace(/-+/g, "-"),
     });
 
     res.status(201).json({ message: "Post created" });
