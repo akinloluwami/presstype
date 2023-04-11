@@ -7,7 +7,7 @@ const NewPostHeader = () => {
   const publishPost = usePublishPost();
   const [loading, setLoading] = useState(false);
 
-  const handle = async () => {
+  const handleNewPost = async () => {
     setLoading(true);
     toast.loading("Publishing...", {
       id: "publishing",
@@ -27,7 +27,7 @@ const NewPostHeader = () => {
   return (
     <div className={styles.new_post_header}>
       <Toaster />
-      <button onClick={handle} disabled={loading}>
+      <button onClick={handleNewPost} disabled={loading}>
         Publish
       </button>
     </div>
