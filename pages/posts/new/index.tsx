@@ -5,12 +5,14 @@ import styles from "./styles.module.scss";
 import NewPostHeader from "@/components/dashboard/posts/NewPostHeader/NewPostHeader";
 import { useNewPostStore } from "@/stores/newPostStore";
 import axios from "axios";
+import Modal from "@/components/elements/modal/Modal";
 
 const NewPost = () => {
   const { title, setTitle } = useNewPostStore();
 
   return (
     <DashboardLayout page_name={`Editing ${title ? `"${title}"` : ""}`}>
+      <Modal onClose={() => console.log("")}>lll</Modal>
       <NewPostHeader />
       <input
         type="text"
