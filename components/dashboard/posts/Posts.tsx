@@ -29,16 +29,9 @@ const Posts = () => {
         <button className={styles.post_type}></button>
       </div> */}
       <div className="">
-        <PostCard />
-        <PostCard />
-        <PostCard />
-        <PostCard />
-        <PostCard />
-        <PostCard />
-        <PostCard />
-        <PostCard />
-        <PostCard />
-        <PostCard />
+        {posts.map((post: any) => (
+          <PostCard key={post._id} />
+        ))}
       </div>
     </div>
   );
