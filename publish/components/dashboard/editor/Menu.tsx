@@ -18,13 +18,17 @@ import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
 
 const EditorMenu = ({ editor }: any) => {
-  if (!editor) {
-    return null;
-  }
+  const [uploading, setUploading] = useState(false);
   const [url, setUrl] = useState("");
 
   const [cdnImage, setCdnImage] = useState<any>();
   const [showModal, setShowModal] = useState(false);
+
+
+if (!editor) {
+    return null;
+  }
+  
 
   const handleCloseModal = () => {
     setShowModal(false);
@@ -42,7 +46,6 @@ const EditorMenu = ({ editor }: any) => {
     handleCloseModal();
   };
 
-  const [uploading, setUploading] = useState(false);
 
   const addCdnImage = async () => {
     toast.loading("Uploading image...");
