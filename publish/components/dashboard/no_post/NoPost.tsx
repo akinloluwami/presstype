@@ -14,7 +14,7 @@ const NoPost = () => {
         height={130}
         alt={"Empty box"}
       />
-      <p>You don't have any post yet.</p>
+      <p>{"You don't have any post yet."}</p>
       <Link href="/posts/new">
         <RxRocket />
         Publish your first post
