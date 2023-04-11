@@ -44,12 +44,20 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     return;
   }
 
+  const titleExists = await BlogPost.findOne({ title, blog_id: blog._id });
+
+  if (titleExists) {
+    res.status(400).json({ message: "Title already exists" });
+    return;
+  }
+
   try {
     await BlogPost.create({
       title,
       content,
       cover_image,
       blog_id: blog._id,
+      // slug: title.toLowerCase().replace(/ /g, "-"),
     });
 
     res.status(201).json({ message: "Post created" });
