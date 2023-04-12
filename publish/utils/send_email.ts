@@ -15,7 +15,7 @@ const sendMail = (to: string, subject: string, html: string) => {
         reject(error);
       } else {
         console.log(`Email sent: ${info.response}`);
-        resolve(info.response);
+        resolve("Hi");
       }
     });
   });
