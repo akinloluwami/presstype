@@ -9,7 +9,5 @@ export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  res
-    .status(200)
-    .json({ name: "John Doe", bro: process.env.AWS_ACCESS_KEY_ID });
+  res.status(200).send(process.env.AWS_ACCESS_KEY_ID);
 }
