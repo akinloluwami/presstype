@@ -53,7 +53,6 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     `;
 
     const send = sendMail(to, subject, html);
-    console.log(send + "mmmm");
 
     res.status(200).json({
       message: "Check your email for a link to login to your account",
