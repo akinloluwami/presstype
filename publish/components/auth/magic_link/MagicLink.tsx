@@ -24,7 +24,7 @@ const MagicLink = ({ type }: MagicLinkProps) => {
       const signin: any = await singIn(email);
       toast.dismiss("loading");
       if (signin.status !== 200) {
-        toast.error(signin.data.message, {
+        toast.error(signin.data.message || "Something went wrong", {
           duration: 5000,
         });
         setEmail("");
@@ -37,8 +37,8 @@ const MagicLink = ({ type }: MagicLinkProps) => {
     }
     const signup: any = await signUp(email);
     toast.dismiss("loading");
-    if (signup.status !== 200) {
-      toast.error(signup.data.message, {
+    if (signup.status !== 201) {
+      toast.error(signup.data.message || "Something went wrong", {
         duration: 5000,
       });
       setEmail("");
