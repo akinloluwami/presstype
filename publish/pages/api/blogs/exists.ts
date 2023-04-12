@@ -9,7 +9,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     res.status(400).json({ message: "Email is required" });
     return;
   }
-
+  //trigger the mf
   try {
     const blog = await Blog.findOne({ email });
     if (!blog) {
