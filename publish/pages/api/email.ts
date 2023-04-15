@@ -12,6 +12,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     res.status(200).send("Test email sent!");
   } catch (error) {
     console.error(error);
-    res.status(500).send("Error sending test email");
+    res.status(500).send("Error sending test emaill");
   }
 };
