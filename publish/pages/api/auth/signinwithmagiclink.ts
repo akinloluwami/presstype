@@ -52,7 +52,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       <a href="http://${magicLinkUrl}" target="_blank" style="background-color: #007bff; color: #fff; padding: 12px 24px; border-radius: 4px; text-decoration: none;">Login Now</a>
     `;
 
-    const send = sendMail(to, subject, html);
+    const send = await sendMail(to, subject, html);
 
     res.status(200).json({
       message: "Check your email for a link to login to your account",
