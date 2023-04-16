@@ -108,15 +108,24 @@
       &:hover {
         background-color: rgba($dark-secondary, 0.3);
       }
+      &.active {
+        background-color: rgba($accent-base, 0.5);
+      }
     }
   }
 }
 
 .editor_content {
   margin-top: 30px;
+
   * {
     outline: none;
     margin: 10px 0;
+    h1,
+    h2,
+    h3 {
+      font-weight: 500;
+    }
   }
   p {
     font-size: 1.2rem;
