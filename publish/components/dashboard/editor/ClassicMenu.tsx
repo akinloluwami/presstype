@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback, useState, useEffect } from "react";
 import styles from "./styles.module.scss";
 import {
   MdFormatBold,
@@ -13,14 +13,37 @@ import { BiCodeBlock } from "react-icons/bi";
 import { BsCode, BsImage } from "react-icons/bs";
 import { TbDivide } from "react-icons/tb";
 import Modal from "@/components/elements/modal/Modal";
-import { Tab } from "@headlessui/react";
+import { Listbox, Tab } from "@headlessui/react";
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
+import { FaArrowDown } from "react-icons/fa";
 
 const ClassicMenu = ({ editor }: any) => {
+  const textTools = [
+    {
+      name: "Normal text",
+      action: () => editor.chain().focus().setParagraph().run(),
+      icon: <MdOutlineTextFields />,
+    },
+    {
+      name: "Heading 1",
+      action: () => editor.chain().focus().toggleHeading({ level: 1 }).run(),
+      icon: "H1",
+    },
+    {
+      name: "Heading 2",
+      action: () => editor.chain().focus().toggleHeading({ level: 2 }).run(),
+      icon: "H2",
+    },
+    {
+      name: "Heading 3",
+      action: () => editor.chain().focus().toggleHeading({ level: 3 }).run(),
+      icon: "H3",
+    },
+  ];
   const [uploading, setUploading] = useState(false);
   const [url, setUrl] = useState("");
-
+  const [selectedTool, setSelectedTool] = useState(textTools[0]);
   const [cdnImage, setCdnImage] = useState<any>();
   const [showModal, setShowModal] = useState(false);
 
@@ -56,24 +79,6 @@ const ClassicMenu = ({ editor }: any) => {
     setUploading(false);
     toast.dismiss();
   };
-
-  const textTools = [
-    {
-      name: "Heading 1",
-      action: () => editor.chain().focus().toggleHeading({ level: 1 }).run(),
-      icon: "H1",
-    },
-    {
-      name: "Heading 2",
-      action: () => editor.chain().focus().toggleHeading({ level: 2 }).run(),
-      icon: "H2",
-    },
-    {
-      name: "Heading 3",
-      action: () => editor.chain().focus().toggleHeading({ level: 3 }).run(),
-      icon: "H3",
-    },
-  ];
 
   const tools = [
     {
@@ -133,20 +138,9 @@ const ClassicMenu = ({ editor }: any) => {
     },
   ];
 
-  const handleTextFormatSelect = (e: any) => {
-    const { value } = e.target;
-
-    if (value === "text") {
-      editor.chain().focus().setParagraph().run();
-      return;
-    }
-
-    textTools.forEach((tool) => {
-      if (tool.name === value) {
-        tool.action();
-      }
-    });
-  };
+  useEffect(() => {
+    selectedTool.action();
+  }, [selectedTool]);
 
   return (
     <>
@@ -193,22 +187,40 @@ const ClassicMenu = ({ editor }: any) => {
           </Tab.Group>
         </Modal>
       )}
+
       <div className={styles.editor_menu_classic}>
-        <select onChange={handleTextFormatSelect}>
-          <option value="text">Normal text</option>
-          {textTools.map((tool) => (
-            <option value={tool.name}>{tool.name}</option>
+        <div className={styles.editor_text_tools}>
+          <Listbox value={selectedTool} onChange={setSelectedTool}>
+            <Listbox.Button className={styles.btn_select_one}>
+              {selectedTool.name}
+              <FaArrowDown />
+            </Listbox.Button>
+            <Listbox.Options className={styles.options}>
+              {textTools.map((tool) => (
+                <Listbox.Option
+                  className={({ active }) =>
+                    `${styles.btn_select} ${active && styles.active}`
+                  }
+                  key={tool.name}
+                  value={tool}
+                >
+                  {tool.name}
+                </Listbox.Option>
+              ))}
+            </Listbox.Options>
+          </Listbox>
+        </div>
+        <div className={styles.editor_tools}>
+          {tools.map((tool) => (
+            <button
+              className={styles.btn_container}
+              key={tool.name}
+              onClick={tool.action}
+            >
+              {tool.icon}
+            </button>
           ))}
-        </select>
-        {tools.map((tool) => (
-          <button
-            className={styles.btn_container}
-            key={tool.name}
-            onClick={tool.action}
-          >
-            {tool.icon}
-          </button>
-        ))}
+        </div>
       </div>
     </>
   );
