@@ -216,7 +216,9 @@ const ClassicMenu = ({ editor }: any) => {
         <div className={styles.editor_tools}>
           {tools.map((tool) => (
             <button
-              className={styles.btn_container}
+              className={
+                editor.isActive(tool.name.toLowerCase()) && styles.active
+              }
               key={tool.name}
               onClick={tool.action}
             >
