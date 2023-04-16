@@ -43,7 +43,7 @@
   .editor_text_tools {
     // position: fixed;
     .options {
-      z-index: 100;
+      z-index: 10;
       position: fixed;
       list-style: none;
       margin-top: 10px;
@@ -89,10 +89,31 @@
   }
   .editor_tools {
     margin-left: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #616161;
+    padding: 4px;
+    border-radius: 4px;
+    button {
+      margin: 0 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: transparent;
+      border: none;
+      font-size: 22px;
+      color: $white-base;
+      padding: 5px;
+      &:hover {
+        background-color: rgba($dark-secondary, 0.3);
+      }
+    }
   }
 }
 
 .editor_content {
+  margin-top: 30px;
   * {
     outline: none;
     margin: 10px 0;
