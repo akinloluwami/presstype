@@ -22,12 +22,15 @@ const ClassicMenu = ({ editor }: any) => {
   const textTools = [
     {
       name: "Normal text",
-      action: () => editor.chain().focus().setParagraph().run(),
+      action: () => editor?.chain().focus().setParagraph().run(),
       icon: <MdOutlineTextFields />,
     },
     {
       name: "Heading 1",
-      action: () => editor.chain().focus().toggleHeading({ level: 1 }).run(),
+      action: () => {
+        editor.chain().focus().toggleHeading({ level: 1 }).run();
+        editor.chain().focus();
+      },
       icon: "H1",
     },
     {
@@ -46,6 +49,10 @@ const ClassicMenu = ({ editor }: any) => {
   const [selectedTool, setSelectedTool] = useState(textTools[0]);
   const [cdnImage, setCdnImage] = useState<any>();
   const [showModal, setShowModal] = useState(false);
+
+  useEffect(() => {
+    selectedTool.action();
+  }, [selectedTool]);
 
   if (!editor) {
     return null;
@@ -137,10 +144,6 @@ const ClassicMenu = ({ editor }: any) => {
       icon: <TbDivide />,
     },
   ];
-
-  useEffect(() => {
-    selectedTool.action();
-  }, [selectedTool]);
 
   return (
     <>
