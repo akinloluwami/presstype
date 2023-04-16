@@ -177,7 +177,11 @@ const EditorMenu = ({ editor }: any) => {
       )}
       <div className={styles.editor_menu}>
         {tools.map((tool) => (
-          <button className={styles.btn_container} key={tool.name}>
+          <button
+            className={styles.btn_container}
+            key={tool.name}
+            onClick={tool.action}
+          >
             {tool.icon} {tool.name}
           </button>
         ))}
