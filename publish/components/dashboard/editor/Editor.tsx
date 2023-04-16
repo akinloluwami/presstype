@@ -12,6 +12,7 @@ import ImageSelectMenu from "./ImageSelectMenu";
 import Code from "@tiptap/extension-code";
 import Highlight from "@tiptap/extension-highlight";
 import { useNewPostStore } from "@/stores/newPostStore";
+import commands from "@/custom/commands";
 
 const Editor = () => {
   const { content, setContent } = useNewPostStore();
@@ -29,6 +30,7 @@ const Editor = () => {
       }),
       Code,
       Highlight,
+      commands,
     ],
     content: content,
     onUpdate: ({ editor }) => {
