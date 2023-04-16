@@ -39,6 +39,55 @@
 
 .editor_menu_classic {
   display: flex;
+  align-items: center;
+  .editor_text_tools {
+    // position: fixed;
+    .options {
+      position: fixed;
+      list-style: none;
+      margin-top: 10px;
+    }
+    .btn_select {
+      padding: 6px 10px;
+      width: 200px;
+      text-align: left;
+      border: none;
+      font-size: 17px;
+      border-radius: 6px;
+      &:hover {
+        background-color: rgba($accent-base, 0.7);
+        cursor: pointer;
+      }
+      &.active {
+        background-color: $accent-base;
+      }
+    }
+    .btn_select_one {
+      padding: 6px 10px;
+      width: 200px;
+      text-align: left;
+      background-color: transparent;
+      color: $white-base;
+      border: none;
+      font-size: 17px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-radius: 6px;
+      svg {
+        font-size: 15px;
+      }
+      &:hover {
+        background-color: rgba($dark-secondary, 0.3);
+      }
+    }
+  }
+  .editor_text_format {
+    width: 200px;
+  }
+  .editor_tools {
+    margin-left: 20px;
+  }
 }
 
 .editor_content {
