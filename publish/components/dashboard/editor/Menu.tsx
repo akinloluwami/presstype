@@ -24,11 +24,9 @@ const EditorMenu = ({ editor }: any) => {
   const [cdnImage, setCdnImage] = useState<any>();
   const [showModal, setShowModal] = useState(false);
 
-
-if (!editor) {
+  if (!editor) {
     return null;
   }
-  
 
   const handleCloseModal = () => {
     setShowModal(false);
@@ -46,7 +44,6 @@ if (!editor) {
     handleCloseModal();
   };
 
-
   const addCdnImage = async () => {
     toast.loading("Uploading image...");
     setUploading(true);
@@ -62,170 +59,74 @@ if (!editor) {
 
   const tools = [
     {
-      node: (
-        <button
-          onClick={() => editor.chain().focus().toggleBold().run()}
-          disabled={!editor.can().chain().focus().toggleBold().run()}
-          className={editor.isActive("bold") ? "is-active" : ""}
-        >
-          <MdFormatBold /> Bold
-        </button>
-      ),
       name: "Bold",
+      action: () => editor.chain().focus().toggleBold().run(),
+      icon: <MdFormatBold />,
     },
     {
-      node: (
-        <button
-          onClick={() => editor.chain().focus().toggleItalic().run()}
-          disabled={!editor.can().chain().focus().toggleItalic().run()}
-          className={editor.isActive("italic") ? "is-active" : ""}
-        >
-          <MdFormatItalic /> Italic
-        </button>
-      ),
       name: "Italic",
+      action: () => editor.chain().focus().toggleItalic().run(),
+      icon: <MdFormatItalic />,
     },
     {
-      node: (
-        <button
-          onClick={() => editor.chain().focus().toggleStrike().run()}
-          disabled={!editor.can().chain().focus().toggleStrike().run()}
-          className={editor.isActive("strike") ? "is-active" : ""}
-        >
-          <MdStrikethroughS /> Strike
-        </button>
-      ),
       name: "Strike",
+      action: () => editor.chain().focus().toggleStrike().run(),
+      icon: <MdStrikethroughS />,
     },
     {
-      node: (
-        <button
-          onClick={() => editor.chain().focus().toggleCode().run()}
-          disabled={!editor.can().chain().focus().toggleCode().run()}
-          className={editor.isActive("code") ? "is-active" : ""}
-        >
-          <BsCode /> Code
-        </button>
-      ),
       name: "Code",
+      action: () => editor.chain().focus().toggleCode().run(),
+      icon: <BsCode />,
     },
     {
-      node: (
-        <button
-          onClick={() => editor.chain().focus().setParagraph().run()}
-          className={editor.isActive("paragraph") ? "is-active" : ""}
-        >
-          <MdOutlineTextFields /> Text
-        </button>
-      ),
       name: "Text",
+      action: () => editor.chain().focus().setParagraph().run(),
+      icon: <MdOutlineTextFields />,
     },
     {
-      node: (
-        <button onClick={handleOpenModal}>
-          <BsImage /> Image
-        </button>
-      ),
       name: "Image",
+      action: handleOpenModal,
+      icon: <BsImage />,
     },
     {
-      node: (
-        <button
-          onClick={() =>
-            editor.chain().focus().toggleHeading({ level: 1 }).run()
-          }
-          className={
-            editor.isActive("heading", { level: 1 }) ? "is-active" : ""
-          }
-        >
-          Heading 1
-        </button>
-      ),
       name: "Heading 1",
+      action: () => editor.chain().focus().toggleHeading({ level: 1 }).run(),
+      icon: "",
     },
     {
-      node: (
-        <button
-          onClick={() =>
-            editor.chain().focus().toggleHeading({ level: 2 }).run()
-          }
-          className={
-            editor.isActive("heading", { level: 2 }) ? "is-active" : ""
-          }
-        >
-          Heading 2
-        </button>
-      ),
       name: "Heading 2",
+      action: () => editor.chain().focus().toggleHeading({ level: 2 }).run(),
+      icon: "",
     },
     {
-      node: (
-        <button
-          onClick={() =>
-            editor.chain().focus().toggleHeading({ level: 3 }).run()
-          }
-          className={
-            editor.isActive("heading", { level: 3 }) ? "is-active" : ""
-          }
-        >
-          Heading 3
-        </button>
-      ),
       name: "Heading 3",
+      action: () => editor.chain().focus().toggleHeading({ level: 3 }).run(),
+      icon: "",
     },
     {
-      node: (
-        <button
-          onClick={() => editor.chain().focus().toggleBulletList().run()}
-          className={editor.isActive("bulletList") ? "is-active" : ""}
-        >
-          <MdFormatListBulleted /> Bullet list
-        </button>
-      ),
       name: "Bullet list",
+      action: () => editor.chain().focus().toggleBulletList().run(),
+      icon: <MdFormatListBulleted />,
     },
     {
-      node: (
-        <button
-          onClick={() => editor.chain().focus().toggleOrderedList().run()}
-          className={editor.isActive("orderedList") ? "is-active" : ""}
-        >
-          <MdFormatListNumbered /> Numbered list
-        </button>
-      ),
       name: "Numbered list",
+      action: () => editor.chain().focus().toggleOrderedList().run(),
+      icon: <MdFormatListNumbered />,
     },
     {
-      node: (
-        <button
-          onClick={() => editor.chain().focus().toggleCodeBlock().run()}
-          className={editor.isActive("codeBlock") ? "is-active" : ""}
-        >
-          <BiCodeBlock /> Code block
-        </button>
-      ),
       name: "Code block",
+      action: () => editor.chain().focus().toggleCodeBlock().run(),
+      icon: <BiCodeBlock />,
     },
     {
-      node: (
-        <button
-          onClick={() => editor.chain().focus().toggleBlockquote().run()}
-          className={editor.isActive("blockquote") ? "is-active" : ""}
-        >
-          <MdFormatQuote /> Quote
-        </button>
-      ),
       name: "Quote",
+      action: () => editor.chain().focus().toggleBlockquote().run(),
+      icon: <MdFormatQuote />,
     },
     {
-      node: (
-        <button
-          onClick={() => editor.chain().focus().setHorizontalRule().run()}
-        >
-          <TbDivide /> Divider
-        </button>
-      ),
       name: "Divider",
+      action: () => editor.chain().focus().setHorizontalRule().run(),
+      icon: <TbDivide />,
     },
   ];
 
@@ -276,9 +177,9 @@ if (!editor) {
       )}
       <div className={styles.editor_menu}>
         {tools.map((tool) => (
-          <div className={styles.btn_container} key={tool.name}>
-            {tool.node}
-          </div>
+          <button className={styles.btn_container} key={tool.name}>
+            {tool.icon} {tool.name}
+          </button>
         ))}
       </div>
     </>

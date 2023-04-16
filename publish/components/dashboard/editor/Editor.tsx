@@ -13,7 +13,8 @@ import Code from "@tiptap/extension-code";
 import Highlight from "@tiptap/extension-highlight";
 import { useNewPostStore } from "@/stores/newPostStore";
 import commands from "@/custom/commands";
-
+import getSuggestionItems from "@/custom/tools";
+// import Suggestion from "@tiptap/suggestion";
 const Editor = () => {
   const { content, setContent } = useNewPostStore();
   const editor = useEditor({
@@ -30,7 +31,11 @@ const Editor = () => {
       }),
       Code,
       Highlight,
-      commands,
+      commands.configure({
+        suggestions: {
+          items: getSuggestionItems,
+        },
+      }),
     ],
     content: content,
     onUpdate: ({ editor }) => {
