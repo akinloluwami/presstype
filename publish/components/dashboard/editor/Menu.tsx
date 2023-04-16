@@ -17,6 +17,83 @@ import { Tab } from "@headlessui/react";
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
 
+export const getTools = (editor: any, handleOpenModal: () => void) => {
+  const tools = [
+    {
+      name: "Bold",
+      action: () => editor.chain().focus().toggleBold().run(),
+      icon: <MdFormatBold />,
+    },
+    {
+      name: "Italic",
+      action: () => editor.chain().focus().toggleItalic().run(),
+      icon: <MdFormatItalic />,
+    },
+    {
+      name: "Strike",
+      action: () => editor.chain().focus().toggleStrike().run(),
+      icon: <MdStrikethroughS />,
+    },
+    {
+      name: "Code",
+      action: () => editor.chain().focus().toggleCode().run(),
+      icon: <BsCode />,
+    },
+    {
+      name: "Text",
+      action: () => editor.chain().focus().setParagraph().run(),
+      icon: <MdOutlineTextFields />,
+    },
+    {
+      name: "Image",
+      action: handleOpenModal,
+      icon: <BsImage />,
+    },
+    {
+      name: "Heading 1",
+      action: () => editor.chain().focus().toggleHeading({ level: 1 }).run(),
+      icon: "",
+    },
+    {
+      name: "Heading 2",
+      action: () => editor.chain().focus().toggleHeading({ level: 2 }).run(),
+      icon: "",
+    },
+    {
+      name: "Heading 3",
+      action: () => editor.chain().focus().toggleHeading({ level: 3 }).run(),
+      icon: "",
+    },
+    {
+      name: "Bullet list",
+      action: () => editor.chain().focus().toggleBulletList().run(),
+      icon: <MdFormatListBulleted />,
+    },
+    {
+      name: "Numbered list",
+      action: () => editor.chain().focus().toggleOrderedList().run(),
+      icon: <MdFormatListNumbered />,
+    },
+    {
+      name: "Code block",
+      action: () => editor.chain().focus().toggleCodeBlock().run(),
+      icon: <BiCodeBlock />,
+    },
+    {
+      name: "Quote",
+      action: () => editor.chain().focus().toggleBlockquote().run(),
+      icon: <MdFormatQuote />,
+    },
+    {
+      name: "Divider",
+      action: () => editor.chain().focus().setHorizontalRule().run(),
+      icon: <TbDivide />,
+    },
+  ];
+
+  return tools;
+};
+
 const EditorMenu = ({ editor }: any) => {
   const [uploading, setUploading] = useState(false);
   const [url, setUrl] = useState("");
