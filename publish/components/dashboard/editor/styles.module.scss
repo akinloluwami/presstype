@@ -43,9 +43,11 @@
   .editor_text_tools {
     // position: fixed;
     .options {
+      z-index: 100;
       position: fixed;
       list-style: none;
       margin-top: 10px;
+      background-color: #616161;
     }
     .btn_select {
       padding: 6px 10px;
