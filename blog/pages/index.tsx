@@ -1,13 +1,22 @@
+import TheirDaddy from "@/themes/their-daddy/TheirDaddy";
 import axios from "axios";
 import { GetServerSideProps } from "next";
 import React, { useEffect } from "react";
+import BlogInfo from "@/types/blog-info";
+import BlogPost from "@/types/blog-post";
 
-const Index = ({ blog }: any) => {
+interface Props {
+  blog: {
+    blogInfo: BlogInfo;
+    blogPosts: BlogPost[];
+  };
+}
+const Index = ({ blog }: Props) => {
   if (!blog) {
     return <div>Not Blog</div>;
   }
 
-  return <div className="">wow, blog</div>;
+  return <TheirDaddy blogInfo={blog.blogInfo} blogPosts={blog.blogPosts} />;
 };
 
 export const getServerSideProps: GetServerSideProps = async ({ req }) => {
