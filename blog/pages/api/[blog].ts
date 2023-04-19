@@ -1,8 +1,10 @@
+import { connectToDatabase } from "@/utils/db";
 import { NextApiRequest, NextApiResponse } from "next";
 import { allowMethods } from "next-method-guard";
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
+    await connectToDatabase();
   } catch (error) {
     res.status(500).json({
       message: "Something went wrong.",
