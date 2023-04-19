@@ -3,13 +3,14 @@ import Blog from "../schema/Blog";
 import BlogPost from "../schema/BlogPost";
 
 const getBlog = async (req: Request, res: Response) => {
+  const blog = req.headers.referer?.split("/")[2];
+
   try {
-    const blog = req.headers.host;
     const blogExist = await Blog.findOne({ subdomain: blog });
 
     if (!blogExist) {
       res.status(404).json({
-        message: "Blog not found",
+        message: `${blog} Blog not found`,
       });
       return;
     }
