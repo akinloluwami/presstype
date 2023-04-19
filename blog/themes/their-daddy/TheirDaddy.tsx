@@ -1,6 +1,7 @@
 import React from "react";
 import BlogInfo from "@/types/blog-info";
 import BlogPost from "@/types/blog-post";
+import Header from "./components/Header";
 
 const TheirDaddy = ({
   blogInfo,
@@ -9,7 +10,11 @@ const TheirDaddy = ({
   blogInfo: BlogInfo;
   blogPosts: BlogPost[];
 }) => {
-  return <div>TheirDaddy</div>;
+  return (
+    <div>
+      <Header title={blogInfo.title} />
+    </div>
+  );
 };
 
 export default TheirDaddy;
