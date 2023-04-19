@@ -1,5 +1,8 @@
+import type { Request, Response } from "express";
+import Blog from "../schema/Blog";
+import BlogPost from "../schema/BlogPost";
 
-const getBlog = async (req: , res: ) => {
+const getBlog = async (req: Request, res: Response) => {
   try {
     const blog = req.headers.host;
     const blogExist = await Blog.findOne({ subdomain: blog });
@@ -28,4 +31,4 @@ const getBlog = async (req: , res: ) => {
   }
 };
 
-export default getBlog
+export default getBlog;
