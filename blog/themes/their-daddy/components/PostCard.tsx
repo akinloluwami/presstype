@@ -9,7 +9,10 @@ const PostCard = ({ title, slug, createdAt }: BlogPost) => {
       <p className="mr-20">
         {moment(createdAt).format("MMM DD").toUpperCase()}
       </p>
-      <Link href={`/posts/${slug}`}>
+      <Link
+        href={`/posts/${slug}`}
+        className="hover:text-[rgba(255,244,141,0.8)] transition-colors"
+      >
         <h1 className="text-7xl">{title}</h1>
       </Link>
     </div>
