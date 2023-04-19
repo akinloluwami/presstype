@@ -24,7 +24,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
     const blogPosts = await BlogPost.find(
       { blog_id: blogExist._id },
-      { title: 1, slug: 1 }
+      { title: 1, slug: 1, createdAt: 1 }
     ).sort({ _id: -1 });
 
     res.status(200).json({ blogInfo, blogPosts });
