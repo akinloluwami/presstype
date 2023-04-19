@@ -3,34 +3,32 @@ import Blog from "../schema/Blog";
 import BlogPost from "../schema/BlogPost";
 
 const getBlog = async (req: Request, res: Response) => {
-  console.log(req.headers.host);
+  try {
+    const blog = req.headers.host;
+    const blogExist = await Blog.findOne({ subdomain: blog });
 
-  //   try {
-  //     const blog = req.headers.host;
-  //     const blogExist = await Blog.findOne({ subdomain: blog });
+    if (!blogExist) {
+      res.status(404).json({
+        message: "Blog not found",
+      });
+      return;
+    }
 
-  //     if (!blogExist) {
-  //       res.status(404).json({
-  //         message: "Blog not found",
-  //       });
-  //       return;
-  //     }
+    const { title, about } = blogExist;
 
-  //     const { title, about } = blogExist;
+    const blogInfo = { title, about };
 
-  //     const blogInfo = { title, about };
+    const blogPosts = await BlogPost.find(
+      { blog_id: blogExist._id },
+      { title: 1, slug: 1, createdAt: 1 }
+    ).sort({ _id: -1 });
 
-  //     const blogPosts = await BlogPost.find(
-  //       { blog_id: blogExist._id },
-  //       { title: 1, slug: 1, createdAt: 1 }
-  //     ).sort({ _id: -1 });
-
-  //     res.status(200).json({ blogInfo, blogPosts });
-  //   } catch (error) {
-  //     res.status(500).json({
-  //       message: "Something went wrong.",
-  //     });
-  //   }
+    res.status(200).json({ blogInfo, blogPosts });
+  } catch (error) {
+    res.status(500).json({
+      message: "Something went wrong.",
+    });
+  }
 };
 
 export default getBlog;
