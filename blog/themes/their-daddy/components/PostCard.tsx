@@ -5,8 +5,8 @@ import moment from "moment";
 
 const PostCard = ({ title, slug, createdAt }: BlogPost) => {
   return (
-    <div className="flex items-start my-8 flex-col border-t-[1px] py-8 border-t-[#fff48d]">
-      <p className="mr-20">
+    <div className="flex items-start my-4 flex-col border-t-[1px] py-8 border-t-[#fff48d]">
+      <p className="mr-20 text-xl">
         {moment(createdAt).format("MMM DD").toUpperCase()}
       </p>
       <Link
