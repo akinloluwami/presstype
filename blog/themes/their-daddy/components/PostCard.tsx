@@ -1,12 +1,18 @@
 import BlogPost from "@/types/blog-post";
 import Link from "next/link";
 import React from "react";
+import moment from "moment";
 
 const PostCard = ({ title, slug, createdAt }: BlogPost) => {
   return (
-    <Link href={`/posts/${slug}`}>
-      <h1>{title}</h1>
-    </Link>
+    <div className="flex items-start my-8 flex-col border-t-[1px] py-8 border-t-[#fff48d]">
+      <p className="mr-20">
+        {moment(createdAt).format("MMM DD").toUpperCase()}
+      </p>
+      <Link href={`/posts/${slug}`}>
+        <h1 className="text-7xl">{title}</h1>
+      </Link>
+    </div>
   );
 };
 
