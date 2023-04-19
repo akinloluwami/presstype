@@ -15,7 +15,7 @@ const Index = ({ blog }: any) => {
 
 export const getServerSideProps: GetServerSideProps = async () => {
   try {
-    const response = await axios.get("/api");
+    const response = await axios.get("http://localhost:3310/");
     const blog = response.data;
     return { props: { blog } };
   } catch (error) {
