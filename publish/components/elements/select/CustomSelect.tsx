@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import styles from "./CustomSelect.module.css";
+import styles from "./style.module.scss";
 
 interface Option {
   value: string;
@@ -7,13 +7,13 @@ interface Option {
 }
 
 interface Props {
-  options: Option[];
-  onChange: (option: Option, index: number) => void;
+  options: any;
+  onChange: (option: any, index: number) => void;
 }
 
 const CustomSelect: React.FC<Props> = ({ options, onChange }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selected, setSelected] = useState<Option | null>(null);
+  const [selected, setSelected] = useState<any | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -54,11 +54,11 @@ const CustomSelect: React.FC<Props> = ({ options, onChange }) => {
           setIsOpen(!isOpen);
         }}
       >
-        {selected ? selected.label : "Select an option"}
+        {selected ? selected.name : "Select an option"}
       </div>
       {isOpen && (
         <div className={styles["options-container"]}>
-          {options.map((option, index) => (
+          {options.map((option: any, index: number) => (
             <div
               key={option.value}
               tabIndex={0}
@@ -66,7 +66,7 @@ const CustomSelect: React.FC<Props> = ({ options, onChange }) => {
               onClick={() => selectOption(option, index)}
               onKeyDown={(e) => handleKeyDown(e, index)}
             >
-              {option.label}
+              {option.name}
             </div>
           ))}
         </div>

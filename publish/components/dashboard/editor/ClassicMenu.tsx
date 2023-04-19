@@ -1,4 +1,4 @@
-import { useCallback, useState, useEffect } from "react";
+import { useCallback, useState, useEffect, useRef } from "react";
 import styles from "./styles.module.scss";
 import {
   MdFormatBold,
@@ -28,8 +28,8 @@ const ClassicMenu = ({ editor }: any) => {
     {
       name: "Heading 1",
       action: () => {
+        removeFocusFromListbox();
         editor.chain().focus().toggleHeading({ level: 1 }).run();
-        editor.chain().focus();
       },
       icon: "H1",
     },
@@ -44,6 +44,12 @@ const ClassicMenu = ({ editor }: any) => {
       icon: "H3",
     },
   ];
+  const listboxButtonRef = useRef(null);
+  const removeFocusFromListbox = () => {
+    if (listboxButtonRef.current) {
+      listboxButtonRef.current.blur();
+    }
+  };
   const [uploading, setUploading] = useState(false);
   const [url, setUrl] = useState("");
   const [selectedTool, setSelectedTool] = useState(textTools[0]);
@@ -194,7 +200,10 @@ const ClassicMenu = ({ editor }: any) => {
       <div className={styles.editor_menu_classic}>
         <div className={styles.editor_text_tools}>
           <Listbox value={selectedTool} onChange={setSelectedTool}>
-            <Listbox.Button className={styles.btn_select_one}>
+            <Listbox.Button
+              className={styles.btn_select_one}
+              ref={listboxButtonRef}
+            >
               {selectedTool.name}
               <FaArrowDown />
             </Listbox.Button>
