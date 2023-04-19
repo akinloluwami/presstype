@@ -10,10 +10,11 @@ connectToDB;
 dotenv.config();
 
 const app = express();
+app.use(cors());
 
-app.get("/", (req, res) => {
-  getBlog;
-});
+app.get("/", (req, res) => res.send("Hello World!"));
+
+app.use("/blog", getBlog);
 
 app.listen(process.env.PORT, () =>
   console.log(`Sever is live on http://localhost:${process.env.PORT}`)
