@@ -3,30 +3,31 @@ import Blog from "../schema/Blog";
 import BlogPost from "../schema/BlogPost";
 
 const getBlogPost = async (req: Request, res: Response) => {
-  const { blog, slug } = req.query;
+  const postUrl = req.headers.referer;
+  console.log(postUrl);
 
-  try {
-    const blogPage = await Blog.findOne({ subdomain: blog });
-    if (!blogPage) return res.status(404).json({ error: "Blog not found" });
-    const post = await BlogPost.findOne({
-      blog_id: blogPage._id,
-      slug: blogPage.slug,
-    });
+  //   try {
+  //     const blogPage = await Blog.findOne({ subdomain: blog });
+  //     if (!blogPage) return res.status(404).json({ error: "Blog not found" });
+  //     const post = await BlogPost.findOne({
+  //       blog_id: blogPage._id,
+  //       slug: req.query.slug as string,
+  //     });
 
-    const { title, content, createdAt, cover_image, slug } = post;
+  //     const { title, content, createdAt, cover_image, slug } = post;
 
-    const postInfo = {
-      title,
-      content,
-      createdAt,
-      cover_image,
-      slug,
-    };
+  //     const postInfo = {
+  //       title,
+  //       content,
+  //       createdAt,
+  //       cover_image,
+  //       slug,
+  //     };
 
-    return res.status(200).json({ post: postInfo });
-  } catch (error: any) {
-    res.status(500).json({ error: error.message });
-  }
+  //     return res.status(200).json({ post: postInfo });
+  //   } catch (error: any) {
+  //     res.status(500).json({ error: error.message });
+  //   }
 };
 
 export default getBlogPost;
