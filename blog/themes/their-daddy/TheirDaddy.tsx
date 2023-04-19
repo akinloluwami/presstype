@@ -12,9 +12,9 @@ const TheirDaddy = ({
   blogPosts: BlogPost[];
 }) => {
   return (
-    <div className="bg-black min-h-screen text-white">
+    <div className="bg-black text-white min-h-screen py-3">
       <div className="w-[95%] max-w-[1100px] mx-auto">
-        <Header title={blogInfo.title} />
+        <Header title={blogInfo.title} about={blogInfo.about} />
         {blogPosts.map((post) => (
           <PostCard title={post.title} slug={post.slug} key={post.slug} />
         ))}
