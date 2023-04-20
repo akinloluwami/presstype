@@ -3,20 +3,24 @@ import React from "react";
 import axios from "axios";
 import BlogPost from "@/types/blog-post";
 import SinglePost from "@/themes/their-daddy/SinglePost";
+import Head from "next/head";
 
 const Post = ({ post }: any) => {
   if (!post) {
     return <>Post not found</>;
   }
   return (
-    <div>
+    <>
+      <Head>
+        <title>{post.title}</title>
+      </Head>
       <SinglePost
         title={post.title}
         content={post.content}
         createdAt={post.createdAt}
         slug={post.slug}
       />
-    </div>
+    </>
   );
 };
 
