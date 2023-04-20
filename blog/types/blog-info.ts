@@ -1,6 +1,6 @@
 interface BlogInfo {
   title: string;
-  about: string;
+  description?: string;
 }
 
 export default BlogInfo;
