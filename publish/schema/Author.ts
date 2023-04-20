@@ -18,6 +18,11 @@ const authorSchema = new Schema({
     type: String,
     required: true,
   },
+
+  blogs: {
+    type: Schema.Types.ObjectId,
+    ref: "Blog",
+  },
   avatar: {
     type: String,
     required: false,
@@ -33,3 +38,5 @@ const authorSchema = new Schema({
 });
 
 const Author = models.Author || model("Author", authorSchema);
+
+export default Author;
