@@ -3,8 +3,15 @@ import styles from "./styles.module.scss";
 import { useCompleteSignupStore } from "@/stores/completeSignUpStore";
 
 const PubNameAndDesc = () => {
-  const { title, setTitle, subdomain, setSubdomain, about, setAbout, message } =
-    useCompleteSignupStore();
+  const {
+    title,
+    setTitle,
+    subdomain,
+    setSubdomain,
+    description,
+    setDescription,
+    message,
+  } = useCompleteSignupStore();
 
   return (
     <div className={styles.pub_name_n_desc}>
@@ -47,8 +54,8 @@ const PubNameAndDesc = () => {
           <p>What is your publication about?</p>
           <textarea
             placeholder="Describe your publication in 200 characters or less."
-            value={about}
-            onChange={(e) => setAbout(e.target.value)}
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
           />
         </div>
       </div>
