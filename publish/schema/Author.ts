@@ -3,20 +3,14 @@ import { Schema, model, models } from "mongoose";
 const authorSchema = new Schema({
   name: {
     type: String,
-    required: true,
   },
   email: {
     type: String,
     required: true,
     unique: true,
   },
-  password: {
-    type: String,
-    required: true,
-  },
   bio: {
     type: String,
-    required: true,
   },
 
   blogs: {
@@ -25,7 +19,6 @@ const authorSchema = new Schema({
   },
   avatar: {
     type: String,
-    required: false,
   },
   created_at: {
     type: Date,
