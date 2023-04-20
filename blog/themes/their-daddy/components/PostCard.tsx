@@ -4,11 +4,11 @@ import React from "react";
 import moment from "moment";
 import CustomLink from "@/components/CustomLink";
 
-const PostCard = ({ title, slug, createdAt }: BlogPost) => {
+const PostCard = ({ title, slug, created_at }: BlogPost) => {
   return (
     <div className="flex items-start my-4 flex-col border-t-[1px] py-8 border-t-[#fff48d]">
       <p className="mr-20 text-xl">
-        {moment(createdAt).format("MMM DD").toUpperCase()}
+        {moment(created_at).format("MMM DD").toUpperCase()}
       </p>
       <CustomLink
         href={`/posts/${slug}`}
