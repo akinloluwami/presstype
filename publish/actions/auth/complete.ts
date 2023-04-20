@@ -3,16 +3,20 @@ import axios from "axios";
 const completeSignUp = async (
   {
     title,
-    about,
+    description,
     subdomain,
+    author_name,
+    author_bio,
   }: {
     title: string;
-    about: string;
+    description: string;
     subdomain: string;
+    author_name: string;
+    author_bio: string;
   },
   token: string
 ) => {
-  const data = { title, about, subdomain };
+  const data = { title, description, subdomain, author_bio, author_name };
 
   try {
     const response = await axios.put("/api/blogs/complete", data, {

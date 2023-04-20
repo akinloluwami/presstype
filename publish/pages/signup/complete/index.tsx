@@ -8,8 +8,16 @@ import { useRouter } from "next/router";
 import { useTokenStore } from "@/stores/tokenStore";
 
 const Complete = () => {
-  const { step, setStep, title, subdomain, about, setMessage } =
-    useCompleteSignupStore();
+  const {
+    step,
+    setStep,
+    title,
+    subdomain,
+    description,
+    setMessage,
+    author_bio,
+    author_name,
+  } = useCompleteSignupStore();
   const { token, setToken } = useTokenStore();
   const [loading, setLoading] = useState<boolean>(false);
 
@@ -20,7 +28,7 @@ const Complete = () => {
 
   const nextHandler = async () => {
     setLoading(true);
-    const data = { title, subdomain, about };
+    const data = { title, subdomain, description, author_bio, author_name };
     const next = await completeSignUp(data, token);
     if (next.status === 200) {
       setStep(step + 1);
