@@ -1,16 +1,20 @@
 import { GetServerSideProps } from "next";
 import React from "react";
 import axios from "axios";
+import BlogPost from "@/types/blog-post";
 
-const Post = () => {
+const Post = ({ post }: any) => {
+  if (!post) {
+    return <>Post not found</>;
+  }
   return <div>Post</div>;
 };
 
-export default Post;
-
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getServerSideProps: GetServerSideProps = async ({ req }) => {
   try {
-    const response = await axios.get(`http://localhost:3310/post`);
+    const response = await axios.get(
+      `http://localhost:3310/post?url=${req.headers.host}${req.url}`
+    );
     const post = response.data;
     return { props: { post } };
   } catch (error) {
@@ -18,3 +22,5 @@ export const getServerSideProps: GetServerSideProps = async () => {
     return { props: { post: null } };
   }
 };
+
+export default Post;
