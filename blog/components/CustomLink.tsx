@@ -1,5 +1,4 @@
 import React from "react";
-import { useRouter } from "next/router";
 
 interface LinkProps {
   href: string;
@@ -8,10 +7,9 @@ interface LinkProps {
 }
 
 const CustomLink = ({ href, children, className }: LinkProps) => {
-  const router = useRouter();
   const handleClick = (e: any) => {
     e.preventDefault();
-    router.push(href, undefined, { shallow: false, scroll: true, force: true });
+    window.location.href = href;
   };
   return (
     <a href={href} onClick={handleClick} className={className}>
