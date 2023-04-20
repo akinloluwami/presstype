@@ -3,6 +3,7 @@ import Blog from "@/schema/Blog";
 import { NextApiRequest, NextApiResponse } from "next";
 import DecodedToken from "@/interfaces/DecodedToken";
 import decodeToken from "@/utils/decode_token";
+import Author from "@/schema/Author";
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   if (!req.headers.authorization) {
@@ -20,21 +21,21 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     return;
   }
 
-  const blog = await Blog.findOne({ email: decoded.email });
+  const author = await Author.findOne({ email: decoded.email });
 
-  if (!blog) {
-    res.status(404).json({ message: "Blog not found" });
+  if (!author) {
+    res.status(404).json({ message: "No account associated with this email" });
     return;
   }
 
-  if (blog.is_onboarding_complete) {
-    res.status(400).json({
-      message: "You have previously setup your PressType. Login instead.",
-    });
-    return;
-  }
+  // if (blog.is_onboarding_complete) {
+  //   res.status(400).json({
+  //     message: "You have previously setup your PressType. Login instead.",
+  //   });
+  //   return;
+  // }
 
-  const { subdomain, title, about } = req.body;
+  const { subdomain, title, description, author_name, author_bio } = req.body;
 
   if (!subdomain || !title) {
     res.status(400).json({ message: "Subdomain and title are required" });
@@ -64,13 +65,21 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   }
 
   try {
-    const blogUpdate = {
+    const newBlog = new Blog({
       subdomain,
       title,
-      about,
-      is_onboarding_complete: true,
+      description,
+    });
+
+    await newBlog.save();
+
+    const authorUpdate = {
+      name: author_name,
+      bio: author_bio,
+      blogs: [...author.blogs, newBlog._id],
     };
-    await Blog.findOneAndUpdate({ email: decoded.email }, blogUpdate);
+
+    await Author.findOneAndUpdate({ email: decoded.email }, authorUpdate);
     res.status(200).json({ message: "Blog updated" });
     return;
   } catch (error) {
