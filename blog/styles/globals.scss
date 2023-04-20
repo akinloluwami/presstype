@@ -17,9 +17,13 @@
 }
 
 .their-daddy {
-  @apply bg-black text-white min-h-screen px-7;
-
   h1 {
-    @apply text-4xl;
+    @apply text-5xl;
+  }
+  p {
+    @apply text-xl my-4;
+  }
+  a {
+    @apply underline;
   }
 }
