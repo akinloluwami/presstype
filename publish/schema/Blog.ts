@@ -15,6 +15,10 @@ const blogSchema = new Schema({
     type: Date,
     default: Date.now,
   },
+  blog_logo: {
+    type: String,
+    default: "",
+  },
   updated_at: {
     type: Date,
     default: Date.now,
