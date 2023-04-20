@@ -11,6 +11,10 @@ const PubNameAndDesc = () => {
     description,
     setDescription,
     message,
+    author_bio,
+    author_name,
+    setAuthorBio,
+    setAuthorName,
   } = useCompleteSignupStore();
 
   return (
@@ -62,13 +66,13 @@ const PubNameAndDesc = () => {
       <h2>Author Information</h2>
       <input
         type="text"
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
+        value={author_name}
+        onChange={(e) => setAuthorName(e.target.value)}
       />
       <textarea
         placeholder="Tell the world about yourself in 200 characters or less."
-        value={about}
-        onChange={(e) => setAbout(e.target.value)}
+        value={author_bio}
+        onChange={(e) => setAuthorBio(e.target.value)}
       />
     </div>
   );
