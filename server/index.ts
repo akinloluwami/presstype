@@ -12,6 +12,7 @@ dotenv.config();
 
 const app = express();
 app.use(cors());
+app.use(bodyParser());
 
 app.get("/", (req, res) => res.send("Hello World!"));
 
