@@ -17,7 +17,7 @@ const Post = ({ post }: { post: BlogPost }) => {
       <SinglePost
         title={post.title}
         content={post.content}
-        createdAt={post.createdAt}
+        created_at={post.created_at}
         slug={post.slug}
       />
     </>

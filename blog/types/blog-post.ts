@@ -1,7 +1,7 @@
 interface BlogPost {
   title: string;
   slug: string;
-  createdAt?: Date;
+  created_at?: Date;
   content?: string;
 }
 
