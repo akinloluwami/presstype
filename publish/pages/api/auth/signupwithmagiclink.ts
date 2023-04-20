@@ -7,6 +7,7 @@ import validator from "validator";
 import jwt, { Secret } from "jsonwebtoken";
 import AuthToken from "@/schema/AuthToken";
 import RefreshToken from "@/schema/RefreshToken";
+import Author from "@/schema/Author";
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const { email } = req.body;
@@ -21,7 +22,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
   await connectToDatabase();
 
-  const emailExists = await Blog.findOne({ email });
+  const emailExists = await Author.findOne({ email });
 
   if (emailExists) {
     res.status(409).json({ message: "Email already exists" });
@@ -45,7 +46,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       email,
     });
 
-    await Blog.create({ email });
+    await Author.create({ email });
     const magicLinkUrl = `${process.env.BASE_URL}/api/auth/callback/signup?token=${accessToken}&email=${email}`;
     const to = email;
     const subject = "Welcome to PressType";
