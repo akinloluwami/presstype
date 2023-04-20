@@ -21,7 +21,7 @@ const PubNameAndDesc = () => {
     <div className={styles.pub_name_n_desc}>
       {message && <h4>{message}</h4>}
       <div className={styles.blog_info}>
-        <h2>Blog Information</h2>
+        <h2 className="mb-4 text-2xl">Blog Information</h2>
         <div className={styles.pub_name_n_bc}>
           <div className={styles.subdomain}>
             <p>Choose a subdomain</p>
@@ -63,17 +63,24 @@ const PubNameAndDesc = () => {
           />
         </div>
       </div>
-      <h2>Author Information</h2>
-      <input
-        type="text"
-        value={author_name}
-        onChange={(e) => setAuthorName(e.target.value)}
-      />
-      <textarea
-        placeholder="Tell the world about yourself in 200 characters or less."
-        value={author_bio}
-        onChange={(e) => setAuthorBio(e.target.value)}
-      />
+      <div className="flex flex-col">
+        <h2 className="mb-2 text-2xl">Author Information</h2>
+        <p>What's your name?</p>
+        <input
+          type="text"
+          placeholder="Type your name here"
+          className="mb-8 py-[10px] bg-base_dark outline-none px-[8px] text-lg rounded-md"
+          value={author_name}
+          onChange={(e) => setAuthorName(e.target.value)}
+        />
+        <p>Bio</p>
+        <textarea
+          placeholder="Tell the world about yourself in 200 characters or less."
+          value={author_bio}
+          className="mb-8 py-[10px] px-[8px] text-lg rounded-md h-[100px] bg-base_dark outline-none"
+          onChange={(e) => setAuthorBio(e.target.value)}
+        />
+      </div>
     </div>
   );
 };
