@@ -81,7 +81,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
     await Author.findOneAndUpdate({ email: decoded.email }, authorUpdate);
 
-    res.status(200).json({ message: "Blog updated" });
+    res.status(200).json({ message: "Onboarding completed" });
     return;
   } catch (error) {
     console.log(error);
