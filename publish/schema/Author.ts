@@ -14,7 +14,7 @@ const authorSchema = new Schema({
   },
 
   blogs: {
-    type: Schema.Types.ObjectId,
+    type: [],
     ref: "Blog",
   },
   avatar: {
