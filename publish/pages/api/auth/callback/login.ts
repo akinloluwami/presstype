@@ -6,6 +6,7 @@ import jwt from "jsonwebtoken";
 import Blog from "@/schema/Blog";
 import decodeToken from "@/utils/decode_token";
 import DecodedToken from "@/interfaces/DecodedToken";
+import Author from "@/schema/Author";
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const { token, email } = req.query;
@@ -25,19 +26,18 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     return;
   }
 
-  const blog = await Blog.findOne({ email });
+  const author = await Author.findOne({ email });
 
-  if (!blog) {
-    res.status(404).send("Blog not found");
+  if (!author) {
+    res.status(404).send("No account associated with this email");
     return;
   }
 
   const tokenParam = token ? encodeURIComponent(token as string) : "";
-  if (!blog.isOnboardingComplete) {
-    res.redirect(`/signup/complete?&token=${tokenParam}`);
-    return;
-  }
-
+  // if (!blog.isOnboardingComplete) {
+  //   res.redirect(`/signup/complete?&token=${tokenParam}`);
+  //   return;
+  // }
   res.redirect(`/dashboard?token=${tokenParam}`);
 };
 
