@@ -5,7 +5,7 @@ import BlogPost from "@/types/blog-post";
 import SinglePost from "@/themes/their-daddy/SinglePost";
 import Head from "next/head";
 
-const Post = ({ post }: any) => {
+const Post = (post: BlogPost) => {
   if (!post) {
     return <>Post not found</>;
   }
