@@ -4,37 +4,24 @@ const blogSchema = new Schema({
   title: {
     type: String,
   },
-  about: {
+  description: {
     type: String,
   },
-  subdomain: {
+  domain: {
     type: String,
     unique: true,
   },
-  email: {
+  created_at: {
+    type: Date,
+    default: Date.now,
+  },
+  updated_at: {
+    type: Date,
+    default: Date.now,
+  },
+  blog_logo: {
     type: String,
-    required: true,
-    unique: true,
-  },
-  isEmailVerified: {
-    type: Boolean,
-    default: false,
-  },
-  createdAt: {
-    type: Date,
-    default: Date.now,
-  },
-  updatedAt: {
-    type: Date,
-    default: Date.now,
-  },
-  hasExistingBlog: {
-    type: Boolean,
-    default: false,
-  },
-  isOnboardingComplete: {
-    type: Boolean,
-    default: false,
+    default: "",
   },
 });
 
