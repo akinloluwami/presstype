@@ -27,12 +27,10 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     return;
   }
 
-  if (blog.isOnboardingComplete) {
-    res
-      .status(400)
-      .json({
-        message: "You have previously setup your PressType. Login instead.",
-      });
+  if (blog.is_onboarding_complete) {
+    res.status(400).json({
+      message: "You have previously setup your PressType. Login instead.",
+    });
     return;
   }
 
@@ -54,6 +52,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     res.status(400).json({
       message: "Subdomain cannot be less 5 characters",
     });
+    return;
   }
 
   const subdomainRegex = /^[a-zA-Z0-9\-]+$/;
@@ -65,7 +64,12 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   }
 
   try {
-    const blogUpdate = { subdomain, title, about, isOnboardingComplete: true };
+    const blogUpdate = {
+      subdomain,
+      title,
+      about,
+      is_onboarding_complete: true,
+    };
     await Blog.findOneAndUpdate({ email: decoded.email }, blogUpdate);
     res.status(200).json({ message: "Blog updated" });
     return;
