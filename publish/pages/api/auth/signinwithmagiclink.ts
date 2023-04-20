@@ -7,6 +7,7 @@ import validator from "validator";
 import jwt, { Secret } from "jsonwebtoken";
 import AuthToken from "@/schema/AuthToken";
 import RefreshToken from "@/schema/RefreshToken";
+import Author from "@/schema/Author";
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const { email } = req.body;
@@ -21,10 +22,10 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
   await connectToDatabase();
 
-  const user = await Blog.findOne({ email });
+  const author = await Author.findOne({ email });
 
-  if (!user) {
-    res.status(401).json({ message: "User not found" });
+  if (!author) {
+    res.status(401).json({ message: "No account associated with this email" });
     return;
   }
 
