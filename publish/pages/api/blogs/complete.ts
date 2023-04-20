@@ -80,9 +80,11 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     };
 
     await Author.findOneAndUpdate({ email: decoded.email }, authorUpdate);
+
     res.status(200).json({ message: "Blog updated" });
     return;
   } catch (error) {
+    console.log(error);
     res.status(500).json({ message: "Internal server error" });
   }
 };
