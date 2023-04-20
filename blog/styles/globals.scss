@@ -17,10 +17,9 @@
 }
 
 .their-daddy {
-  @apply bg-black text-white;
-}
-.their-daddy h1 {
-  @apply text-4xl;
-}
-.their-daddy {
+  @apply bg-black text-white min-h-screen px-7;
+
+  h1 {
+    @apply text-4xl;
+  }
 }
