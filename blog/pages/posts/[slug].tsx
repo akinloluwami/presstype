@@ -16,7 +16,6 @@ const Post = ({ post }: any) => {
         createdAt={post.createdAt}
         slug={post.slug}
       />
-      {JSON.stringify(post)}
     </div>
   );
 };
