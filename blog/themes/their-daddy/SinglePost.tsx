@@ -8,7 +8,7 @@ const SinglePost = ({ title, content, createdAt }: BlogPost) => {
     <div>
       <h1>{title}</h1>
       <p>{moment(createdAt).format("DD/MM/YYYY")}</p>
-      <div className="">{parse(content)}</div>
+      <div className="">{parse(content as string)}</div>
     </div>
   );
 };
