@@ -1,8 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { connectToDatabase } from "@/utils/db";
 import AuthToken from "@/schema/AuthToken";
-import dayjs from "dayjs";
-import jwt from "jsonwebtoken";
 import Blog from "@/schema/Blog";
 import decodeToken from "@/utils/decode_token";
 import DecodedToken from "@/interfaces/DecodedToken";
@@ -41,11 +39,9 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     _id: { $in: authorBlogs },
   });
 
-  if (!blog.is_onboarding_complete) {
-    res.redirect(`/signup/complete?token=${tokenParam}`);
-    return;
+  if (!blog[0].is_onboarding_complete) {
+    return res.redirect(`/signup/complete?token=${tokenParam}`);
   }
-
   res.redirect(`/dashboard?token=${tokenParam}`);
 };
 
