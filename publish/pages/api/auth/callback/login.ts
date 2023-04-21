@@ -24,6 +24,11 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     return;
   }
 
+  if (authToken.is_used) {
+    res.status(400).send("Token already used");
+    return;
+  }
+
   const author = await Author.findOne({ email });
 
   if (!author) {
@@ -38,6 +43,9 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const blog: any = await Blog.find({
     _id: { $in: authorBlogs },
   });
+
+  authToken.is_used = true;
+  await authToken.save();
 
   if (!blog[0].is_onboarding_complete) {
     return res.redirect(`/signup/complete?token=${tokenParam}`);
