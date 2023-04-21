@@ -14,6 +14,10 @@ const authTokenSchema = new Schema({
     type: String,
     default: Date.now(),
   },
+  is_used: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 const AuthToken = models.AuthToken || model("AuthToken", authTokenSchema);
