@@ -34,10 +34,18 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   }
 
   const tokenParam = token ? encodeURIComponent(token as string) : "";
-  // if (!blog.isOnboardingComplete) {
-  //   res.redirect(`/signup/complete?&token=${tokenParam}`);
-  //   return;
-  // }
+
+  const authorBlogs = author.blogs;
+
+  const blog: any = await Blog.find({
+    _id: { $in: authorBlogs },
+  });
+
+  if (!blog.is_onboarding_complete) {
+    res.redirect(`/signup/complete?token=${tokenParam}`);
+    return;
+  }
+
   res.redirect(`/dashboard?token=${tokenParam}`);
 };
 
