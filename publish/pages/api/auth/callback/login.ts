@@ -12,6 +12,11 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
   const authToken = await AuthToken.findOne({ token });
 
+  if (authToken.is_used) {
+    res.status(400).send("Token already used");
+    return;
+  }
+
   if (!authToken || authToken.email !== email) {
     res.status(400).send("Invalid token or email");
     return;
@@ -21,11 +26,6 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
   if (!decoded) {
     res.status(400).send("Token expired");
-    return;
-  }
-
-  if (authToken.is_used) {
-    res.status(400).send("Token already used");
     return;
   }
 
