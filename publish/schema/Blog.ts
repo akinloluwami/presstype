@@ -7,7 +7,7 @@ const blogSchema = new Schema({
   description: {
     type: String,
   },
-  domain: {
+  subdomain: {
     type: String,
     unique: true,
   },
