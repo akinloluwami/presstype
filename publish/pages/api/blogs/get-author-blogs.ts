@@ -34,10 +34,12 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
     const allBlogs = await Blog.find(
       { _id: { $in: blogs } },
-      { _id: 0, id: 1, title: 1 }
-    ).lean({ virtuals: true });
+      { _id: 1, title: 1 }
+    );
 
-    res.status(200).json({ blogs: allBlogs });
+    res
+      .status(200)
+      .json({ blogs: allBlogs.map(({ _id, title }) => ({ id: _id, title })) });
   } catch (e) {
     res.status(500).json({ message: "Something went wrong" });
   }
