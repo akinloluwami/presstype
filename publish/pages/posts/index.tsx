@@ -5,22 +5,25 @@ import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import useGetAllPosts from "@/actions/blogs/get_all_posts";
+import getAllPosts from "@/actions/blogs/get_all_posts";
+import { useTokenStore } from "@/stores/tokenStore";
+import { useBlogStore } from "@/stores/blogStore";
 
 const Index = () => {
   const [posts, setPosts] = useState<[]>([]);
-
-  const getAllPosts = useGetAllPosts();
+  const { token } = useTokenStore();
+  const { blogId } = useBlogStore();
 
   useEffect(() => {
     (async () => {
-      const res = await getAllPosts();
+      const res = await getAllPosts(token, blogId);
 
       if (res.data.blogPosts) {
         setPosts(res.data.blogPosts);
         return;
       }
     })();
-  }, []);
+  }, [token, blogId]);
 
   const router = useRouter();
   return (
