@@ -16,9 +16,9 @@ const PostCard = ({ title }: { title: string }) => {
           </a>
         </span>
       </h1>
-      <div className={styles.side}>
-        <button data-theme={theme}>
-          <CgOptions />
+      <div>
+        <button className="flex items-center">
+          <CgOptions /> Edit
         </button>
       </div>
     </div>
