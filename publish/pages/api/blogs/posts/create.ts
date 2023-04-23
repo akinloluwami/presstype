@@ -67,6 +67,13 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       return;
     }
 
+    const authorBlogs = author.blogs;
+
+    if (!authorBlogs.includes(blogExists._id)) {
+      res.status(401).json({ message: "Unauthorized request" });
+      return;
+    }
+
     await BlogPost.create({
       title,
       content,
