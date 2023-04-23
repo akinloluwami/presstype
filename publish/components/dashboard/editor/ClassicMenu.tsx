@@ -81,7 +81,7 @@ const ClassicMenu = ({ editor }: any) => {
     const formData = new FormData();
     formData.append("file", cdnImage);
     const res = await axios.post(
-      "/api/blogs/upload-image?folderName=post_images",
+      "/api/blogs/upload-image?folder=post_images",
       formData
     );
     editor.chain().focus().setImage({ src: res.data.url }).run();
