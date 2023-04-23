@@ -38,6 +38,9 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const emailParam = email ? encodeURIComponent(email as string) : "";
   const tokenParam = token ? encodeURIComponent(token as string) : "";
 
+  authToken.is_used = true;
+  await authToken.save();
+
   if (blog.is_onboarding_complete) {
     res.redirect(`/dashboard&token=${tokenParam}`);
     return;
