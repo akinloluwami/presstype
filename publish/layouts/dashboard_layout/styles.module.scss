@@ -16,10 +16,12 @@
   @include toggle($white-base, $dark-base, $dark-base, $white-base);
   min-height: 100vh;
   padding-bottom: 3rem;
+  // overflow-y: scroll;
   .sidebar {
     width: 20%;
     position: fixed;
     height: 100vh;
+    overflow-y: scroll;
     @include toggle(
       $white-secondary,
       $dark-secondary,
