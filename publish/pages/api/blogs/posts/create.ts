@@ -5,6 +5,7 @@ import decodeToken from "@/utils/decode_token";
 import { allowMethods } from "@/middlewares/allowMethods";
 import BlogPost from "@/schema/BlogPost";
 import { connectToDatabase } from "@/utils/db";
+import Author from "@/schema/Author";
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   connectToDatabase();
@@ -22,14 +23,14 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     return;
   }
 
-  const blog = await Blog.findOne({ email: decoded.email });
+  const author = await Author.findOne({ email: decoded.email });
 
-  if (!blog) {
-    res.status(404).json({ message: "Blog not found" });
+  if (!author) {
+    res.status(404).json({ message: "No account associated with this email" });
     return;
   }
 
-  const { title, content, cover_image } = req.body;
+  const { title, content, cover_image, blog_id } = req.body;
 
   if (!title) {
     res.status(400).json({ message: "Title is required" });
@@ -46,7 +47,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     return;
   }
 
-  const titleExists = await BlogPost.findOne({ title, blog_id: blog._id });
+  const titleExists = await BlogPost.findOne({ title, blog_id });
 
   if (titleExists) {
     res.status(400).json({ message: "Title already exists" });
@@ -58,7 +59,8 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       title,
       content,
       cover_image,
-      blog_id: blog._id,
+      blog_id,
+      author_id: author._id,
       slug: title
         .replace(/[^\w\s]|_/g, "")
         .trim()
