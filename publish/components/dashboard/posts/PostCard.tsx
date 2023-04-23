@@ -5,7 +5,7 @@ import { useTheme } from "@/contexts/ThemeContext";
 import { HiOutlineExternalLink } from "react-icons/hi";
 import Link from "next/link";
 
-const PostCard = ({ title }: { title: string }) => {
+const PostCard = ({ title, id }: { title: string; id: string }) => {
   const { theme } = useTheme();
   return (
     <div className={styles.post_card_container}>

@@ -13,7 +13,7 @@ const Posts = ({ posts }: { posts: any }) => {
       </div> */}
       <div className="">
         {posts.map((post: any) => (
-          <PostCard key={post._id} title={post.title} />
+          <PostCard key={post._id} title={post.title} id={post._id} />
         ))}
       </div>
     </div>
