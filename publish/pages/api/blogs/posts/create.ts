@@ -32,6 +32,11 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
   const { title, content, cover_image, blog_id } = req.body;
 
+  if (!blog_id) {
+    res.status(400).json({ message: "Blog id is required" });
+    return;
+  }
+
   if (!title) {
     res.status(400).json({ message: "Title is required" });
     return;
@@ -55,6 +60,13 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   }
 
   try {
+    const blogExists = await Blog.findById(blog_id);
+
+    if (!blogExists) {
+      res.status(404).json({ message: "Blog not found" });
+      return;
+    }
+
     await BlogPost.create({
       title,
       content,
