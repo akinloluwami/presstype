@@ -27,6 +27,15 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     res.status(404).json({ message: "No account associated with this email" });
     return;
   }
-};
 
-export default allowMethods(["GET"])(handler);
+  const blogs: [] = author.blogs;
+
+  const allBlogs = blogs.map(async (blog: any) => {
+    const blogData = await Blog.findById(blog);
+    return blogData;
+  });
+
+
+  res.status(200).json({ blogs: allBlogs });
+
+export default allowMethods(["GET"])(handler)
