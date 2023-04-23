@@ -17,7 +17,7 @@ const PostCard = ({ title, id }: { title: string; id: string }) => {
           </a>
         </span>
       </h1>
-      <Link href={""}>
+      <Link href={`/posts/edit/${id}`}>
         <button className="flex items-center">
           <CgOptions /> Edit
         </button>
