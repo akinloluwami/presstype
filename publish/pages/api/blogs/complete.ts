@@ -23,8 +23,6 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
   const author = await Author.findOne({ email: decoded.email });
 
-  console.log(await Author.findOne({ email: decoded.email }));
-
   if (!author) {
     res.status(404).json({ message: "No account associated with this email" });
     return;
@@ -71,6 +69,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       subdomain,
       title,
       description,
+      is_onboarding_complete: true,
     });
 
     await newBlog.save();
