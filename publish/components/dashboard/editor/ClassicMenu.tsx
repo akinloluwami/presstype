@@ -80,7 +80,10 @@ const ClassicMenu = ({ editor }: any) => {
     setUploading(true);
     const formData = new FormData();
     formData.append("file", cdnImage);
-    const res = await axios.post("/api/blogs/upload-image", formData);
+    const res = await axios.post(
+      "/api/blogs/upload-image?folderName=post_images",
+      formData
+    );
     editor.chain().focus().setImage({ src: res.data.url }).run();
     handleCloseModal();
     setCdnImage(null);
