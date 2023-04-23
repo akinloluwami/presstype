@@ -1,9 +1,12 @@
 import getAllBlogs from "@/actions/blogs/get_all_blogs";
+import { useBlogStore } from "@/stores/blogStore";
 import { useTokenStore } from "@/stores/tokenStore";
 import { useState, useEffect } from "react";
 
 const BlogsList = () => {
   const { token } = useTokenStore();
+  const { setBlogId } = useBlogStore();
+
   const [blogs, setBlogs] = useState<
     {
       id: string;
@@ -14,6 +17,7 @@ const BlogsList = () => {
     (async () => {
       const res = await getAllBlogs(token);
       setBlogs(res.blogs);
+      setBlogId(res.blogs[0].id);
     })();
   }, []);
 
