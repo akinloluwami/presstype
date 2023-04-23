@@ -20,22 +20,27 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     res.status(400).send("Token expired");
     return;
   }
+  try {
+    const author = await Author.findOne({ email: decoded.email });
 
-  const author = await Author.findOne({ email: decoded.email });
+    if (!author) {
+      res
+        .status(404)
+        .json({ message: "No account associated with this email" });
+      return;
+    }
 
-  if (!author) {
-    res.status(404).json({ message: "No account associated with this email" });
-    return;
+    const blogs: [] = author.blogs;
+
+    const allBlogs = blogs.map(async (blog: any) => {
+      const blogData = await Blog.findById(blog);
+      return blogData;
+    });
+
+    res.status(200).json({ blogs: allBlogs });
+  } catch (e) {
+    res.status(500).json({ message: "Something went wrong" });
   }
+};
 
-  const blogs: [] = author.blogs;
-
-  const allBlogs = blogs.map(async (blog: any) => {
-    const blogData = await Blog.findById(blog);
-    return blogData;
-  });
-
-
-  res.status(200).json({ blogs: allBlogs });
-
-export default allowMethods(["GET"])(handler)
+export default allowMethods(["GET"])(handler);
