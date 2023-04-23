@@ -22,6 +22,11 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     return;
   }
 
+  if (authToken.is_used) {
+    res.status(400).send("Token already used");
+    return;
+  }
+
   const decoded: DecodedToken | null = decodeToken(token as string);
 
   if (!decoded) {
