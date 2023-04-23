@@ -1,10 +1,8 @@
 import NoPost from "@/components/dashboard/no_post/NoPost";
 import Posts from "@/components/dashboard/posts/Posts";
 import DashboardLayout from "@/layouts/dashboard_layout";
-import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-import useGetAllPosts from "@/actions/blogs/get_all_posts";
 import getAllPosts from "@/actions/blogs/get_all_posts";
 import { useTokenStore } from "@/stores/tokenStore";
 import { useBlogStore } from "@/stores/blogStore";
