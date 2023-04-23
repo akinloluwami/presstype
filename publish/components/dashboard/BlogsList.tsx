@@ -4,7 +4,12 @@ import { useState, useEffect } from "react";
 
 const BlogsList = () => {
   const { token } = useTokenStore();
-  const [blogs, setBlogs] = useState([{ id: "", title: "" }]);
+  const [blogs, setBlogs] = useState<
+    {
+      id: string;
+      title: string;
+    }[]
+  >([{ id: "", title: "" }]);
   useEffect(() => {
     (async () => {
       const res = await getAllBlogs(token);
