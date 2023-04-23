@@ -4,6 +4,7 @@ import { GetServerSideProps } from "next";
 import React, { useEffect } from "react";
 import BlogInfo from "@/types/blog-info";
 import BlogPost from "@/types/blog-post";
+import Head from "next/head";
 
 interface Props {
   blog: {
@@ -16,7 +17,14 @@ const Index = ({ blog }: Props) => {
     return <div>Not Blog</div>;
   }
 
-  return <TheirDaddy blogInfo={blog.blogInfo} blogPosts={blog.blogPosts} />;
+  return (
+    <>
+      <Head>
+        <title>{blog.blogInfo.title}</title>
+      </Head>
+      <TheirDaddy blogInfo={blog.blogInfo} blogPosts={blog.blogPosts} />
+    </>
+  );
 };
 
 export const getServerSideProps: GetServerSideProps = async ({ req }) => {
