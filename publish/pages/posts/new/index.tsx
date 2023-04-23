@@ -1,16 +1,18 @@
 import Editor from "@/components/dashboard/editor/Editor";
 import DashboardLayout from "@/layouts/dashboard_layout";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./styles.module.scss";
 import NewPostHeader from "@/components/dashboard/posts/NewPostHeader/NewPostHeader";
 import { useNewPostStore } from "@/stores/newPostStore";
 import axios from "axios";
 import Modal from "@/components/elements/modal/Modal";
 import { useModalStore } from "@/stores/modalStore";
+import { useRouter } from "next/router";
 
 const NewPost = () => {
   const { title, setTitle } = useNewPostStore();
   const { isOpen, setIsOpen } = useModalStore();
+
   return (
     <DashboardLayout page_name={`Editing ${title ? `"${title}"` : ""}`}>
       {isOpen && <Modal onClose={() => setIsOpen(false)}>lll</Modal>}
