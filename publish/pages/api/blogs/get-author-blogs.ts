@@ -32,7 +32,10 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
     const blogs: [] = author.blogs;
 
-    const allBlogs = await Blog.find({ _id: { $in: blogs } });
+    const allBlogs = await Blog.find(
+      { _id: { $in: blogs } },
+      { _id: 0, id: 1, title: 1 }
+    ).lean({ virtuals: true });
 
     res.status(200).json({ blogs: allBlogs });
   } catch (e) {
