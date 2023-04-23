@@ -67,10 +67,13 @@ const Sidebar = () => {
     },
   ];
   return (
-    <div className={styles.sidebar_container} data-theme={theme}>
-      <h1>PressType</h1>
-      <BlogsList />
-      <div className={styles.links_container}>
+    <div className={`${styles.sidebar_container} py-4`} data-theme={theme}>
+      <div className="sticky top-0 bg-secondary_dark">
+        <h1 className="">PressType</h1>
+        <BlogsList />
+      </div>
+
+      <div className={`${styles.links_container} px-3`}>
         {routes.map((route, i) => (
           <Link
             key={i}
@@ -84,7 +87,7 @@ const Sidebar = () => {
           </Link>
         ))}
       </div>
-      <button onClick={toggleTheme} className={styles.toggle_btn}>
+      <button onClick={toggleTheme}>
         Toggle to {theme === "light" ? "dark" : "light"} mode
       </button>
     </div>
