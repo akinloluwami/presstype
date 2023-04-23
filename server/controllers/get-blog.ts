@@ -4,7 +4,6 @@ import BlogPost from "../schema/BlogPost";
 
 const getBlog = async (req: Request, res: Response) => {
   const { blog } = req.query;
-  console.log(req?.headers?.referer);
 
   try {
     const blogExist = await Blog.findOne({ subdomain: blog });
