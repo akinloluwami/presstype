@@ -49,6 +49,7 @@ const Sidebar = () => {
   return (
     <div className={styles.sidebar_container} data-theme={theme}>
       <h1>PressType</h1>
+      <BlogsList />
       <div className={styles.links_container}>
         {routes.map((route, i) => (
           <Link
@@ -63,7 +64,6 @@ const Sidebar = () => {
           </Link>
         ))}
       </div>
-      <BlogsList />
       <button onClick={toggleTheme} className={styles.toggle_btn}>
         Toggle to {theme === "light" ? "dark" : "light"} mode
       </button>
