@@ -13,7 +13,6 @@ const BlogsList = () => {
   useEffect(() => {
     (async () => {
       const res = await getAllBlogs(token);
-      console.log(res);
       setBlogs(res.blogs);
     })();
   }, []);
