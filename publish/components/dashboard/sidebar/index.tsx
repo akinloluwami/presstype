@@ -45,6 +45,26 @@ const Sidebar = () => {
       path: "/settings",
       icon: <RiSettingsFill className={styles.link_icon} />,
     },
+    {
+      title: "Settings",
+      path: "/settings",
+      icon: <RiSettingsFill className={styles.link_icon} />,
+    },
+    {
+      title: "Settings",
+      path: "/settings",
+      icon: <RiSettingsFill className={styles.link_icon} />,
+    },
+    {
+      title: "Settings",
+      path: "/settings",
+      icon: <RiSettingsFill className={styles.link_icon} />,
+    },
+    {
+      title: "Settings",
+      path: "/settings",
+      icon: <RiSettingsFill className={styles.link_icon} />,
+    },
   ];
   return (
     <div className={styles.sidebar_container} data-theme={theme}>
