@@ -15,7 +15,7 @@ const EditPost = () => {
   const { blogId } = useBlogStore();
 
   useEffect(() => {
-    if (!router?.query?.id) {
+    if (!router.query.id) {
       return;
     }
     (async () => {
