@@ -5,6 +5,7 @@ import axios from "axios";
 const useGetAllPosts = () => {
   const { token } = useTokenStore();
   const { blogId } = useBlogStore();
+
   const getAllPosts = async () => {
     try {
       const response = await axios.get(
