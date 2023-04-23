@@ -17,7 +17,6 @@ const PostCard = ({ title }: { title: string }) => {
         </span>
       </h1>
       <div className={styles.side}>
-        <p className="">539 views</p>
         <button data-theme={theme}>
           <CgOptions />
         </button>
