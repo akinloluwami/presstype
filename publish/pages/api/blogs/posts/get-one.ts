@@ -53,12 +53,12 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
   const id = req.query.id;
 
-  const blogPosts = await BlogPost.findById(id);
+  const blogPost = await BlogPost.findById(id);
 
-  if (!blogPosts)
+  if (!blogPost)
     return res.status(404).json({ message: "Blog post not found" });
 
-  res.status(200).json({ blogPosts });
+  res.status(200).send(blogPost);
 };
 
 export default allowMethods(["GET"])(handler);
