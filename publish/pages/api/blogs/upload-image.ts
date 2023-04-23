@@ -34,8 +34,13 @@ const handler = async (req: Request, res: Response) => {
         }
 
         const fileStream = fs.createReadStream(file.path);
+        const folderName = req.body.folderName || "images_any";
         const key: string =
-          v4() + "-" + file.originalname.toLowerCase().replaceAll(" ", "-");
+          folderName +
+          "/" +
+          v4() +
+          "-" +
+          file.originalname.toLowerCase().replaceAll(" ", "-");
         const uploadParams = {
           Bucket: process.env.AWS_BUCKET_NAME,
           Key: key,
@@ -47,7 +52,7 @@ const handler = async (req: Request, res: Response) => {
 
         try {
           await s3.send(command);
-          const url = `https://presstype.s3.amazonaws.com/${key}`;
+          const url = `https://${process.env.AWS_BUCKET_NAME}.s3.amazonaws.com/${key}`;
           res.status(200).json({ message: "File uploaded successfully", url });
           resolve();
         } catch (err) {
@@ -76,4 +81,4 @@ apiRoute.use((req: any, res: any, next: () => void) => {
 
 apiRoute.post(handler);
 
-export default allowMethods(["POST"])(apiRoute); 
+export default allowMethods(["POST"])(apiRoute);
