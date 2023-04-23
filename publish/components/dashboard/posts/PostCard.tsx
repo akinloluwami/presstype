@@ -3,6 +3,7 @@ import styles from "./styles.module.scss";
 import { CgOptions } from "react-icons/cg";
 import { useTheme } from "@/contexts/ThemeContext";
 import { HiOutlineExternalLink } from "react-icons/hi";
+import Link from "next/link";
 
 const PostCard = ({ title }: { title: string }) => {
   const { theme } = useTheme();
@@ -16,11 +17,11 @@ const PostCard = ({ title }: { title: string }) => {
           </a>
         </span>
       </h1>
-      <div>
+      <Link href={""}>
         <button className="flex items-center">
           <CgOptions /> Edit
         </button>
-      </div>
+      </Link>
     </div>
   );
 };
