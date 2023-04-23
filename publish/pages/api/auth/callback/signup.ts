@@ -3,6 +3,7 @@ import { connectToDatabase } from "@/utils/db";
 import AuthToken from "@/schema/AuthToken";
 import Blog from "@/schema/Blog";
 import decodeToken from "@/utils/decode_token";
+import Author from "@/schema/Author";
 
 interface DecodedToken {
   email: string;
@@ -27,7 +28,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     res.status(400).send("Token expired");
     return;
   }
-  const blog = await Blog.findOne({ email });
+  const blog = await Author.findOne({ email });
 
   if (blog) {
     blog.isEmailVerified = true;
