@@ -12,7 +12,6 @@ const authorSchema = new Schema({
   bio: {
     type: String,
   },
-
   blogs: {
     type: [],
     ref: "Blog",
