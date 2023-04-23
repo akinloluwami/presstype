@@ -12,15 +12,19 @@ const blogPostSchema = new Schema({
   cover_image: {
     type: String,
   },
-  createdAt: {
+  created_at: {
     type: Date,
     default: Date.now,
   },
-  updatedAt: {
+  updated_at: {
     type: Date,
     default: Date.now,
   },
   blog_id: {
+    type: String,
+    required: true,
+  },
+  author_id: {
     type: String,
     required: true,
   },
