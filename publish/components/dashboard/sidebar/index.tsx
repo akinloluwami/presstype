@@ -9,6 +9,7 @@ import { FaGlobe } from "react-icons/fa";
 import { RiSettingsFill, RiPencilFill } from "react-icons/ri";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import BlogsList from "../BlogsList";
 
 const Sidebar = () => {
   const { theme, toggleTheme } = useTheme();
@@ -62,6 +63,7 @@ const Sidebar = () => {
           </Link>
         ))}
       </div>
+      <BlogsList />
       <button onClick={toggleTheme} className={styles.toggle_btn}>
         Toggle to {theme === "light" ? "dark" : "light"} mode
       </button>
