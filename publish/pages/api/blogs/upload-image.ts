@@ -34,7 +34,7 @@ const handler = async (req: Request, res: Response) => {
         }
 
         const fileStream = fs.createReadStream(file.path);
-        const folderName = req.body.folderName || "images_any";
+        const folderName = req.query.folder || "images_any";
         const key: string =
           folderName +
           "/" +
