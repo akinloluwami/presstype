@@ -28,7 +28,6 @@ const ClassicMenu = ({ editor }: any) => {
     {
       name: "Heading 1",
       action: () => {
-        removeFocusFromListbox();
         editor.chain().focus().toggleHeading({ level: 1 }).run();
       },
       icon: "H1",
@@ -45,11 +44,7 @@ const ClassicMenu = ({ editor }: any) => {
     },
   ];
   const listboxButtonRef = useRef(null);
-  const removeFocusFromListbox = () => {
-    if (listboxButtonRef.current) {
-      listboxButtonRef.current.blur();
-    }
-  };
+
   const [uploading, setUploading] = useState(false);
   const [url, setUrl] = useState("");
   const [selectedTool, setSelectedTool] = useState(textTools[0]);
