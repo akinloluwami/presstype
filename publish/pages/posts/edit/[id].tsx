@@ -1,9 +1,37 @@
 import Editor from "@/components/dashboard/editor/Editor";
 import NewPostHeader from "@/components/dashboard/posts/NewPostHeader/NewPostHeader";
 import DashboardLayout from "@/layouts/dashboard_layout";
-import React from "react";
+import { useBlogStore } from "@/stores/blogStore";
+import { useTokenStore } from "@/stores/tokenStore";
+import axios from "axios";
+import { useRouter } from "next/router";
+import { useState, useEffect } from "react";
 
 const EditPost = () => {
+  const router = useRouter();
+
+  const [post, setPost] = useState({});
+  const { token } = useTokenStore();
+  const { blogId } = useBlogStore();
+
+  useEffect(() => {
+    if (!router?.query?.id) {
+      return;
+    }
+    (async () => {
+      const res = await axios.get(
+        `/api/blogs/posts/get-one?id=${router?.query?.id}&blogId=${blogId}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      console.log(res);
+      // setPost(res.data);
+    })();
+  }, [router.query.id, blogId, token]);
+
   return (
     <>
       <DashboardLayout>
