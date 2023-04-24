@@ -11,7 +11,7 @@ interface NewPostStore {
 
 export const useNewPostStore = create<NewPostStore>((set) => ({
   title: "",
-  content: "<p>So it begins...</p>",
+  content: "",
   cover_image: "",
   setTitle: (title: string) => set(() => ({ title })),
   setContent: (content: string) => set(() => ({ content })),
