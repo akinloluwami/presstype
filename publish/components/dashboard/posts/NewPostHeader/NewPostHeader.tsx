@@ -27,9 +27,13 @@ const NewPostHeader = () => {
   };
 
   return (
-    <div className={styles.new_post_header}>
+    <div className="flex justify-end">
       <Toaster />
-      <button onClick={handleNewPost} disabled={isLoading}>
+      <button
+        onClick={handleNewPost}
+        disabled={isLoading}
+        className="outline-0 border-0 bg-base_accent text-white px-4 py-2 rounded-md"
+      >
         Publish
       </button>
     </div>
