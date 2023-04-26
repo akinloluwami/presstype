@@ -36,9 +36,9 @@ const sendMail = async (to: string, subject: string, body: string) => {
         },
       }
     );
-    console.log(res);
+    log(res);
   } catch (e) {
-    console.log(e);
+    log(e);
   }
 };
 
