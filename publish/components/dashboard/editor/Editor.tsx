@@ -14,7 +14,7 @@ import Highlight from "@tiptap/extension-highlight";
 import { useNewPostStore } from "@/stores/newPostStore";
 import ClassicMenu from "./ClassicMenu";
 
-const Editor = ({ editorContent }: { editorContent: string }) => {
+const Editor = () => {
   const { content, setContent } = useNewPostStore();
   const editor = useEditor({
     extensions: [
@@ -26,7 +26,7 @@ const Editor = ({ editorContent }: { editorContent: string }) => {
       Code,
       Highlight,
     ],
-    content: editorContent,
+    content,
     autofocus: true,
     editable: true,
     onUpdate: ({ editor }) => {
@@ -48,7 +48,7 @@ const Editor = ({ editorContent }: { editorContent: string }) => {
         </BubbleMenu>
       )}
       <ClassicMenu editor={editor} />
-      <EditorContent editor={editor} className={styles.editor_content} />
+      <EditorContent editor={editor} className="editor-content" />
     </>
   );
 };
