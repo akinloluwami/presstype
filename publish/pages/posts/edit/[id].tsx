@@ -70,11 +70,18 @@ const EditPost = () => {
   const updatePostF = async () => {
     console.log(post.content);
 
-    if (!post.title || !post.content) {
-      toast.error("Please fill out all fields");
+    if (!post.title) {
+      toast.error("Title cannot be empty");
       return;
     }
+
+    if (post.content.length > 10) {
+      toast.error("Content cannot be empty");
+      return;
+    }
+
     setUpdating(true);
+
     try {
       await updatePost({
         post_id: router.query.id as string,
