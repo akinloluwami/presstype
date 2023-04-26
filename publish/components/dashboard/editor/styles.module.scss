@@ -115,43 +115,6 @@
   }
 }
 
-.editor_content {
-  margin-top: 30px;
-
-  * {
-    outline: none;
-    margin: 10px 0;
-    h1,
-    h2,
-    h3 {
-      font-weight: 500;
-    }
-  }
-  p {
-    font-size: 1.2rem;
-  }
-  code {
-    background-color: rgba(#616161, 0.1);
-    border-radius: 0.25em;
-    box-decoration-break: clone;
-    color: #616161;
-    font-size: 0.9rem;
-    padding: 0.25em;
-  }
-  img {
-    max-width: 100%;
-  }
-  mark {
-    background-color: yellow;
-    border-radius: 0.25em;
-    box-decoration-break: clone;
-    // padding: 0.125em 0;
-  }
-  a {
-    color: $accent-base;
-  }
-}
-
 .ProseMirror p.is-empty::before {
   color: #adb5bd;
   content: attr(data-placeholder);
