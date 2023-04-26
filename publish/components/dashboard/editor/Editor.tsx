@@ -14,7 +14,7 @@ import Highlight from "@tiptap/extension-highlight";
 import { useNewPostStore } from "@/stores/newPostStore";
 import ClassicMenu from "./ClassicMenu";
 
-const Editor = ({ editorContent }: any) => {
+const Editor = ({ editorContent }: { editorContent: string }) => {
   const { content, setContent } = useNewPostStore();
   const editor = useEditor({
     extensions: [
