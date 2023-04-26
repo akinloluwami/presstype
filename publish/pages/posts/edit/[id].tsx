@@ -2,7 +2,6 @@ import Editor from "@/components/dashboard/editor/Editor";
 import NewPostHeader from "@/components/dashboard/posts/NewPostHeader/NewPostHeader";
 import DashboardLayout from "@/layouts/dashboard_layout";
 import { useBlogStore } from "@/stores/blogStore";
-import { useNewPostStore } from "@/stores/newPostStore";
 import { useTokenStore } from "@/stores/tokenStore";
 import axios from "axios";
 import { useRouter } from "next/router";
@@ -17,7 +16,6 @@ const EditPost = () => {
   });
   const { token } = useTokenStore();
   const { blogId } = useBlogStore();
-  // const { setContent, title, setTitle } = useNewPostStore();
 
   useEffect(() => {
     if (!router.query.id) {
@@ -33,8 +31,7 @@ const EditPost = () => {
         }
       );
       console.log(res);
-      // setTitle(res.data.title);
-      // setContent(res?.data?.content);
+
       setPost(res.data);
     })();
   }, [router.query.id, blogId, token]);
@@ -47,7 +44,6 @@ const EditPost = () => {
           type="text"
           className={`w-full text-4xl bg-transparent mb-5 outline-none mt-2`}
           placeholder="Article title"
-          // onChange={(e) => setTitle(e.target.value)}
           defaultValue={post.title}
         />
         <div className="">
