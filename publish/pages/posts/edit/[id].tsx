@@ -27,7 +27,6 @@ const EditPost = () => {
   });
   const { token } = useTokenStore();
   const { blogId } = useBlogStore();
-  // const { content, setContent } = useNewPostStore();
 
   const editor = useEditor({
     extensions: [
@@ -39,7 +38,7 @@ const EditPost = () => {
       Code,
       Highlight,
     ],
-    content: post.content,
+    content: post?.content,
     autofocus: true,
     editable: true,
     onUpdate: ({ editor }) => {
@@ -61,23 +60,29 @@ const EditPost = () => {
         }
       );
       setPost(res.data);
-      console.log(res);
     })();
-    // console.log(content);
   }, [router.query.id, blogId, token]);
+
+  useEffect(() => {
+    editor?.commands.setContent(post?.content || "");
+  }, [editor, post?.content]);
 
   return (
     <>
       <DashboardLayout>
-        <NewPostHeader />
+        <button onClick={() => console.log(post.content)}>Update Post</button>
         <input
           type="text"
           className={`w-full text-4xl bg-transparent mb-5 outline-none mt-2`}
           placeholder="Article title"
-          defaultValue={post.title}
+          value={post?.title}
+          onChange={(e) => setPost({ ...post, title: e.target.value })}
         />
         <ClassicMenu editor={editor} />
-        <EditorContent editor={editor} className="editor-content" />
+
+        {post.content && (
+          <EditorContent editor={editor} className="editor-content" />
+        )}
 
         <div className="">
           {editor && (
