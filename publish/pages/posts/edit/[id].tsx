@@ -16,7 +16,7 @@ import { BubbleMenu, EditorContent, useEditor } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import axios from "axios";
 import { useRouter } from "next/router";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const EditPost = () => {
   const router = useRouter();
@@ -38,7 +38,7 @@ const EditPost = () => {
       Code,
       Highlight,
     ],
-    content: post?.content,
+    content: post.content,
     autofocus: true,
     editable: true,
     onUpdate: ({ editor }) => {
@@ -63,14 +63,16 @@ const EditPost = () => {
     })();
   }, [router.query.id, blogId, token]);
 
-  useEffect(() => {
-    editor?.commands.setContent(post?.content || "");
-  }, [editor, post?.content]);
+  const [loading, setLoading] = useState(false);
+
+  const editPost = async () => {};
 
   return (
     <>
       <DashboardLayout>
-        <button onClick={() => console.log(post.content)}>Update Post</button>
+        <button onClick={() => console.log(post.title, post.content)}>
+          Update Post
+        </button>
         <input
           type="text"
           className={`w-full text-4xl bg-transparent mb-5 outline-none mt-2`}
@@ -81,7 +83,11 @@ const EditPost = () => {
         <ClassicMenu editor={editor} />
 
         {post.content && (
-          <EditorContent editor={editor} className="editor-content" />
+          <EditorContent
+            editor={editor}
+            // ref={editorContentRef}
+            className="editor-content"
+          />
         )}
 
         <div className="">
