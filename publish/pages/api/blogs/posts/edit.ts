@@ -47,8 +47,8 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     return;
   }
 
-  if (!content) {
-    res.status(400).json({ message: "Content is required" });
+  if (content.length < 10) {
+    res.status(400).json({ message: "Content must be at least 2 characters" });
     return;
   }
 
