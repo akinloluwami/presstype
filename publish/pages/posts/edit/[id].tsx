@@ -11,10 +11,13 @@ import { useState, useEffect } from "react";
 const EditPost = () => {
   const router = useRouter();
 
-  const [post, setPost] = useState({});
+  const [post, setPost] = useState<{ content: string; title: string }>({
+    title: "",
+    content: "",
+  });
   const { token } = useTokenStore();
   const { blogId } = useBlogStore();
-  const { setContent, title, setTitle } = useNewPostStore();
+  // const { setContent, title, setTitle } = useNewPostStore();
 
   useEffect(() => {
     if (!router.query.id) {
@@ -30,8 +33,8 @@ const EditPost = () => {
         }
       );
       console.log(res);
-      setTitle(res.data.title);
-      setContent(res?.data?.content);
+      // setTitle(res.data.title);
+      // setContent(res?.data?.content);
       setPost(res.data);
     })();
   }, [router.query.id, blogId, token]);
@@ -44,11 +47,11 @@ const EditPost = () => {
           type="text"
           className={`w-full text-4xl bg-transparent mb-5 outline-none mt-2`}
           placeholder="Article title"
-          onChange={(e) => setTitle(e.target.value)}
-          defaultValue={title}
+          // onChange={(e) => setTitle(e.target.value)}
+          defaultValue={post.title}
         />
         <div className="">
-          <Editor />
+          <Editor editorContent={post?.content || post.content} />
         </div>
       </DashboardLayout>
     </>
