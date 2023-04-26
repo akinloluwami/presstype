@@ -1,3 +1,4 @@
+import updatePost from "@/actions/blogs/posts/update_post";
 import ClassicMenu from "@/components/dashboard/editor/ClassicMenu";
 import Editor from "@/components/dashboard/editor/Editor";
 import ImageSelectMenu from "@/components/dashboard/editor/ImageSelectMenu";
@@ -17,6 +18,7 @@ import StarterKit from "@tiptap/starter-kit";
 import axios from "axios";
 import { useRouter } from "next/router";
 import { useState, useEffect, useRef } from "react";
+import { toast, Toaster } from "react-hot-toast";
 
 const EditPost = () => {
   const router = useRouter();
@@ -63,14 +65,47 @@ const EditPost = () => {
     })();
   }, [router.query.id, blogId, token]);
 
-  const [loading, setLoading] = useState(false);
+  const [updating, setUpdating] = useState(false);
 
-  const editPost = async () => {};
+  const updatePostF = async () => {
+    console.log(post.content);
+
+    if (!post.title || !post.content) {
+      toast.error("Please fill out all fields");
+      return;
+    }
+    setUpdating(true);
+    try {
+      await updatePost({
+        post_id: router.query.id,
+        title: post.title,
+        content: post.content,
+        token,
+      });
+      setUpdating(false);
+      toast.success("Post updated successfully");
+    } catch (e: any) {
+      console.log(e.res);
+
+      setUpdating(false);
+      toast.error(e.response.data.message || "Something went wrong");
+    }
+
+    // console.log(res);
+
+    setUpdating(false);
+
+    // if (res.status === 200) {
+    //   // router.push(`/posts`);
+    // } else {
+    // }
+  };
 
   return (
     <>
+      <Toaster />
       <DashboardLayout>
-        <button onClick={() => console.log(post.title, post.content)}>
+        <button onClick={updatePostF} disabled={updating}>
           Update Post
         </button>
         <input
