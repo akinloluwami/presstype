@@ -49,6 +49,14 @@ body {
   }
 }
 
+.auth-btn {
+  @apply py-3 flex items-center justify-center bg-secondary_dark rounded-md px-12 border-base_accent border my-2;
+  width: 360px;
+  svg {
+    margin-right: 10px;
+  }
+}
+
 // button {
 //   cursor: pointer;
 //   &:disabled {
