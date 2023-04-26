@@ -15,18 +15,20 @@ const Home = () => {
   };
   return (
     <AuthLayout auth_type={"Sign in"}>
-      <AuthButton action={magicLink} bg_color="#D1D5DA">
-        <GiFairyWand /> Magic Link
-      </AuthButton>
-      <AuthButton action={log} bg_color="#D1D5DA">
-        <SiGoogle /> Google
-      </AuthButton>
-      <AuthButton action={log} bg_color="#D1D5DA">
-        <SiApple /> Apple
-      </AuthButton>
-      <AuthButton action={log} bg_color="#D1D5DA">
-        <SiGithub /> GitHub
-      </AuthButton>
+      <div className="flex flex-col">
+        <AuthButton action={magicLink} bg_color="#D1D5DA">
+          <GiFairyWand /> Magic Link
+        </AuthButton>
+        <AuthButton action={log} bg_color="#D1D5DA">
+          <SiGoogle /> Google
+        </AuthButton>
+        <AuthButton action={log} bg_color="#D1D5DA">
+          <SiApple /> Apple
+        </AuthButton>
+        <AuthButton action={log} bg_color="#D1D5DA">
+          <SiGithub /> GitHub
+        </AuthButton>
+      </div>
     </AuthLayout>
   );
 };
