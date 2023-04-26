@@ -85,20 +85,11 @@ const EditPost = () => {
       setUpdating(false);
       toast.success("Post updated successfully");
     } catch (e: any) {
-      console.log(e.res);
-
       setUpdating(false);
       toast.error(e.response.data.message || "Something went wrong");
     }
 
-    // console.log(res);
-
     setUpdating(false);
-
-    // if (res.status === 200) {
-    //   // router.push(`/posts`);
-    // } else {
-    // }
   };
 
   return (
