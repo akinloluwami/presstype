@@ -77,7 +77,7 @@ const EditPost = () => {
     setUpdating(true);
     try {
       await updatePost({
-        post_id: router.query.id,
+        post_id: router.query.id as string,
         title: post.title,
         content: post.content,
         token,
