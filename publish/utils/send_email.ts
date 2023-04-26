@@ -3,7 +3,7 @@
 import axios from "axios";
 import { log } from "console";
 
-const sendMail = async (to: string, subject: string, html: string) => {
+const sendMail = async (to: string, subject: string, body: string) => {
   // return new Promise((resolve, reject) => {
   //   const mailOptions = {
   //     from: `"Akinkunmi from PressType" <${process.env.SMTP_USER}>`,
@@ -28,7 +28,7 @@ const sendMail = async (to: string, subject: string, html: string) => {
       {
         to,
         subject,
-        html,
+        body,
       },
       {
         headers: {
