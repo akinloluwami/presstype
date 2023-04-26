@@ -4,7 +4,7 @@ interface Post {
   title: string;
   content: string;
   cover_image?: string;
-  post_id?: string;
+  post_id: string;
   token: string;
 }
 
