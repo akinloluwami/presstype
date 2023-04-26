@@ -9,13 +9,7 @@ interface AuthButtonProps {
 
 const AuthButton = ({ action, bg_color, children }: AuthButtonProps) => {
   return (
-    <button
-      onClick={action}
-      className={styles.auth_button}
-      style={{
-        backgroundColor: bg_color,
-      }}
-    >
+    <button onClick={action} className="auth-btn">
       {children}
     </button>
   );
