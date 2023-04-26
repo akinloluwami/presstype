@@ -12,11 +12,9 @@ import ImageSelectMenu from "./ImageSelectMenu";
 import Code from "@tiptap/extension-code";
 import Highlight from "@tiptap/extension-highlight";
 import { useNewPostStore } from "@/stores/newPostStore";
-import commands from "@/custom/commands";
 import ClassicMenu from "./ClassicMenu";
-// import Suggestion from "@tiptap/suggestion";
 
-const Editor = () => {
+const Editor = ({ editorContent }: any) => {
   const { content, setContent } = useNewPostStore();
   const editor = useEditor({
     extensions: [
@@ -25,20 +23,16 @@ const Editor = () => {
         openOnClick: false,
       }),
       Image,
-      Placeholder.configure({
-        placeholder: `Type "/" for commands.`,
-        emptyEditorClass: "is-editor-empty",
-        emptyNodeClass: "is-empty",
-      }),
       Code,
       Highlight,
     ],
-    content: content,
+    content: editorContent,
+    autofocus: true,
+    editable: true,
     onUpdate: ({ editor }) => {
       setContent(editor.getHTML());
     },
   });
-  const [showEditorMenu, setShowEditorMenu] = useState(false);
 
   return (
     <>
@@ -55,7 +49,6 @@ const Editor = () => {
       )}
       <ClassicMenu editor={editor} />
       <EditorContent editor={editor} className={styles.editor_content} />
-      {/* <EditorMenu editor={editor} /> */}
     </>
   );
 };
