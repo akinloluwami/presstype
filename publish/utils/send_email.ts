@@ -24,7 +24,7 @@ const sendMail = async ({ to, subject, body }: MailOptions) => {
         },
       }
     );
-    log(res);
+    log(`Email sent to ${to} successfully`);
   } catch (e) {
     log(e);
   }
