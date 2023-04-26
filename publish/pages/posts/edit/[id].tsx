@@ -47,7 +47,7 @@ const EditPost = () => {
           defaultValue={post.title}
         />
         <div className="">
-          <Editor editorContent={post?.content || post.content} />
+          <Editor editorContent={post.content} />
         </div>
       </DashboardLayout>
     </>
