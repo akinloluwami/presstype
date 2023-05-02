@@ -19,7 +19,12 @@ const handler = (req: NextApiRequest, res: NextApiResponse) => {
   }
 
   try {
-  } catch (error) {}
+  } catch (error) {
+    res.status(500).json({
+      message: "Something went wrong",
+    });
+    return;
+  }
 };
 
 export default allowMethods(["PUT"])(handler);
