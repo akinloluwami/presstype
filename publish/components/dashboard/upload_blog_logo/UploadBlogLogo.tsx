@@ -41,7 +41,7 @@ const UploadBlogLogo: React.FC = () => {
       "/api/blogs/upload-image?folder=blog_logos",
       formData
     );
-    // console.log(res);
+    console.log(res);
     const fileUrl = res?.data?.url;
 
     if (fileUrl) {
@@ -57,6 +57,7 @@ const UploadBlogLogo: React.FC = () => {
           },
         }
       );
+      console.log(res);
     }
 
     toast.dismiss();
