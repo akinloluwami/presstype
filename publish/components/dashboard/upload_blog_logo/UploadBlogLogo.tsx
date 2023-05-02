@@ -13,13 +13,15 @@ const UploadBlogLogo: React.FC = () => {
   return (
     <>
       <h3>Blog logo</h3>
-      <input type={"file"} className={styles.hidden} ref={fileInputRef} />
+      <input type={"file"} className={"hidden"} ref={fileInputRef} />
       <button
-        className={styles.upload_btn}
+        className={
+          "bg-transparent border-[1px] rounded-md flex flex-col items-center justify-center w-24 h-24 border-dashed border-base_accent mt-2"
+        }
         data-theme={useTheme().theme}
         onClick={handleButtonClick}
       >
-        <h2>
+        <h2 className="text-4xl">
           <BiCloudUpload />
         </h2>
         <p>Upload</p>
