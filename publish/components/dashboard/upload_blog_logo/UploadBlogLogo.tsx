@@ -1,7 +1,6 @@
 import { useTheme } from "@/contexts/ThemeContext";
 import React, { useRef } from "react";
 import { BiCloudUpload } from "react-icons/bi";
-import styles from "./styles.module.scss";
 
 const UploadBlogLogo: React.FC = () => {
   const fileInputRef = useRef<HTMLInputElement>(null);
