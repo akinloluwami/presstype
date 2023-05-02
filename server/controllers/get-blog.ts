@@ -15,9 +15,9 @@ const getBlog = async (req: Request, res: Response) => {
       return;
     }
 
-    const { title, about } = blogExist;
+    const { title, about, blog_logo } = blogExist;
 
-    const blogInfo = { title, about };
+    const blogInfo = { title, about, blog_logo };
 
     const blogPosts = await BlogPost.find(
       { blog_id: blogExist._id },
