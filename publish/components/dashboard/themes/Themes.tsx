@@ -5,13 +5,13 @@ const Themes = () => {
   const [selected, setSelected] = useState(0);
   const themes = [0, 1, 2];
   return (
-    <div className={styles.themes_container}>
+    <div className={"my-8"}>
       <h3>Theme</h3>
-      <div className={styles.theme_cards}>
+      <div className={"flex items-center justify-between mt-3"}>
         {themes.map((theme, i) => (
           <div
-            className={`${styles.theme_card} ${
-              selected === theme && styles.active
+            className={`w-80 h-80 cursor-pointer hover:border-base_accent mr-3 bg-[rgb(87,58,216,0.2)] border-[1px] rounded-md ${
+              selected === theme ? "border-base_accent" : "border-transparent"
             }`}
             key={i}
             onClick={() => setSelected(theme)}
