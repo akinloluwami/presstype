@@ -1,15 +1,21 @@
 import { useTheme } from "@/contexts/ThemeContext";
+import { useBlogStore } from "@/stores/blogStore";
+import { useTokenStore } from "@/stores/tokenStore";
+import axios from "axios";
 import React, { useRef, ChangeEvent } from "react";
+import { Toaster, toast } from "react-hot-toast";
 import { BiCloudUpload } from "react-icons/bi";
 
 const UploadBlogLogo: React.FC = () => {
+  const { blogId } = useBlogStore();
+  const { token } = useTokenStore();
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleButtonClick = () => {
     fileInputRef.current?.click();
   };
 
-  const handleUpload = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleUpload = async (e: ChangeEvent<HTMLInputElement>) => {
     const file = e?.target?.files?.[0];
 
     const fileSize = file?.size
@@ -17,20 +23,49 @@ const UploadBlogLogo: React.FC = () => {
       : undefined;
 
     if (fileSize && Number(fileSize) > 10) {
-      console.log("File size cannot be more than 10 MB");
+      toast.error("File size cannot be more than 10 MB");
       return;
     }
 
     const fileType = file?.type;
 
     if (fileType && !fileType.includes("image")) {
-      console.log("File type must be an image");
+      toast.error("File must be an image");
       return;
     }
+
+    toast.loading("Uploading...");
+    const formData = new FormData();
+    formData.append("file", file as Blob);
+    const res = await axios.post(
+      "/api/blogs/upload-image?folder=blog_logos",
+      formData
+    );
+    // console.log(res);
+    const fileUrl = res?.data?.url;
+
+    if (fileUrl) {
+      const res = await axios.put(
+        "/api/blogs/update-logo",
+        {
+          fileUrl,
+          blogId,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+    }
+
+    toast.dismiss();
+    toast.success("Upload successful");
   };
 
   return (
     <>
+      <Toaster />
       <h3>Blog logo</h3>
       <input
         type={"file"}
