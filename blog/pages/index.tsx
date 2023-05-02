@@ -21,6 +21,11 @@ const Index = ({ blog }: Props) => {
     <>
       <Head>
         <title>{blog.blogInfo.title}</title>
+        <link
+          rel="shortcut icon"
+          href={blog.blogInfo.blog_logo}
+          type="image/x-icon"
+        />
       </Head>
       <TheirDaddy blogInfo={blog.blogInfo} blogPosts={blog.blogPosts} />
     </>
