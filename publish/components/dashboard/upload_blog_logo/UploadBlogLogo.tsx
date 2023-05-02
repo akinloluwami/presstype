@@ -11,7 +11,22 @@ const UploadBlogLogo: React.FC = () => {
 
   const handleUpload = (e: ChangeEvent<HTMLInputElement>) => {
     const file = e?.target?.files?.[0];
-    console.log(file);
+
+    const fileSize = file?.size
+      ? (file.size / (1024 * 1024)).toFixed(2)
+      : undefined;
+
+    if (fileSize && Number(fileSize) > 10) {
+      console.log("File size cannot be more than 10 MB");
+      return;
+    }
+
+    const fileType = file?.type;
+
+    if (fileType && !fileType.includes("image")) {
+      console.log("File type must be an image");
+      return;
+    }
   };
 
   return (
