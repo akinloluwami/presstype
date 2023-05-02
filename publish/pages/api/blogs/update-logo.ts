@@ -68,7 +68,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     }
 
     await Blog.findByIdAndUpdate(blogId, {
-      logo: fileUrl,
+      blog_logo: fileUrl,
     });
     res.status(200).json({
       message: "Logo updated successfully",
