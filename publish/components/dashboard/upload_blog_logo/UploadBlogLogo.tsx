@@ -18,6 +18,10 @@ const UploadBlogLogo: React.FC = () => {
   const handleUpload = async (e: ChangeEvent<HTMLInputElement>) => {
     const file = e?.target?.files?.[0];
 
+    if (!file) {
+      return;
+    }
+
     const fileSize = file?.size
       ? (file.size / (1024 * 1024)).toFixed(2)
       : undefined;
