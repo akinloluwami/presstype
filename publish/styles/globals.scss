@@ -113,3 +113,15 @@ body {
 // h3 {
 //   font-weight: 600;
 // }
+
+.settings-input {
+  @apply w-full pl-2 text-lg bg-base_dark mt-3 py-2 rounded-md;
+}
+
+.settings-textarea {
+  @apply w-full pl-2 text-lg bg-base_dark mt-5 py-2 rounded-md h-40;
+}
+
+.settings-btn {
+  @apply bg-base_accent text-lg px-5 rounded-md py-[5px];
+}
