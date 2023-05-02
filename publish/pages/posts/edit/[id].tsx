@@ -61,6 +61,7 @@ const EditPost = () => {
           },
         }
       );
+      console.log(res.data.content);
       setPost(res.data);
     })();
   }, [router.query.id, blogId, token]);
