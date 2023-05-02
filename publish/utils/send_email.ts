@@ -17,6 +17,7 @@ const sendMail = async ({ to, subject, body }: MailOptions) => {
         to,
         subject,
         body,
+        name: "Akinkunmi from PressType",
       },
       {
         headers: {
