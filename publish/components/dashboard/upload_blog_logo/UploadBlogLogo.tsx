@@ -1,5 +1,5 @@
 import { useTheme } from "@/contexts/ThemeContext";
-import React, { useRef } from "react";
+import React, { useRef, ChangeEvent } from "react";
 import { BiCloudUpload } from "react-icons/bi";
 
 const UploadBlogLogo: React.FC = () => {
@@ -9,8 +9,8 @@ const UploadBlogLogo: React.FC = () => {
     fileInputRef.current?.click();
   };
 
-  const handleUpload = (e: any) => {
-    const file = e.target.files[0];
+  const handleUpload = (e: ChangeEvent<HTMLInputElement>) => {
+    const file = e?.target?.files?.[0];
     console.log(file);
   };
 
