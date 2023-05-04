@@ -14,7 +14,7 @@ const TheirDaddy = ({
   return (
     <div className="bg-black text-white min-h-screen py-3">
       <div className="w-[95%] max-w-[1100px] mx-auto">
-        <Header title={blogInfo.title} about={blogInfo.about} />
+        <Header title={blogInfo.title} about={blogInfo.description} />
         {blogPosts.map((post) => (
           <PostCard title={post.title} slug={post.slug} key={post.slug} />
         ))}
