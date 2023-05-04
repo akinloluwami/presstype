@@ -3,6 +3,10 @@ import Blog from "../schema/Blog";
 
 const getFavicon = async (req: Request, res: Response) => {
   const { blog } = req.query;
+
+  //   console.log(blog);
+
+  //   res.send(blog);
   try {
     const blogExist = await Blog.findOne({ subdomain: blog });
 
